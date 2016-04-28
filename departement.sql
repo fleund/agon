@@ -1,9 +1,4 @@
-echo "# agon" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/fleund/agon.git
-git push -u origin master
+
 INSERT INTO departement
     VALUES
     ('Ain',01),
