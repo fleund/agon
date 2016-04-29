@@ -28,7 +28,7 @@
             <button type="button" onclick="alert('Se connecter');"> 
                 Se connecter 
             </button>
-            &nbsp; &nbsp;
+            &nbsp;&nbsp;
             <a href="">Mot de passe oublié ? </a>
         </div>
     </header>
@@ -44,13 +44,13 @@
         <p class = "titre">Édition de la page d'accueil</p>
 
         <?php // Mise à jour de la base de données, suite au remplissage des champs
-            if (isset($_POST['sport1'])) {
+            if (isset($_GET['modifications'])) {
                 try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
                 catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
                 for ($i = 1; $i <= 16; $i++) {
                     $req = $bdd->prepare('UPDATE sports_en_tete SET nom=:tmp1 WHERE ID = :i'); // Table de la liste des sports en en-tête
                     $req->execute(array(
-                        'tmp1' => $_POST['sport' . $i],
+                        'tmp1' => $_POST['en_tete' . $i],
                         'i' => $i
                     ));
                     $req = $bdd->prepare('UPDATE liste_compets SET nom=:tmp2 WHERE ID = :i'); // Table de la liste des compétitions
@@ -59,11 +59,35 @@
                         'i' => $i
                     ));
                 }
-                echo '<strong>Les modifications ont été enregistrées.</strong></br></br>';
+                $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
+                while($donnees = $reponse->fetch()) { // On teste si le sport à ajouter est déjà dans la liste
+                    if ($donnees['nom']==$_POST['ajout_sport']) {
+                        $doublon=True;
+                        echo '</br><strong class="erreur">Le sport "' . $_POST['ajout_sport'] . '" est déjà dans la liste des sports. Il n\'a donc pas été ajouté.</strong></br>';
+                    }
+                }
+                if (!isset($doublon)) {
+                    $reponse->closeCursor();
+                    $req = $bdd->prepare('INSERT INTO liste_sports(nom) VALUES(:tmp)'); // On ajoute le sport à la liste globale
+                    $req->execute(array(
+                        'tmp' => $_POST['ajout_sport']
+                    ));
+                }
+                $req = $bdd->prepare('DELETE FROM liste_sports WHERE nom=:tmp'); // On supprime un sport de la liste globale
+                $req->execute(array(
+                    'tmp' => $_POST['suppr_sport']
+                ));
+                $req = $bdd->prepare('UPDATE sports_en_tete SET nom=\'\' WHERE nom=:tmp'); // Tant qu'à faire, on supprime aussi ce sport de l'en-tête
+                $req->execute(array(
+                    'tmp' => $_POST['suppr_sport']
+                ));
+                echo '<strong>Les ';
+                if (isset($doublon)) {echo 'autres ';}
+                echo 'modifications ont été enregistrées.</strong></br></br>';
             }
         ?>
 
-        <form action="Edition page d'accueil.php" method="post">
+        <form action="Edition page d'accueil.php?modifications=oui" method="post">
             <fieldset class="bloc">
                 <legend>Modifier la liste des sports en en-tête de la page d'accueil</legend>
                 </br><em>Note : ces champs déterminent également l'ordre des sports dans l'en-tête.</em></br></br>
@@ -74,7 +98,7 @@
                     $reponse = $bdd->query('SELECT * FROM sports_en_tete ORDER BY ID');
                     for ($i = 1; $i <= 16; $i++) {
                         $donnees = $reponse->fetch();
-                        echo $i . ' :&nbsp;<input type="text" name="sport' . $donnees['ID'] . '" id="sport" maxlength ="30" value="' . $donnees['nom'] . '">&nbsp;&nbsp;';
+                        echo $i . ' :&nbsp;<input type="text" name="en_tete' . $donnees['ID'] . '" id="sport" maxlength ="30" value="' . $donnees['nom'] . '">&nbsp;&nbsp;';
                     }
                     $reponse->closeCursor();
                 ?>
@@ -98,6 +122,31 @@
 
             </fieldset></br></br>
             
+            <fieldset class="bloc">
+                <legend>Modifier la liste exhaustive des sports représentés sur ce site</legend> 
+
+
+                </br>Sélectionner un sport à supprimer de la liste :&nbsp;&nbsp;
+                <input type="text" list="choix_sport" name="suppr_sport"> 
+                <datalist id="choix_sport">
+                    <?php // Sélection d'un sport à supprimer
+                        try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
+                        catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
+                        $bdd->exec('DELETE FROM liste_sports WHERE nom=\'\''); // Y avait un bug, quand je supprimais un sport il supprimait pas la ligne mais laissait à la place un champ vide, donc je supprime le champ vide pour corriger
+                        $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
+                        while($donnees = $reponse->fetch()) {
+                            echo '<option>' . $donnees['nom'] . '</option>';
+                        }
+
+                        $reponse->closeCursor();
+                    ?>
+                </datalist>
+
+                </br></br>Ajouter un sport à la liste :
+                <input name=ajout_sport type="text" maxlength="30">
+
+            </fieldset></br></br>
+
             <div class="bouton">
                 <input type="submit" value="Enregistrer les modifications" class ="agrandir_bouton">
             </div>
