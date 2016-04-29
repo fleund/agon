@@ -1,0 +1,161 @@
+#conteneur
+{
+    background-image: url("Jogger2.jpg");
+    background-origin: border-box;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#bloc_galerie
+{
+    display: flex;
+    justify-content : space-between;
+}
+
+#galerie + p
+{
+    text-transform: uppercase;   /* Transforme le texte en majuscules */
+    color: rgb(51,162,255);
+    padding-top: 15em;
+    padding-right: 9em;
+    text-align: center;
+    font-size: 1em;
+    
+}
+
+footer
+{
+    text-align: center;
+     text-transform: uppercase;
+}
+
+body
+{
+    background-color:rgba(51,162,255,0.3);
+}
+
+
+.element:nth-child(1)
+{
+    width : 25%;
+    margin-bottom: 2em;
+}
+
+.Logo
+{
+    width : 50%;
+}
+
+.element:nth-child(2)
+{
+    width : 35%; 
+    position: relative;
+    float : right;
+    margin-top: -7em;
+    padding-top :1.5em;
+    display : flex;
+    justify-content : space-around;
+}
+
+#connexion, #inscription
+{
+    position : relative;
+    float : right;
+    border-style: solid;   /* Style de la bordure  */
+    border-width: 1px;   /* Epaisseur de la bordure  */
+    border-color: rgb(51,162,255);   /* Couleur de la bordure  */
+    padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
+    width: 30%;   /* Permet d'ajuster la largeur du bouton à 100% */
+    box-sizing: border-box;   /* Important */
+    font-size: 13px;   /* Taille de la police du texte */
+    font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
+    letter-spacing: 2px;   /* Espacement des caractères */
+    text-transform: uppercase;   /* Transforme le texte en majuscules */
+    color: rgb(51,162,255);   /* Couleur du texte */
+    margin-bottom: 2em;
+}
+
+.element:nth-child(3), .element:nth-child(5)
+{
+    border-bottom: rgb(51, 162, 255) solid 1.2px;
+}
+
+.element:nth-child(6)
+{
+    text-align: center;
+    font-size: 2em;
+    color : rgb(51,162,255);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+a
+{
+    text-decoration: none;
+    opacity : 0.7;
+    color : rgb(241,61,125);
+}
+
+.message_important
+{
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 2em;
+    
+}
+
+.amod
+{
+    margin-top: 1em;
+}
+
+#onglets_accueil
+{
+    justify-content: space-around;
+    display: flex;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.champ_recherche
+{
+    text-align: center;
+    margin-top: 7em;
+}
+
+#sport, #localisation
+{
+    width : 45%;
+    padding: 5px 0px 5px 10px;
+    margin-top: 2em;
+    border-style: solid;
+    font-size: 13px;
+    color: rgb(51,162,255);
+}
+
+#search-btn
+{
+       /* Couleur de fond */
+    border-style: solid;   /* Style de la bordure  */
+    border-width: 1px;   /* Epaisseur de la bordure  */
+    border-color: rgb(51,162,255);   /* Couleur de la bordure  */
+    padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
+    width: 90%;   /* Permet d'ajuster la largeur du bouton à 100% */
+    box-sizing: border-box;   /* Important */
+    font-size: 13px;   /* Taille de la police du texte */
+    font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
+    letter-spacing: 2px;   /* Espacement des caractères */
+    margin: 10px 0 0 0;   /* Espace autour du bouton : haut droite bas gauche  */
+    text-transform: uppercase;   /* Transforme le texte en majuscules */
+    color: rgb(51,162,255);   /* Couleur du texte */
+    margin-bottom: 2em;
+}
+
+#conteneur
+{
+    margin-bottom: 0em;
+}
+
+
+

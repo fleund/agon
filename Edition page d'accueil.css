@@ -1,0 +1,172 @@
+.liste1, .liste2, .liste3, .liste4
+{
+    position: relative;
+    float : left;
+    margin-right : 1em;
+    margin-left: 1em;
+}
+
+#sport, #compet
+{
+    margin-top:1em;
+    margin-bottom:1em;
+}
+
+.titre
+{
+    font-size: 2em;
+    font-weight: bold;
+    text-align : center;
+    min-width: 820px;
+    width : 90%;
+}
+
+.bloc
+{
+    padding-left : 2em;
+    min-width: 820px;
+    width : 90%;
+}
+
+.bouton
+{
+    position : relative;
+    float : right;
+    margin-bottom: 3em;
+    margin-right : 12em;
+    box-shadow : 3px 3px 3px 3px;
+}
+
+.agrandir_bouton
+{
+    font-size:1.5em;
+}
+
+legend
+{
+    font-size : 1.2em;
+}
+
+.Logo { 
+	width:25%;
+	position: left;
+	margin:-2px 5px;
+}
+
+#barre_bleue_gauche {
+	width:1%;
+	display:inline-block;
+	background-color:#33A2FF;
+	border-radius:10px;
+	height:50em;
+	float:left;
+	clear:none;
+}
+
+#barre_bleue_droite {
+	width:1%;
+	display:inline-block;
+	background-color:#33A2FF;
+	border-radius:10px;
+	height:50em;
+	float:right;
+	clear:none;
+}
+
+#barre_mauve_gauche {
+	width:1%;
+	display:inline-block;
+	background-color:#F13D7D;
+	border-radius:10px;
+	height:48em;
+	margin-top:1em;
+	margin-left:0.25em;
+	float:left;
+	clear:none;
+}
+
+#barre_mauve_droite{
+	width:1%;
+	display:inline-block;
+	background-color:#F13D7D;
+	border-radius:10px;
+	height:48em;
+	top:1em;
+	margin-top:1em;
+	margin-right:0.25em;
+	float:right;
+	clear:none;
+}
+
+button, input[type="submit"] {
+	cursor:pointer;
+}
+
+#identifiants{
+	display:flex;
+	justify-content:flex-end;
+	align-items:center;
+	margin-right:1em;
+	width:98%;
+	margin-left:1em;
+	margin-top:-10%;
+}
+#mot_passe{
+	float:right;
+}
+
+#identifiants button {
+	float:middle;
+
+}
+
+#identifiants a {
+	font-size:8pt;
+	clear:both;
+	display:inline-block;
+}
+
+#page{
+
+	margin-top:11%;
+}
+
+#onglets_accueil {
+	display:inline-block;
+	float:right;
+	text-align:right;
+	height:25%;
+	margin-top:1%;
+	background-color:#F13D7D;
+	width:29%;
+	min-width:30em;
+	border-radius:20px;
+}
+#onglets_accueil a {
+	border:2px solid black;
+	margin:0.1em -0.25em;
+	padding:0.25em;
+	background-color:#33A2FF;
+	border-radius:20px;
+}
+#onglets_accueil a:hover {
+	background-color:#BFFF09;
+	color:black;
+	font-weight:bold;
+	font-size:larger;
+}
+
+header {
+	background-color: white;
+	position: fixed;
+	margin-top:-11%;
+	margin-left:-0.5em;
+	height:7.5em;
+	z-index:10000;
+	width:100%;
+	box-shadow:0 0 10px 4px grey;
+}
+
+.erreur {
+	color: red;
+}

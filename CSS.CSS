@@ -1,0 +1,293 @@
+﻿/* Style général */
+
+* {
+	font-family: Calibri;
+	padding: 0;
+}
+
+html {
+	background-color: #DCDCDC;
+}
+
+a {
+	color: #33A2FF;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0px;
+}
+
+.sujets_populaires {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.taille_min {
+	position: relative;
+	width: 93%;
+	height: 19px;
+	display: inline-block;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.numero_page {
+	float: right;
+	padding: 2px;
+	background-color: #33A2FF;
+	border: 2px solid black;
+	margin: 1px;
+}
+
+.points_pagination {
+	text-align: center;
+	width: 20px;
+	float: right;
+	margin: 1px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	color: #BFFF09;
+}
+
+a[href="Sujet.html"]:visited {
+	color: #F13D7D;
+}
+
+.body {
+	background-color: #DCDCDC;
+}
+
+#page {
+	min-width: 1150px;
+}
+
+
+/* Message */
+
+.message {
+	width: 90.6%;
+	border: 2px solid black;
+	padding: 1%;
+	margin: 1%;
+	display: inline-block;
+}
+
+.en_tete {
+	width: 75%;
+	border-bottom: 2px solid black;
+	display:inline-block;
+	float: left;
+}
+
+.carte_id {
+	width: 24%;
+	border-left: 2px solid black;
+	display: inline-block;
+	float: right;
+}
+
+.carte_id>* {
+	width:100%;
+	display: inline-block;
+	float: center;
+}
+
+.contenu_message {
+	float: left;
+	display: inline-block;
+}
+
+.icone_message {
+	float: right;
+}
+
+
+/* Création d'un sujet ou message */
+
+.mise_forme {
+	width: 92.6%;
+	height: 25px;
+	border: 2px solid black;
+	margin: 1% 1% 0 1%;
+	text-align: center;
+	display: inline-block;
+}
+
+
+/* Tableaux */
+
+.categorie {
+	width: 90.6%;
+	background-color: #33A2FF;
+	border: 2px solid black;
+	padding: 0.5% 1% 1% 1%;
+	margin: 1%;
+	display: inline-block;
+}
+
+.titre_messages, .nb_messages, .titre_dernier_message, .dernier_message {
+	text-align: center;
+}
+
+.titre_categorie, .titre_forum {
+	display: inline-block;
+	width: 50%;
+}
+
+.titre_messages, .nb_messages, .titre_dernier_message, .dernier_message {
+	display: inline-block;
+	width: 24.5%;
+}
+
+.ligne_forum {
+	border: 1px solid black;
+	margin: 1px 1px;
+	background-color: white;
+}
+
+.colonne_forums {
+	border: 1px solid black;
+	margin: 1px 1px;
+	background-color: #BFFF09;
+}
+
+.ligne_forum {
+	padding: 2px;
+}
+
+
+/* Bouton */
+
+.bouton_creation {
+	float:left;
+	margin: 1px 0px;
+	background-color: #33A2FF;
+	border: 2px solid black;
+	padding: 3px;
+	color: black;
+	margin-left: 1%;
+}
+
+.bouton_creation:hover {
+	background-color: #BFFF09;
+	color: #33A2FF;
+	text-decoration: none;
+}
+
+
+/* Header */
+
+header {
+	background-color: white;
+	position: fixed;
+	margin-top: -8px;
+	margin-left: -8px;
+	padding: 5px;
+	height: 12%;
+	min-height: 70px;
+	width: 100%;
+	z-index: 10;
+	box-shadow: 0 0 10px 4px grey;
+}
+
+#identifiants {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 1em;
+	width: 98%;
+	margin-left: 1em;
+}
+
+#identifiants a {
+	font-size: 8pt;
+	clear: both;
+	display: inline-block;
+}
+
+#onglets_accueil {
+	display: inline-block;
+	float: right;
+	height: 1.6em;
+	margin-top: 0.5em;
+	background-color: #F13D7D;
+	width: 29%;
+	min-width: 30em;
+}
+
+#onglets_accueil a {
+	border: 2px solid black;
+	padding: 0.25em;
+	background-color: #33A2FF;
+}
+
+#onglets_accueil a:hover {
+	background-color: #BFFF09;
+	color: black;
+	font-weight: bold;
+	font-size: larger;
+}
+
+#mot_passe{
+	float: right;
+}
+
+.Logo {
+	width: 25%;
+	position: left;
+	margin: 5px 5px;
+}
+
+
+/* Barres colorées */
+
+#barre_bleue_gauche {
+	width:1%;
+	display:inline-block;
+	background-color:#33A2FF;
+	border-radius:10px;
+	height:800px;
+	float:left;
+}
+
+#barre_bleue_droite {
+	width:1%;
+	display:inline-block;
+	background-color:#33A2FF;
+	border-radius:10px;
+	height:800px;
+	float:right;
+}
+
+#barre_mauve_gauche {
+	width:1%;
+	display:inline-block;
+	background-color:#F13D7D;
+	border-radius:10px;
+	height:780px;
+	margin-top:10px;
+	margin-left:0.5%;
+	float:left;
+}
+
+#barre_mauve_droite{
+	width:1%;
+	display:inline-block;
+	background-color:#F13D7D;
+	border-radius:10px;
+	height:780px;
+	margin-top:10px;
+	margin-right:0.5%;
+	float:right;
+}
