@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
         <meta charset="utf-8" />
         <title>Nom de forum</title>
-        <link rel="stylesheet" href="CSS.CSS" />
+        <link rel="stylesheet" href="Forums.css" />
 	</head>
 
 	<body>
