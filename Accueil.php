@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Agon - Accueil</title>
@@ -14,7 +14,7 @@
         </div>
         <div class="element">
             <input id="connexion" type="submit" value="Connexion" />
-            <input id="inscription" type="submit" value="inscription" />
+            <input id="inscription" type="submit" value="Inscription" />
 	    </div>
         <div class="element">
             <div id="onglets_accueil">
@@ -29,7 +29,7 @@
                 SPORTIFS DE TOUS LES JOURS, VENEZ !
                 <li>FORME TON GROUPE</li>
                 <li>ENTRAÎNE-TOI</li>
-                <li>ORGANISE TES COMPETITIONS</li>
+                <li>ORGANISE TES COMPÉTITIONS</li>
             </ul>
         </div>
         <div class="sports_en_tete">
@@ -43,34 +43,9 @@
                 $reponse->closeCursor();
             ?>
         </div>
-        <div class="champ_recherche">
-            <select name="sport" id="sport">
-                <option value="Choisir un sport">Choisir un sport</option>
-                <?php // Affichage de la liste déroulante des sports
-                    try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                    catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
-                    $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
-                    while ($donnees = $reponse->fetch()) {echo '<option value="sport">' . $donnees['nom'] . '</option>';}
-                    $reponse->closeCursor();
-                ?>
-            </select>
-            <select name="localisation" id="localisation">
-                <option value="region">Choisir une région</option>
-                <option value="region">Alsace-Champagne-Ardenne-Lorraine</option>
-                <option value="region">Aquitaine-Limousin-Poitou-Charentes</option>
-                <option value="region">Auvergne-Rhônes-Alpes</option>
-                <option value="region">Bourgogne-Franche-Comté</option>
-                <option value="region">Bretagne</option>
-                <option value="region">Centre-Val de Loire</option>
-                <option value="region">Ile-de-France</option>
-                <option value="region">Languedoc-Roussillon-Midi-Pyrénées</option>
-                <option value="region">Nord-Pas-de-Calais-Picardie</option>
-                <option value="region">Normandie</option>
-                <option value="region">PACA</option>
-                <option value="region">Pays de la Loire</option> 
-            </select><br/>
-            <input id="search-btn" type="submit" value="Rechercher" />
-        </div>
+        
+        <?php include('search.php'); // Page de recherche & résultats de recherche ?> 
+
     </div>
     <div id='bloc_galerie'>
         <div id="galerie">
@@ -90,12 +65,12 @@
         ?>
     </div>
     <div class="liste_compets">
-        <?php // Affichage de la liste des compétitions
+        <?php // Affichage de la liste des compétitions, A COMPLETER
             try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
             catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
-            $reponse = $bdd->query('SELECT * FROM liste_compets ORDER BY ID');
+            $reponse = $bdd->query('SELECT * FROM liste_compets ORDER BY places_restantes');
             while ($donnees = $reponse->fetch()) {
-                echo '<a href="" >' . $donnees['nom'] . '</a>&nbsp;';
+                echo $donnees['nom'] . $donnees['sport'] . $donnees['groupe'] . $donnees['lieu'] . $donnees['date'] . $donnees['places_restantes'] . '</br>';
             }
             $reponse->closeCursor();
         ?>
