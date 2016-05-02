@@ -106,28 +106,10 @@
             </fieldset></br></br>
             
             <fieldset class="bloc">
-                <legend>Modifier la liste des compétitions sur la page d'accueil</legend>
-                </br><em>Note : ces champs déterminent également l'ordre d'affichage des compétitions.</em></br></br>
-
-                <?php // Affichage des champs pour modifier la liste des compétitions, préremplis avec la liste actuelle
-                    try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                    catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
-                    $reponse = $bdd->query('SELECT * FROM liste_compets ORDER BY ID');
-                    for ($i = 1; $i <= 16; $i++) {
-                        $donnees = $reponse->fetch();
-                        echo $i . ' :&nbsp;<input type="text" name="compet' . $donnees['ID'] . '" id="compet" maxlength ="30" value="' . $donnees['nom'] . '">&nbsp;&nbsp;';
-                    }
-                    $reponse->closeCursor();
-                ?>
-
-            </fieldset></br></br>
-            
-            <fieldset class="bloc">
                 <legend>Modifier la liste exhaustive des sports représentés sur ce site</legend> 
 
-
                 </br>Sélectionner un sport à supprimer de la liste :&nbsp;&nbsp;
-                <input type="text" list="choix_sport" name="suppr_sport"> 
+                <input type="text" list="choix_sport" name="suppr_sport" placeholder="Cliquez ici..."> 
                 <datalist id="choix_sport">
                     <?php // Sélection d'un sport à supprimer
                         try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
@@ -137,7 +119,6 @@
                         while($donnees = $reponse->fetch()) {
                             echo '<option>' . $donnees['nom'] . '</option>';
                         }
-
                         $reponse->closeCursor();
                     ?>
                 </datalist>
