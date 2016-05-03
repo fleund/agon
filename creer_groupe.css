@@ -33,11 +33,11 @@ legend
     border-width: 1px;   /* Epaisseur de la bordure  */
     border-color: rgb(51,162,255);   /* Couleur de la bordure  */
     padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
-    width: 90%;   /* Permet d'ajuster la largeur du bouton Ã  100% */
+    width: 90%;   /* Permet d'ajuster la largeur du bouton à 100% */
     box-sizing: border-box;   /* Important */
     font-size: 13px;   /* Taille de la police du texte */
     font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
-    letter-spacing: 2px;   /* Espacement des caractÃ¨res */
+    letter-spacing: 2px;   /* Espacement des caractères */
     margin: 10px 0 0 0;   /* Espace autour du bouton : haut droite bas gauche  */
     text-transform: uppercase;   /* Transforme le texte en majuscules */
     color: rgb(51,162,255);   /* Couleur du texte */
@@ -50,4 +50,14 @@ a:hover {
 	font-weight:bold;
 	font-size:larger;
 }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 3 mai 2016, 14:45:27
+    Author     : comec
+*/
 
