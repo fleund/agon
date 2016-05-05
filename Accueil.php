@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php include('bdd.php') ?>
+
 <html>
     <head>
         <title>Agon - Accueil</title>
@@ -34,13 +37,10 @@
         </div>
         <div class="sports_en_tete">
             <?php // Affichage des sports en en-tête
-                try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
                 $reponse = $bdd->query('SELECT * FROM sports_en_tete ORDER BY ID');
                 while ($donnees = $reponse->fetch()) {
                     echo '<a href="" >' . $donnees['nom'] . '</a>&nbsp;';
                 }
-                $reponse->closeCursor();
             ?>
         </div>
         
@@ -53,28 +53,43 @@
             <img src="tn_Jogger2.jpg" alt='image2'/>
         </div>
         <?php
-            try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-            catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
             $reponse = $bdd->query('SELECT * FROM liste_photos ORDER BY ID');
             while ($donnees = $reponse->fetch()) {
                 if ($donnees['nom']!='') {
                     echo '<img src="uploads/' . $donnees['nom'] . '"title="' . $donnees['nom'] . '" id="photo' . $donnees['ID'] . '">';
                 }
             }
-            $reponse->closeCursor();
         ?>
     </div>
-    <div class="liste_compets">
-        <?php // Affichage de la liste des compétitions, A COMPLETER
-            try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-            catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
-            $reponse = $bdd->query('SELECT * FROM liste_compets ORDER BY places_restantes');
+    </br></br>
+    <table class="liste_compets">
+        <caption>Compétitions à venir</caption>
+        <tr>
+            <th>Nom</th>
+            <th>Sport</th>
+            <th>Groupe organisateur</th>
+            <th>Département</th>
+            <th>Date</th>
+            <th>Places restantes</th>
+        </tr>
+        <?php // Affichage du tableau des compétitions
+            $reponse = $bdd->query('SELECT nom, sport, groupe, departement, places_restantes, DAY(date) AS jour, MONTH(date) AS mois, YEAR(date) AS annee FROM liste_compets ORDER BY places_restantes');
             while ($donnees = $reponse->fetch()) {
-                echo $donnees['nom'] . $donnees['sport'] . $donnees['groupe'] . $donnees['lieu'] . $donnees['date'] . $donnees['places_restantes'] . '</br>';
+                if (!empty($donnees['nom'])) {
+                    $verif=True;
+                    echo '<tr>'
+                        . '<td><a href="">' . $donnees['nom'] . '</a></td>'
+                        . '<td>' . $donnees['sport'] . '</td>'
+                        . '<td>' . $donnees['groupe'] . '</td>'
+                        . '<td>' . $donnees['departement'] . '</td>'
+                        . '<td>' . $donnees['jour'] . ' / ' . $donnees['mois'] . ' / ' . $donnees['annee'] . '</td>'
+                        . '<td>' . $donnees['places_restantes'] . '</td>'
+                    . '</tr>';
+                }
+                if (!isset($verif)) {echo 'Pas de compétitions à afficher.';}
             }
-            $reponse->closeCursor();
         ?>
-    </div>
+    </table>
     
     <footer>
         <p>Partage la page sur</p>
