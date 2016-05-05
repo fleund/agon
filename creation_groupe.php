@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <title>Agon - Creation groupe</title>
-            <meta charset="windows-1252">
+            <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="creer_groupe.css" />
     </head>
@@ -34,9 +34,9 @@ and open the template in the editor.
             
             <div id="bloc_champ">
             
-                <p>Nom du groupe : </br><input type="text" name="nom" id="nom_du_groupe" placeholder="Ex : La Passion Du Foot" maxlength ="30"/></p>
+                <p>Nom du groupe : </br><input type="text" name="nom" id="nom_du_groupe" placeholder="Ex : La Passion Du Foot" maxlength ="30"/> </p>
             
-                <p>Description (facultatif) :</br> <input type="text" name="description" rows="8" cols="45" id="description">Décrivez votre groupe </textarea></p>    
+                <p>Description (facultatif) :</br> <input type="text" name="description" rows="8" cols="45" id="description"/>Décrivez votre groupe</p>    
             
                 <p>Nombre maximum de membres : <input type="number" min="5" max="200" value="100" step="5" onkeypress="return false" name="nombre_max"  id="max_membres"/></p>
             
@@ -44,6 +44,31 @@ and open the template in the editor.
                 
                 <p>Image du groupe : <input type="text" name="image" />  </p>
                 <p><a href='http://www.hostingpics.net/' target="_blank"> Lien vers uploader de photos </a> </p>
+                
+                <p>Sport principal : <select name="sport" id="sport">
+                    <option>Choisir un sport </option>
+                    <?php
+                    try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
+                    catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
+                    $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
+                    while ($donnees = $reponse->fetch()) 
+                    {
+                        echo '<option';
+                        if (isset($_POST['sport'])) 
+                        {
+                            if ($donnees['nom']==$_POST['sport']) 
+                            {
+                                echo ' selected="selected"';
+                            }
+                        }
+                        echo '>' . $donnees['nom'] . '</option>';
+                    }
+                    $reponse->closeCursor();
+                    ?>
+                    </select>
+                </p>
+                
+                
                 
                 <input type="submit" class="agrandir_bouton"/>
             
@@ -97,6 +122,11 @@ and open the template in the editor.
             {
             $image_groupe = $_POST['image']; 
             }
+            
+            if(isset($_POST['sport']))
+            {
+            $sport_groupe = $_POST['sport'];
+            }
              
                  
                  
@@ -118,14 +148,15 @@ and open the template in the editor.
                      ));
 
              
-             $requete = $bdd->prepare('INSERT INTO groupe(nom_groupe, description_groupe, nombre_max_membres, statut, image_groupe)
-                     VALUES (:nom_groupe, :description_groupe, :nombre_max_membres, :statut, :image_groupe)');
+             $requete = $bdd->prepare('INSERT INTO groupe(nom_groupe, description_groupe, nombre_max_membres, statut, image_groupe, sport_groupe)
+                     VALUES (:nom_groupe, :description_groupe, :nombre_max_membres, :statut, :image_groupe, :sport_groupe)');
              $requete->execute(array(
                  'nom_groupe' => $nom_groupe,
                  'description_groupe' => $description_groupe,
                  'nombre_max_membres' => $nombre_max_membres,
                  'statut' => $statut,
-                 'image_groupe' => $image_groupe
+                 'image_groupe' => $image_groupe,
+                 'sport_groupe' => $sport_groupe
                  ));
                  
              
