@@ -12,6 +12,26 @@ table
     border-collapse: collapse;
 }
 
+.liste_compets
+{
+	margin-left : auto;
+	margin-right : auto;
+}
+
+caption
+{
+	font-size : 2em;
+	font-weight : bold;
+	background-color : rgba(51,162,255,0.4);
+	color : rgba(241,61,125,0.9);
+	
+}
+
+th
+{
+	background-color : gray;
+}
+
 td, th
 {
     border: 1px solid black;
@@ -91,6 +111,16 @@ body
     text-transform: uppercase;
     color: rgb(51,162,255);
     margin-bottom: 2em;
+}
+
+#connexion:hover, #inscription:hover
+{
+	color : rgb(241,61,125);
+}
+
+a:hover
+{
+	color : rgb(51, 162, 255);
 }
 
 .element:nth-child(3), .element:nth-child(5)
