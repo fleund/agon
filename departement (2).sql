@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 29 Avril 2016 à 00:01
+-- Généré le :  Jeu 05 Mai 2016 à 20:24
 -- Version du serveur :  5.7.9
--- Version de PHP :  5.6.15
+-- Version de PHP :  5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `departement`;
 CREATE TABLE IF NOT EXISTS `departement` (
-  `nom` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `nom` varchar(255) NOT NULL,
   `numero` int(101) NOT NULL,
   KEY `numero` (`numero`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin7;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `departement`
@@ -44,38 +44,38 @@ INSERT INTO `departement` (`nom`, `numero`) VALUES
 ('Alpes-de-Haute-Provence', 4),
 ('Hautes-Alpes', 5),
 ('Alpes-Maritimes', 6),
-('ArdÞche', 7),
+('Ardèche', 7),
 ('Ardennes', 8),
-('AriÞge', 9),
+('Ariège', 9),
 ('Aube', 10),
 ('Aude', 11),
 ('Aveyron', 12),
-('Bouches-du-Rh¶ne', 13),
+('Bouches-du-Rhône', 13),
 ('Calvados', 14),
 ('Cantal', 15),
 ('Charente', 16),
 ('Charente-Maritime', 17),
 ('Cher', 18),
-('CorrÞze', 19),
+('Corrèze', 19),
 ('Corse', 20),
-('C¶te-d''Or', 21),
-('C¶tes d''Armor', 22),
+('Côte-d''Or', 21),
+('Côtes d''Armor', 22),
 ('Creuse', 23),
 ('Dordogne', 24),
 ('Doubs', 25),
-('Dr¶me', 26),
+('Drôme', 26),
 ('Eure', 27),
 ('Eure-et-Loire', 28),
-('FinistÞre', 29),
+('Finistère', 29),
 ('Gard', 30),
 ('Haute-Garonne', 31),
 ('Gers', 32),
 ('Gironde', 33),
-('HÚrault', 34),
+('Hérault', 34),
 ('Ille-et-Vilaine', 35),
 ('Indre', 36),
 ('Indre-et-Loire', 37),
-('IsÞre', 38),
+('Isère', 38),
 ('Jura', 39),
 ('Landes', 40),
 ('Loir-et-Cher', 41),
@@ -85,7 +85,7 @@ INSERT INTO `departement` (`nom`, `numero`) VALUES
 ('Loiret', 45),
 ('Lot', 46),
 ('Lot-et-Garonne', 47),
-('LozÞre', 48),
+('Lozère', 48),
 ('Maine-et-Loire', 49),
 ('Manche', 50),
 ('Marne', 51),
@@ -95,20 +95,20 @@ INSERT INTO `departement` (`nom`, `numero`) VALUES
 ('Meuse', 55),
 ('Morbihan', 56),
 ('Moselle', 57),
-('NiÞvre', 58),
+('Nièvre', 58),
 ('Nord', 59),
 ('Oise', 60),
 ('Orne', 61),
 ('Pas-de-Calais', 62),
-('Puy-de-D¶me', 63),
-('PyrÚnÚes-Atlantiques', 64),
-('Hautes-PyrÚnÚes', 65),
-('PyrÚnÚes-Orientales', 66),
+('Puy-de-Dôme', 63),
+('Pyrénées-Atlantiques', 64),
+('Hautes-Pyrénées', 65),
+('Pyrénées-Orientales', 66),
 ('Bas-Rhin', 67),
 ('Haut-Rhin', 68),
-('Rh¶ne', 69),
-('Haute-Sa¶ne', 70),
-('Sa¶ne-et-Loire', 71),
+('Rhône', 69),
+('Haute-Saône', 70),
+('Saône-et-Loire', 71),
 ('Sarthe', 72),
 ('Savoie', 73),
 ('Haute-Savoie', 74),
@@ -116,13 +116,13 @@ INSERT INTO `departement` (`nom`, `numero`) VALUES
 ('Seine-Maritime', 76),
 ('Seine-et-Marne', 77),
 ('Yvelines', 78),
-('Deux-SÞvres', 79),
+('Deux-Sèvres', 79),
 ('Somme', 80),
 ('Tarn', 81),
 ('Tarn-et-Garonne', 82),
 ('Var', 83),
 ('Vaucluse', 84),
-('VendÚe', 85),
+('Vendée', 85),
 ('Vienne', 86),
 ('Haute-Vienne', 87),
 ('Vosges', 88),
@@ -136,7 +136,7 @@ INSERT INTO `departement` (`nom`, `numero`) VALUES
 ('Guadeloupe', 971),
 ('Martinique', 972),
 ('Guyane', 973),
-('La RÚunion', 974),
+('La Réunion', 974),
 ('Mayotte', 976);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
