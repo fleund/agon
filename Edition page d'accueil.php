@@ -101,16 +101,7 @@
                 <legend>Modifier la liste exhaustive des sports représentés sur ce site</legend> 
 
                 </br>Sélectionner un sport à supprimer de la liste :&nbsp;&nbsp;
-                <input type="text" list="choix_sport" name="suppr_sport" placeholder="Cliquez ici..."> 
-                <datalist id="choix_sport">
-                    <?php // Sélection d'un sport à supprimer
-                        $bdd->exec('DELETE FROM liste_sports WHERE nom=\'\''); // Y avait un bug, quand je supprimais un sport il supprimait pas la ligne mais laissait à la place un champ vide, donc je supprime le champ vide pour corriger
-                        $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
-                        while($donnees = $reponse->fetch()) {
-                            echo '<option>' . $donnees['nom'] . '</option>';
-                        }
-                    ?>
-                </datalist>
+                <?php include('liste_sports.php') ?>
 
                 </br></br>Ajouter un sport à la liste :
                 <input name=ajout_sport type="text" maxlength="30">
