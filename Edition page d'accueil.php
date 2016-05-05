@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php include('bdd.php') ?>
+
 <html>
     
     <head>
@@ -45,17 +48,10 @@
 
         <?php // Mise à jour de la base de données, suite au remplissage des champs
             if (isset($_GET['modifications'])) {
-                try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
                 for ($i = 1; $i <= 16; $i++) {
                     $req = $bdd->prepare('UPDATE sports_en_tete SET nom=:tmp1 WHERE ID = :i'); // Table de la liste des sports en en-tête
                     $req->execute(array(
                         'tmp1' => $_POST['en_tete' . $i],
-                        'i' => $i
-                    ));
-                    $req = $bdd->prepare('UPDATE liste_compets SET nom=:tmp2 WHERE ID = :i'); // Table de la liste des compétitions
-                    $req->execute(array(
-                        'tmp2' => $_POST['compet' . $i],
                         'i' => $i
                     ));
                 }
@@ -67,8 +63,7 @@
                     }
                 }
                 if (!isset($doublon)) {
-                    $reponse->closeCursor();
-                    $req = $bdd->prepare('INSERT INTO liste_sports(nom) VALUES(:tmp)'); // On ajoute le sport à la liste globale
+                    $req = $bdd->prepare('INSERT INTO liste_sports(nom) VALUES (:tmp)'); // On ajoute le sport à la liste globale
                     $req->execute(array(
                         'tmp' => $_POST['ajout_sport']
                     ));
@@ -93,14 +88,11 @@
                 </br><em>Note : ces champs déterminent également l'ordre des sports dans l'en-tête.</em></br></br>
 
                 <?php // Affichage des champs pour modifier la liste des sports en en-tête, préremplis avec la liste actuelle
-                    try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                    catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
                     $reponse = $bdd->query('SELECT * FROM sports_en_tete ORDER BY ID');
                     for ($i = 1; $i <= 16; $i++) {
                         $donnees = $reponse->fetch();
                         echo $i . ' :&nbsp;<input type="text" name="en_tete' . $donnees['ID'] . '" id="sport" maxlength ="30" value="' . $donnees['nom'] . '">&nbsp;&nbsp;';
                     }
-                    $reponse->closeCursor();
                 ?>
 
             </fieldset></br></br>
@@ -112,14 +104,11 @@
                 <input type="text" list="choix_sport" name="suppr_sport" placeholder="Cliquez ici..."> 
                 <datalist id="choix_sport">
                     <?php // Sélection d'un sport à supprimer
-                        try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                        catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
                         $bdd->exec('DELETE FROM liste_sports WHERE nom=\'\''); // Y avait un bug, quand je supprimais un sport il supprimait pas la ligne mais laissait à la place un champ vide, donc je supprime le champ vide pour corriger
                         $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
                         while($donnees = $reponse->fetch()) {
                             echo '<option>' . $donnees['nom'] . '</option>';
                         }
-                        $reponse->closeCursor();
                     ?>
                 </datalist>
 
@@ -141,8 +130,6 @@
                 Formats acceptés : .jpg, .jpeg, .gif ou .png. Taille : max 1 Mo.</em></br>
 
                 <?php // Gestion des images sur la page d'accueil
-                    try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                    catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
                     if (isset($_GET['supprimer']) AND isset($_GET['nom'])) { // Traitement d'une demande de suppression d'une image
                         $ancien_nom = $_GET['nom'];
                         @unlink('uploads/' . $ancien_nom);
@@ -184,7 +171,6 @@
                         }
                         echo '</br><input type="file" name="photo' . $donnees['ID'] . '" id="photo">'; // On affiche les champs de sélection des photos
                     }
-                    $reponse->closeCursor();
                 ?>
 
             </fieldset></br></br>
