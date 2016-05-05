@@ -7,6 +7,23 @@
     background-position: center;
 }
 
+table
+{
+    border-collapse: collapse;
+}
+
+td, th
+{
+    border: 1px solid black;
+    min-width: 100px;
+    text-align: center;
+}
+
+table a
+{
+    color: black;
+}
+
 #bloc_galerie
 {
     display: flex;
@@ -15,7 +32,7 @@
 
 #galerie + p
 {
-    text-transform: uppercase;   /* Transforme le texte en majuscules */
+    text-transform: uppercase;
     color: rgb(51,162,255);
     padding-top: 15em;
     padding-right: 9em;
@@ -62,17 +79,17 @@ body
 {
     position : relative;
     float : right;
-    border-style: solid;   /* Style de la bordure  */
-    border-width: 1px;   /* Epaisseur de la bordure  */
-    border-color: rgb(51,162,255);   /* Couleur de la bordure  */
-    padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
-    width: 30%;   /* Permet d'ajuster la largeur du bouton à 100% */
-    box-sizing: border-box;   /* Important */
-    font-size: 13px;   /* Taille de la police du texte */
-    font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
-    letter-spacing: 2px;   /* Espacement des caractères */
-    text-transform: uppercase;   /* Transforme le texte en majuscules */
-    color: rgb(51,162,255);   /* Couleur du texte */
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(51,162,255);
+    padding: 5px 10px 5px 10px;
+    width: 30%;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgb(51,162,255);
     margin-bottom: 2em;
 }
 
@@ -124,7 +141,7 @@ a
     margin-top: 7em;
 }
 
-#critere1, #critere2
+.critere
 {
     width : 45%;
     padding: 5px 0px 5px 10px;
@@ -136,19 +153,18 @@ a
 
 #search-btn
 {
-       /* Couleur de fond */
-    border-style: solid;   /* Style de la bordure  */
-    border-width: 1px;   /* Epaisseur de la bordure  */
-    border-color: rgb(51,162,255);   /* Couleur de la bordure  */
-    padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
-    width: 90%;   /* Permet d'ajuster la largeur du bouton à 100% */
-    box-sizing: border-box;   /* Important */
-    font-size: 13px;   /* Taille de la police du texte */
-    font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
-    letter-spacing: 2px;   /* Espacement des caractères */
-    margin: 10px 0 0 0;   /* Espace autour du bouton : haut droite bas gauche  */
-    text-transform: uppercase;   /* Transforme le texte en majuscules */
-    color: rgb(51,162,255);   /* Couleur du texte */
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(51,162,255);
+    padding: 5px 10px 5px 10px;
+    width: 90%;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+    color: rgb(51,162,255);
     margin-bottom: 2em;
 }
 
@@ -157,5 +173,6 @@ a
     margin-bottom: 0em;
 }
 
-
-
+.erreur {
+    color: red;
+}
