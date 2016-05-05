@@ -6,7 +6,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 03 Mai 2016 à 21:17
+-- Généré le :  Jeu 05 Mai 2016 à 20:20
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `liste_compets` (
   `nom` varchar(255) NOT NULL,
   `sport` varchar(255) NOT NULL,
   `date` date NOT NULL,
-  `lieu` varchar(255) NOT NULL,
+  `departement` varchar(255) NOT NULL,
   `groupe` varchar(255) NOT NULL,
   `places_restantes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -44,11 +44,11 @@ CREATE TABLE IF NOT EXISTS `liste_compets` (
 -- Contenu de la table `liste_compets`
 --
 
-INSERT INTO `liste_compets` (`ID`, `nom`, `sport`, `date`, `lieu`, `groupe`, `places_restantes`) VALUES
-(1, '', '', '0000-00-00', '', '', 0),
-(2, '', '', '0000-00-00', '', '', 0),
-(3, '', '', '0000-00-00', '', '', 0),
-(4, '', '', '0000-00-00', '', '', 0),
+INSERT INTO `liste_compets` (`ID`, `nom`, `sport`, `date`, `departement`, `groupe`, `places_restantes`) VALUES
+(1, 'Coupe de foot', 'Football', '2016-05-18', 'Essonne', 'Groupe de foot de l''Essonne', 1),
+(2, 'Tournoi de Badminton', 'Badminton', '2016-06-01', 'Moselle', 'Club de badminton de Metz', 7),
+(3, 'Compétition annuelle de pétanque de Marseille', '', '2016-05-20', 'Bouches-du-Rhône', 'Les fanas de pétanque', 3),
+(4, 'Marathon de Paris', 'Marathon', '2016-06-10', 'Paris', 'Groupe officiel des marathoniens de Paris', 58),
 (5, '', '', '0000-00-00', '', '', 0),
 (6, '', '', '0000-00-00', '', '', 0),
 (7, '', '', '0000-00-00', '', '', 0),
