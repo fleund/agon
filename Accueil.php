@@ -73,21 +73,19 @@
             <th>Places restantes</th>
         </tr>
         <?php // Affichage du tableau des compétitions
-            $reponse = $bdd->query('SELECT nom, sport, groupe, departement, places_restantes, DAY(date) AS jour, MONTH(date) AS mois, YEAR(date) AS annee FROM liste_compets ORDER BY places_restantes');
+            $reponse = $bdd->query('SELECT nom, sport, groupe, departement, places_restantes, DAY(date) AS jour, MONTH(date) AS mois, YEAR(date) AS annee FROM liste_compets ORDER BY places_restantes LIMIT 0,10');
             while ($donnees = $reponse->fetch()) {
-                if (!empty($donnees['nom'])) {
-                    $verif=True;
-                    echo '<tr>'
-                        . '<td><a href="">' . $donnees['nom'] . '</a></td>'
-                        . '<td>' . $donnees['sport'] . '</td>'
-                        . '<td>' . $donnees['groupe'] . '</td>'
-                        . '<td>' . $donnees['departement'] . '</td>'
-                        . '<td>' . $donnees['jour'] . ' / ' . $donnees['mois'] . ' / ' . $donnees['annee'] . '</td>'
-                        . '<td>' . $donnees['places_restantes'] . '</td>'
-                    . '</tr>';
+                $verif=True;
+                echo '<tr>'
+                    . '<td><a href="">' . $donnees['nom'] . '</a></td>'
+                    . '<td>' . $donnees['sport'] . '</td>'
+                    . '<td>' . $donnees['groupe'] . '</td>'
+                    . '<td>' . $donnees['departement'] . '</td>'
+                    . '<td>' . $donnees['jour'] . ' / ' . $donnees['mois'] . ' / ' . $donnees['annee'] . '</td>'
+                    . '<td>' . $donnees['places_restantes'] . '</td>'
+                . '</tr>';
                 }
-                if (!isset($verif)) {echo 'Pas de compétitions à afficher.';}
-            }
+            if (!isset($verif)) {echo 'Pas de compétitions à afficher.';}
         ?>
     </table>
     
