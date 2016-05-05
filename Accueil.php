@@ -19,6 +19,8 @@
             <input id="connexion" type="submit" value="Connexion" />
             <input id="inscription" type="submit" value="Inscription" />
 	    </div>
+		<div class="element">    
+        </div>
         <div class="element">
             <div id="onglets_accueil">
                 <div><a href="Accueil.php">Accueil</a></div>
@@ -27,13 +29,13 @@
                 <div><a href="">Mon espace</a></div>
             </div>   
 	    </div>
+		<div class="element">    
+        </div>
         <div class="element">
-            <ul class="message_important">
-                SPORTIFS DE TOUS LES JOURS, VENEZ !
+                <p class="message_important"> SPORTIFS DE TOUS LES JOURS, VENEZ !</p>
                 <li>FORME TON GROUPE</li>
                 <li>ENTRAÎNE-TOI</li>
-                <li>ORGANISE TES COMPÉTITIONS</li>
-            </ul>
+                <li>ORGANISE TES COMPÉTITIONS</li>    
         </div>
         <div class="sports_en_tete">
             <?php // Affichage des sports en en-tête
@@ -63,7 +65,7 @@
     </div>
     </br></br>
     <table class="liste_compets">
-        <caption>Compétitions à venir</caption>
+        <caption>Compétitions à venir</caption></br>
         <tr>
             <th>Nom</th>
             <th>Sport</th>
