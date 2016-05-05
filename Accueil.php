@@ -46,7 +46,7 @@
             ?>
         </div>
         
-        <?php include('search.php'); // Page de recherche & résultats de recherche ?> 
+        <?php include('search.php'); ?> 
 
     </div>
     <div id='bloc_galerie'>
