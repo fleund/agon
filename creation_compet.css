@@ -1,0 +1,49 @@
+#conteneur
+{
+	border : 1px solid black;
+	width : 40%;
+	padding-left : 2em;
+}
+
+.agrandir_bouton
+{
+	border-style: solid;
+    border-width: 1px;
+    border-color: rgb(51,162,255);
+    padding: 5px 10px 5px 10px;
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+    color: rgb(51,162,255);
+    margin-bottom: 2em;
+	margin-left : 60%;
+}
+
+.agrandir_bouton:hover
+{
+	color : rgb(241,61,125);
+}
+
+.titre
+{
+	font-size : 2em;
+	color : rgb(51,162,255);
+	width : 70%;
+	text-align : center;
+	font-weight : bold;
+	margin : 0 auto 0 auto;
+}
+
+#nom_competition, #sport_compet, #date, #lieu, #organisateur, #place_total
+{
+	width : 40%;
+}
+
+input:hover
+{
+	color : rgb(241,61,125);
+}
