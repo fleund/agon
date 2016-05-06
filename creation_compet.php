@@ -6,16 +6,20 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Creation compet</title>
         <meta charset="windows-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="creation_compet.css">
     </head>
     <body>
-        <div>
+        <div id="conteneur">
             <form action="creation_compet.php" method="post" enctype="multipart/form-data">
-                <p>Nom de la compétition <input type="text" name="nom" id="nom_competition" /> </p>
+			
+				<p class="titre">Creer votre competition !</p>
+				
+                <p>Nom de la compÃ©tition :</br><input type="text" name="nom" id="nom_competition" /> </p>
                 
-                <p>Sport principal : <select name="sport_compet" id="sport_compet">
+                <p>Sport principal : </br><select name="sport_compet" id="sport_compet">
                     <option>Choisir un sport </option>
                     <?php
                     try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
@@ -37,15 +41,15 @@ and open the template in the editor.
                     ?> 
                     </select>
                 </p>
-                <p>Date de la compétition <input type="date" name="date" /> </p>
+                <p>Date de la compÃ©tition :</br><input type="date" name="date"  id="date"/> </p>
                 
-                <p>Lieu de la compétition <input type="text" name="lieu" /> </p>
+                <p>Lieu de la compÃ©tition : </br><input type="text" name="lieu"  id="lieu" /> </p>
                 
-                <p>Groupe organisateur <input type="text" name="groupe"/> </p>
+                <p>Groupe organisateur :</br><input type="text" name="groupe" id="organisateur"/> </p>
                 
-                <p>Nombre de places total <input type="number" name="nombre" /> </p>
+                <p>Nombre de places total :</br><input type="number" name="nombre" id="place_total"/> </p>
                 
-                <input type="submit"/>
+                <input type="submit" class = "agrandir_bouton"/>
             </form>
                 
                 
