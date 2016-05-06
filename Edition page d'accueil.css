@@ -18,17 +18,61 @@
     font-weight: bold;
     text-align : center;
     min-width: 820px;
+    width : 50%;
+    color : rgb(51,162,255);
+    bakground-color: rgba(241,61,125, 0.9);
+    margin : 0 auto 1em auto;
+}
+
+
+
+#bloc1
+{
+    padding-left : 2em;
+    padding-right : 2em;
+    padding-bottom: 2em;
+    min-width: 820px;
     width : 90%;
+    border : 2px solid black;
 }
 
 .bloc
 {
     padding-left : 2em;
+    padding-right : 2em;
+    padding-bottom: 2em;
     min-width: 820px;
     width : 90%;
 }
 
-.bouton
+#essai
+{
+	display: flex;
+        flex-wrap : wrap;
+        justify-content : center;
+}
+
+#sport:hover
+{
+    color : rgb(51,162,255);
+}
+
+.tb1
+{
+	background-color : white;
+	width : 35%;
+	margin-top : -0.75em;
+	text-align : center;
+	font-size : 1.1em;
+        color : rgb(241,61,125);
+}
+
+legend
+{
+     color : rgb(241,61,125);
+}
+
+bouton
 {
     position : relative;
     float : right;
@@ -39,7 +83,25 @@
 
 .agrandir_bouton
 {
-    font-size:1.5em;
+    font-size:1.1em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(51,162,255);
+    padding: 5px 10px 5px 10px;
+    width: 30%;
+    box-sizing: border-box;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+    color: rgb(51,162,255);
+    margin-bottom: 2em;
+    margin-left : 60%;
+}
+
+.agrandir_bouton:hover
+{
+    color : rgb(241,61,125);
 }
 
 legend
@@ -53,67 +115,13 @@ legend
 	margin:-2px 5px;
 }
 
-#barre_bleue_gauche {
-	width:1%;
-	display:inline-block;
-	background-color:#33A2FF;
-	border-radius:10px;
-	height:50em;
-	float:left;
-	clear:none;
-}
 
-#barre_bleue_droite {
-	width:1%;
-	display:inline-block;
-	background-color:#33A2FF;
-	border-radius:10px;
-	height:50em;
-	float:right;
-	clear:none;
-}
-
-#barre_mauve_gauche {
-	width:1%;
-	display:inline-block;
-	background-color:#F13D7D;
-	border-radius:10px;
-	height:48em;
-	margin-top:1em;
-	margin-left:0.25em;
-	float:left;
-	clear:none;
-}
-
-#barre_mauve_droite{
-	width:1%;
-	display:inline-block;
-	background-color:#F13D7D;
-	border-radius:10px;
-	height:48em;
-	top:1em;
-	margin-top:1em;
-	margin-right:0.25em;
-	float:right;
-	clear:none;
-}
 
 button, input[type="submit"] {
 	cursor:pointer;
 }
 
-#identifiants{
-	display:flex;
-	justify-content:flex-end;
-	align-items:center;
-	margin-right:1em;
-	width:98%;
-	margin-left:1em;
-	margin-top:-10%;
-}
-#mot_passe{
-	float:right;
-}
+
 
 #identifiants button {
 	float:middle;
@@ -131,41 +139,7 @@ button, input[type="submit"] {
 	margin-top:11%;
 }
 
-#onglets_accueil {
-	display:inline-block;
-	float:right;
-	text-align:right;
-	height:25%;
-	margin-top:1%;
-	background-color:#F13D7D;
-	width:29%;
-	min-width:30em;
-	border-radius:20px;
-}
-#onglets_accueil a {
-	border:2px solid black;
-	margin:0.1em -0.25em;
-	padding:0.25em;
-	background-color:#33A2FF;
-	border-radius:20px;
-}
-#onglets_accueil a:hover {
-	background-color:#BFFF09;
-	color:black;
-	font-weight:bold;
-	font-size:larger;
-}
 
-header {
-	background-color: white;
-	position: fixed;
-	margin-top:-11%;
-	margin-left:-0.5em;
-	height:7.5em;
-	z-index:10000;
-	width:100%;
-	box-shadow:0 0 10px 4px grey;
-}
 
 .erreur {
 	color: red;
