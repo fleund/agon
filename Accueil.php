@@ -41,7 +41,7 @@
             <?php // Affichage des sports en en-tête
                 $reponse = $bdd->query('SELECT * FROM sports_en_tete ORDER BY ID');
                 while ($donnees = $reponse->fetch()) {
-                    echo '<a href="" >' . $donnees['nom'] . '</a>&nbsp;';
+                    echo '<a href="resultats_recherche.php?sport=' . $donnees['nom'] . '">' . $donnees['nom'] . '</a>&nbsp;';
                 }
             ?>
         </div>
