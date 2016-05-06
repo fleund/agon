@@ -5,7 +5,15 @@
 </form>
 
 <?php
+    if (isset($_GET['sport'])) {
+        $sport=$_GET['sport'];
+        $departement='';
+    }
     if (isset($_POST['sport'])) {
+        $sport=$_POST['sport'];
+        $departement=$_POST['departement'];
+    }
+    if (isset($_POST['sport']) or isset($_GET['sport'])) {
         echo '<table><caption>Résultats de la recherche</caption>
             <tr>
                 <th>Nom du groupe</th>
@@ -15,8 +23,8 @@
             </tr>';
         $reponse = $bdd->prepare('SELECT * FROM groupe WHERE sport LIKE :tmp1 AND departement LIKE :tmp2 ORDER BY nom');
         $reponse->execute(array(
-            'tmp1' => '%' . $_POST['sport'] . '%',
-            'tmp2' => '%' . $_POST['departement'] . '%'
+            'tmp1' => '%' . $sport . '%',
+            'tmp2' => '%' . $departement . '%'
         ));
         while ($donnees = $reponse->fetch()) {
             $verif=True;
