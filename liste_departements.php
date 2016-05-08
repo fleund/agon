@@ -3,9 +3,9 @@
 	<?php
 	    $reponse = $bdd->query('SELECT * FROM departement ORDER BY numero');
 	    while ($donnees = $reponse->fetch()) {
-            echo '<option value="' . $donnees['nom'] . '"';
+            echo '<option value="' . $donnees['numero'] . ' - ' . $donnees['nom'] . '"';
             if (isset($_POST['departement'])) {
-                if ($donnees['nom']==$_POST['departement']) {echo ' selected="selected"';}
+                if ($donnees['numero'] . ' - ' . $donnees['nom']==$_POST['departement']) {echo ' selected="selected"';}
             }
             echo '>' . $donnees['numero'] . ' - ' . $donnees['nom'] . '</option>';
         }
