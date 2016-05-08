@@ -16,6 +16,8 @@
             <img class="Logo" src="Logo.png" alt="Logo Agon" />
         </div>
         <div class="element">
+            <a href="creation_groupe.php" class="bouton">Créer un groupe</a>
+            <a href="Edition page d'accueil.php" class="bouton">Édition de la page d'accueil</a>
             <input id="connexion" type="submit" value="Connexion" />
             <input id="inscription" type="submit" value="Inscription" />
 	    </div>
@@ -24,7 +26,7 @@
         <div class="element">
             <div id="onglets_accueil">
                 <div><a href="Accueil.php">Accueil</a></div>
-                <div><a href="Index des forums.php">Forums</a></div>
+                <div><a href="Index des forums.php">Forum</a></div>
                 <div><a href="">Groupes</a></div> 
                 <div><a href="">Mon espace</a></div>
             </div>   
@@ -51,10 +53,9 @@
     </div>
     <div id='bloc_galerie'>
         <div id="galerie">
-            <img src="tn_Jogger1.jpg" alt='image1' class="active"/>
-            <img src="tn_Jogger2.jpg" alt='image2'/>
-        </div>
-        <?php
+        <img src="tn_Jogger1.jpg" alt="image1" class="active">
+        <img src="tn_Jogger2.jpg" alt="image2">
+        <?php // Affichage du roulement de photos
             $reponse = $bdd->query('SELECT * FROM liste_photos ORDER BY ID');
             while ($donnees = $reponse->fetch()) {
                 if ($donnees['nom']!='') {
@@ -62,6 +63,7 @@
                 }
             }
         ?>
+        </div>
     </div>
     </br></br>
     <table class="liste_compets">
@@ -72,29 +74,32 @@
             <th>Groupe organisateur</th>
             <th>Département</th>
             <th>Date</th>
+            <th>Inscrits</th>
             <th>Places restantes</th>
         </tr>
         <?php // Affichage du tableau des compétitions
-            $reponse = $bdd->query('SELECT nom, sport, groupe, departement, places_restantes, DAY(date) AS jour, MONTH(date) AS mois, YEAR(date) AS annee FROM liste_compets ORDER BY places_restantes LIMIT 0,10');
+            $reponse = $bdd->query('SELECT nom, sport, groupe, departement, places_total, inscrits, DAY(date) AS jour, MONTH(date) AS mois, YEAR(date) AS annee FROM liste_compets ORDER BY inscrits DESC LIMIT 0,10');
             while ($donnees = $reponse->fetch()) {
                 $verif=True;
+                $places_restantes=$donnees['places_total']-$donnees['inscrits'];
                 echo '<tr>'
                     . '<td><a href="">' . $donnees['nom'] . '</a></td>'
                     . '<td>' . $donnees['sport'] . '</td>'
                     . '<td>' . $donnees['groupe'] . '</td>'
                     . '<td>' . $donnees['departement'] . '</td>'
                     . '<td>' . $donnees['jour'] . ' / ' . $donnees['mois'] . ' / ' . $donnees['annee'] . '</td>'
-                    . '<td>' . $donnees['places_restantes'] . '</td>'
+                    . '<td>' . $donnees['inscrits'] . '</td>'
+                    . '<td>' . $places_restantes . '</td>'
                 . '</tr>';
                 }
-            if (!isset($verif)) {echo 'Pas de compétitions à afficher.';}
+            if (!isset($verif)) {echo '<tr><td style="border: none;">Pas de compétitions à afficher.</td></tr>';}
         ?>
     </table>
     
     <footer>
         <p>Partage la page sur</p>
-        <a href="www.facebook.com"><img src="tn_facebook.png" alt='rien'/></a>
-        <a href="www.twitter.com"><img src="tn_twitter.png" alt='rien'/></a>
+        <a href="http://www.facebook.com"><img src="tn_facebook.png"></a>
+        <a href="http://www.twitter.com"><img src="tn_twitter.png"></a>
     </footer>
     
     <script src="jquery.js"></script>
