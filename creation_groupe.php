@@ -1,19 +1,15 @@
 <!DOCTYPE html>
- <!--
- To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
- +-->
+
+<?php include('bdd.php') ?>
+
 <html>
     <head>
-        <title>Agon - Creation groupe</title>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="creer_groupe.css" />
+        <title>Création d'un groupe</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Accueil.css">
     </head>
-    
+
     <body>
-        
         <ul>
             <a href="index.html">Accueil</a>
             <a href="forum.html">Forum</a>
@@ -22,150 +18,35 @@ and open the template in the editor.
             <a href="deconnexion.html">Deconnexion</a>
         </ul></br>
         
-        <div id="conteneur2">
-            
-        <legend>Creer un groupe</legend>
-        
-        
-        
-        <form action="creation_groupe.php" method="post" enctype="multipart/form-data">
-            
-            <div id="Creer_un_groupe">
-            
-            <div id="bloc_champ">
-            
-                <p>Nom du groupe : </br><input type="text" name="nom" id="nom_du_groupe" placeholder="Ex : La Passion Du Foot" maxlength ="30"/> </p>
-            
-                <p>Description (facultatif) :</br> <input type="text" name="description" rows="8" cols="45" id="description"/>D�crivez votre groupe</p>    
-            
-                <p>Nombre maximum de membres : <input type="number" min="5" max="200" value="100" step="5" onkeypress="return false" name="nombre_max"  id="max_membres"/></p>
-            
-                <p>Statut : </br><select name='statut' size="1" id="statut"> <option>prive<option>public</select> </p>
-                
-                <p>Image du groupe : <input type="text" name="image" />  </p>
-                <p><a href='http://www.hostingpics.net/' target="_blank"> Lien vers uploader de photos </a> </p>
-                
-                <p>Sport principal : <select name="sport" id="sport">
-                    <option>Choisir un sport </option>
-                    <?php
-                    try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                    catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
-                    $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
-                    while ($donnees = $reponse->fetch()) 
-                    {
-                        echo '<option';
-                        if (isset($_POST['sport'])) 
-                        {
-                            if ($donnees['nom']==$_POST['sport']) 
-                            {
-                                echo ' selected="selected"';
-                            }
-                        }
-                        echo '>' . $donnees['nom'] . '</option>';
-                    }
-                    $reponse->closeCursor();
-                    ?>
-                    </select>
-                </p>
-                
-                
-                
-                <input type="submit" class="agrandir_bouton"/>
-            
-                <input type="reset" class="agrandir_bouton"/>
-            
-            </div>
-            
-                
-            </div>
-            
+        <form action="creation_groupe.php" method="post" class="champ_recherche">
+            <p>Nom du groupe : <input type="text" name="nom" class="l300"></p>
+            <p>Description (facultatif) :</br><textarea name="description" rows="8" maxlength="1000" class="l300" placeholder="Décrivez votre groupe ici..."></textarea></p>
+            <p>Sport principal : <?php include('liste_sports.php') ?></p>
+            <p>Statut : </br>
+                <select name='statut'>
+                    <option>Public</option>
+                    <option>Privé</option>
+                </select>
+            </p>
+            <p>Département : <?php include('liste_departements.php') ?></p>
+            <p>Image du groupe : <input type="text" name="image"></br><a href='http://www.hostingpics.net/' target="_blank">Lien vers un uploader de photos</a></p>
+            <p>Nombre maximum de membres : <input type="number" min="5" max="200" value="100" name="membres_max" maxlength="3"></p>
+            <input id="search-btn" type="submit" value="Créer la compétition" name="submit"> 
         </form>
-            
-        
-        
-        </div>
-             
-             
-    
-             <?php
-             
-             
-            if(isset($_POST['nom']))    
-             {
-                 $nom_groupe=$_POST['nom'];
-             }
-             else    
-             {
-                 $nom_groupe="";
-             }
-            
-            if(isset($_POST['description']))    
-            {
-                 $description_groupe=$_POST['description'];
-             }
-             else 
-             {
-                 $description_groupe="";
-             }
-            
-            if(isset($_POST['nombre_max']))
-            {
-            $nombre_max_membres = $_POST['nombre_max'];
+        <?php
+            if(isset($_POST['nom'])) {
+                $req = $bdd->prepare('INSERT INTO groupe(nom, description, sport, statut, departement, image, membres, membres_max) VALUES(:nom, :description, :sport, :statut, :departement, :image, 1, :membres_max)');
+                $req->execute(array(
+                    'nom' => $_POST['nom'],
+                    'description' => $_POST['description'],
+                    'sport' => $_POST['sport'],
+                    'statut' => $_POST['statut'],
+                    'departement' => $_POST['departement'],
+                    'image' => $_POST['image'],
+                    'membres_max' => $_POST['membres_max']
+                ));
+                echo 'Le groupe a été créé.';
             }
-            
-            if(isset($_POST['statut']))
-            {
-            $statut = $_POST['statut']; 
-            }
-            
-            if(isset($_POST['image']))
-            {
-            $image_groupe = $_POST['image']; 
-            }
-            
-            if(isset($_POST['sport']))
-            {
-            $sport_groupe = $_POST['sport'];
-            }
-             
-                 
-                 
-            ?>
-                 
-              <?php   
-             try
-             {
-                 $bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-             }
-             catch(Exception $e)
-             {
-                 die('Erreur : ' .$e ->getMessage());
-             }
-
-             $reponse = $bdd->prepare('SELECT nom_groupe FROM groupe WHERE nom_groupe = :nom_groupe');
-             $reponse->execute(array(
-                 'nom_groupe' => $nom_groupe
-                     ));
-
-             
-             $requete = $bdd->prepare('INSERT INTO groupe(nom_groupe, description_groupe, nombre_max_membres, statut, image_groupe, sport_groupe)
-                     VALUES (:nom_groupe, :description_groupe, :nombre_max_membres, :statut, :image_groupe, :sport_groupe)');
-             $requete->execute(array(
-                 'nom_groupe' => $nom_groupe,
-                 'description_groupe' => $description_groupe,
-                 'nombre_max_membres' => $nombre_max_membres,
-                 'statut' => $statut,
-                 'image_groupe' => $image_groupe,
-                 'sport_groupe' => $sport_groupe
-                 ));
-                 
-             
-            
-             ?>
-        
-             
-             
-             
-         
-     </body>
- </html>
+        ?>
+    </body>
+</html>
