@@ -1,127 +1,39 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
+<?php include('bdd.php') ?>
+
 <html>
     <head>
-        <title>Creation compet</title>
-        <meta charset="windows-1252">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="creation_compet.css">
+        <title>Création d'une compétition</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Accueil.css">
     </head>
+
     <body>
-        <div id="conteneur">
-            <form action="creation_compet.php" method="post" enctype="multipart/form-data">
-			
-				<p class="titre">Creer votre competition !</p>
-				
-                <p>Nom de la compétition :</br><input type="text" name="nom" id="nom_competition" /> </p>
-                
-                <p>Sport principal : </br><select name="sport_compet" id="sport_compet">
-                    <option>Choisir un sport </option>
-                    <?php
-                    try {$bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '');}
-                    catch (Exception $e) {die('Erreur : ' . $e->getMessage());}
-                    $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
-                    while ($donnees = $reponse->fetch()) 
-                    {
-                        echo '<option';
-                        if (isset($_POST['sport'])) 
-                        {
-                            if ($donnees['nom']==$_POST['sport']) 
-                            {
-                                echo ' selected="selected"';
-                            }
-                        }
-                        echo '>' . $donnees['nom'] . '</option>';
-                    }
-                    $reponse->closeCursor();
-                    ?> 
-                    </select>
-                </p>
-                <p>Date de la compétition :</br><input type="date" name="date"  id="date"/> </p>
-                
-                <p>Lieu de la compétition : </br><input type="text" name="lieu"  id="lieu" /> </p>
-                
-                <p>Groupe organisateur :</br><input type="text" name="groupe" id="organisateur"/> </p>
-                
-                <p>Nombre de places total :</br><input type="number" name="nombre" id="place_total"/> </p>
-                
-                <input type="submit" class = "agrandir_bouton"/>
-            </form>
-                
-                
-        </div>
+        <form action="creation_compet.php" method="post" class="champ_recherche">
+            <p>Nom de la compétition : <input type="text" name="nom" class="l300"></p>
+            <p>Sport principal : <?php include('liste_sports.php') ?></p>
+            <p>Date : <?php include('entrer_date.php') ?></p>
+            <p>Lieu : <textarea name="lieu" maxlength="100" rows="3" placeholder="Exemple : Club de Football de Versailles, Gymnase Saint-Germain Paris 6è..." class="l300"></textarea></p>
+            <p>Département : <?php include('liste_departements.php') ?></p>
+            <p>Nombre de places total : <input type="number" name="places" maxlength="6"></p>
+            <input id="search-btn" type="submit" value="Créer la compétition" name="submit"> 
+        </form>
+        <?php
+            if(isset($_POST['nom'])) {
+                $groupe='groupe'; // En attendant qu'on aie des vrais groupes créés
+                $req = $bdd->prepare('INSERT INTO liste_compets(nom, sport, date, lieu, departement, groupe, places_total, inscrits) VALUES(:nom, :sport, :date, :lieu, :departement, :groupe, :places_total, 0)');
+                $req->execute(array(
+                    'nom' => $_POST['nom'],
+                    'sport' => $_POST['sport'],
+                    'date' => $date,
+                    'lieu' => $_POST['lieu'],
+                    'departement' => $_POST['departement'],
+                    'groupe' => $groupe,
+                    'places_total' => $_POST['places'],
+                ));
+                echo 'La compétition a été créée.';
+            }
+        ?>
     </body>
 </html>
-
-<?php
-    if(isset($_POST['nom']))    
-    {
-        $nom_compet=$_POST['nom'];
-    }
-    else    
-    {
-        $nom_compet="";
-    }
-            
-    if(isset($_POST['sport_compet']))    
-    {
-        $sport_compet=$_POST['sport_compet'];
-    }
-     else 
-    {
-        $sport_compet="";
-    }
-
-    if(isset($_POST['date']))
-    {
-        $date_compet = $_POST['date'];
-    }
-            
-    if(isset($_POST['lieu']))
-    {
-        $lieu_compet = $_POST['lieu']; 
-    }
-            
-    if(isset($_POST['groupe']))
-    {
-        $groupe_compet = $_POST['groupe']; 
-    }
-            
-    if(isset($_POST['nombre']))
-    {
-        $nombre_places = $_POST['nombre'];
-    }
-            
-
-
-try
-             {
-                 $bdd = new PDO('mysql:host=localhost;dbname=agon;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-             }
-             catch(Exception $e)
-             {
-                 die('Erreur : ' .$e ->getMessage());
-             }
-
-             $reponse = $bdd->prepare('SELECT nom FROM compets WHERE nom = :nom_compet');
-             $reponse->execute(array(
-                 'nom_compet' => $nom_compet
-                     ));
-
-             
-             $requete = $bdd->prepare('INSERT INTO compets(nom, sport, date, lieu, groupe, places_restantes)
-                     VALUES (:nom_compet, :sport_compet, :date_compet, :lieu_compet, :groupe_compet, :nombre_places)');
-             $requete->execute(array(
-                 'nom_compet' => $nom_compet,
-                 'sport_compet' => $sport_compet,
-                 'date_compet' => $date_compet,
-                 'lieu_compet' => $lieu_compet,
-                 'groupe_compet' => $groupe_compet,
-                 'nombre_places' => $nombre_places
-                 ));
-             
-             ?>
