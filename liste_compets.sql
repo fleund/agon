@@ -6,7 +6,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 05 Mai 2016 à 20:20
+-- Généré le :  Dim 08 Mai 2016 à 21:51
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -31,36 +31,25 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `liste_compets`;
 CREATE TABLE IF NOT EXISTS `liste_compets` (
-  `ID` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `sport` varchar(255) NOT NULL,
   `date` date NOT NULL,
+  `lieu` varchar(255) NOT NULL,
   `departement` varchar(255) NOT NULL,
   `groupe` varchar(255) NOT NULL,
-  `places_restantes` int(11) NOT NULL
+  `places_total` int(11) NOT NULL,
+  `inscrits` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `liste_compets`
 --
 
-INSERT INTO `liste_compets` (`ID`, `nom`, `sport`, `date`, `departement`, `groupe`, `places_restantes`) VALUES
-(1, 'Coupe de foot', 'Football', '2016-05-18', 'Essonne', 'Groupe de foot de l''Essonne', 1),
-(2, 'Tournoi de Badminton', 'Badminton', '2016-06-01', 'Moselle', 'Club de badminton de Metz', 7),
-(3, 'Compétition annuelle de pétanque de Marseille', '', '2016-05-20', 'Bouches-du-Rhône', 'Les fanas de pétanque', 3),
-(4, 'Marathon de Paris', 'Marathon', '2016-06-10', 'Paris', 'Groupe officiel des marathoniens de Paris', 58),
-(5, '', '', '0000-00-00', '', '', 0),
-(6, '', '', '0000-00-00', '', '', 0),
-(7, '', '', '0000-00-00', '', '', 0),
-(8, '', '', '0000-00-00', '', '', 0),
-(9, '', '', '0000-00-00', '', '', 0),
-(10, '', '', '0000-00-00', '', '', 0),
-(11, '', '', '0000-00-00', '', '', 0),
-(12, '', '', '0000-00-00', '', '', 0),
-(13, '', '', '0000-00-00', '', '', 0),
-(14, '', '', '0000-00-00', '', '', 0),
-(15, '', '', '0000-00-00', '', '', 0),
-(16, '', '', '0000-00-00', '', '', 0);
+INSERT INTO `liste_compets` (`nom`, `sport`, `date`, `lieu`, `departement`, `groupe`, `places_total`, `inscrits`) VALUES
+('Coupe de foot', 'Football', '2016-05-18', 'Terrain de football de Wissous', 'Essonne', 'groupe', 50, 0),
+('Tournoi de Badminton', 'Badminton', '2016-06-01', 'Club de badminton de Metz', 'Moselle', 'groupe', 35, 0),
+('Compétition annuelle de pétanque de Marseille', 'Pétanque', '2016-05-20', 'Terrain de pétanque de la calanque de Morgiou', 'Bouches-du-Rhône', 'groupe', 20, 0),
+('Marathon de Paris', 'Marathon', '2017-04-09', 'Départ : avenue des Champs Élysées', 'Paris', 'groupe', 50000, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
