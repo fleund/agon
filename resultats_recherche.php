@@ -7,6 +7,8 @@
         <meta charset="UTF-8">
         <title>Résultats de la recherche</title>
         <link rel="stylesheet" href="Accueil.css">
+        <script src="jquery.js"></script>
+        <script src="recherche_avancee.js"></script>
     </head>
 
     <body>
