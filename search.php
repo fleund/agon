@@ -3,6 +3,10 @@
         include('liste_sports.php');
         include('liste_departements.php');
     ?>
+    
+    <script src="jquery.js"></script>
+    <script src="recherche_avancee.js"></script>
+    
     <br/><br/>
     <span id="activer" onclick="javascript:recherche_avancee('recherche_avancee');">Activer la recherche avancée</span> <!-- Permet d'activer/désactiver la recherche avancée -->
     <div id="recherche_avancee">
