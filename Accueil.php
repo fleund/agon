@@ -51,7 +51,7 @@
         </div>
         
         <?php
-            $_GET['avancee']='false';
+            $_GET['avancee']='false'; // On initialise la recherche avancée en mode "désactivée"
             include('search.php');
         ?> 
 
