@@ -14,7 +14,7 @@
     <body>
     	<h1>Résultats de la recherche</h1></br></br>
     	<?php
-            include('search.php') // Affichage de la recherche
+            include('search.php'); // Affichage de la recherche
 
             // Traitement de la recherche et affichage des résultats
 
