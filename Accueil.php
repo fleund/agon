@@ -8,6 +8,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Accueil.css">
+        <script src="jquery.js"></script>
+        <script src="recherche_avancee.js"></script>
     </head>
     
     <body>
@@ -43,12 +45,15 @@
             <?php // Affichage des sports en en-tête
                 $reponse = $bdd->query('SELECT * FROM sports_en_tete ORDER BY ID');
                 while ($donnees = $reponse->fetch()) {
-                    echo '<a href="resultats_recherche.php?sport=' . $donnees['nom'] . '">' . $donnees['nom'] . '</a>&nbsp;';
+                    echo '<a href="resultats_recherche.php?avancee=false&amp;sport=' . $donnees['nom'] . '">' . $donnees['nom'] . '</a>&nbsp;';
                 }
             ?>
         </div>
         
-        <?php include('search.php'); ?> 
+        <?php
+            $_GET['avancee']='false';
+            include('search.php');
+        ?> 
 
     </div>
     <div id='bloc_galerie'>
