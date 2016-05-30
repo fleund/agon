@@ -32,9 +32,6 @@
             if (!isset($vide)) {
               if ($nom_champ[3]==$nom_champ[4]) { // On vérifie que le mdp et sa confirmation sont identiques
                 $req = $bdd->prepare('INSERT INTO inscrit(id, nom, prenom, date_naissance, sexe, departement, email, mdp, sport) VALUES(NULL, :nom, :prenom, :date_naissance, :sexe, :departement, :email, :mdp, :sport)'); // On inscrit le membre
-
-                  /*INSERT INTO `inscrit` (`id`, `nom`, `prenom`, `date_naissance`, `sexe`, `departement`, `email`, `mdp`, `sport`) VALUES (NULL, 'a', 'a', '2016-05-03', 'a', 'a', 'a', 'a', 'a');*/
-
                 $req->execute(array(
                   'nom' => $nom_champ[0],
                   'prenom' => $nom_champ[1],
