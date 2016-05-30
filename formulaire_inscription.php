@@ -48,8 +48,6 @@
                 $req = $bdd->prepare('UPDATE liste_sports SET nb_membres=nb_membres+1 WHERE nom=:nom'); // On incrémente le nombre de gens qui pratiquent ce sport
                 $req->execute(array('nom' => $_POST['sport']));
                 echo '<strong>L\'inscription s\'est déroulée avec succès.</strong>';
-                sleep(3);
-                header('Location: Accueil.php');
               }
               else {echo '<strong class="erreur">Les deux mots de passe doivent être identiques.</strong></br>';}
             }
