@@ -47,7 +47,10 @@
                 ));
                 $req = $bdd->prepare('UPDATE liste_sports SET nb_membres=nb_membres+1 WHERE nom=:nom'); // On incrémente le nombre de gens qui pratiquent ce sport
                 $req->execute(array('nom' => $_POST['sport']));
-                echo '<strong>L\'inscription s\'est déroulée avec succès.</strong>';
+                $reponse = $bdd->prepare('SELECT id FROM inscrit WHERE email=:email'); // On incrémente le nombre de gens qui pratiquent ce sport
+                $reponse->execute(array('email' => $nom_champ[2]));
+                $donnees = $reponse->fetch();
+                header('Location: Profil.php?id=' . $donnees['id']);
               }
               else {echo '<strong class="erreur">Les deux mots de passe doivent être identiques.</strong></br>';}
             }
