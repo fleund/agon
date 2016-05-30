@@ -22,7 +22,6 @@
         <?php
             if(isset($_POST['submit'])) {
                 $nom_champ=array('nom', 'sport', 'lieu', 'departement', 'places');
-                $nb_champs=4;
                 include('champs_vides.php');
                 if (!isset($vide)) {
                     $groupe='groupe'; // En attendant qu'on aie des vrais groupes créés
@@ -36,7 +35,7 @@
                         'groupe' => $groupe,
                         'places_total' => $_POST['places']
                     ));
-                    echo 'La compétition a été créée.';
+                    header('Location: événement.php?id=' . $donnees['id']);
                 }
                 else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
             }
