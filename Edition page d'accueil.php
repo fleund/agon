@@ -15,13 +15,6 @@
 
         <?php // Mise à jour de la base de données, suite au remplissage des champs
             if (isset($_GET['modifications'])) {
-                for ($i = 1; $i <= 16; $i++) {
-                    $req = $bdd->prepare('UPDATE sports_en_tete SET nom=:tmp1 WHERE ID = :i'); // Table de la liste des sports en en-tête
-                    $req->execute(array(
-                        'tmp1' => $_POST['en_tete' . $i],
-                        'i' => $i
-                    ));
-                }
                 $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
                 while($donnees = $reponse->fetch()) { // On teste si le sport à ajouter est déjà dans la liste
                     if ($donnees['nom']==$_POST['ajout_sport']) {
@@ -39,10 +32,6 @@
                 $req->execute(array(
                     'tmp' => $_POST['sport']
                 ));
-                $req = $bdd->prepare('UPDATE sports_en_tete SET nom=\'\' WHERE nom=:tmp'); // Tant qu'à faire, on supprime aussi ce sport de l'en-tête
-                $req->execute(array(
-                    'tmp' => $_POST['sport']
-                ));
                 echo '<strong>Les ';
                 if (isset($doublon)) {echo 'autres ';}
                 echo 'modifications ont été enregistrées.</strong></br></br>';
@@ -50,22 +39,6 @@
         ?>
 
         <form action="Edition page d'accueil.php?modifications=oui" method="post">
-            <div id="bloc1">
-                <p class="tb1">Modifier la liste des sports en en-tête de la page d'accueil<p>
-                </br><em>Note : ces champs déterminent également l'ordre des sports dans l'en-tête.</em></br></br>
-                
-                <div id="essai">
-                    <?php // Affichage des champs pour modifier la liste des sports en en-tête, préremplis avec la liste actuelle
-                        $reponse = $bdd->query('SELECT * FROM sports_en_tete ORDER BY ID');
-                        for ($i = 1; $i <= 16; $i++) {
-                            $donnees = $reponse->fetch();
-                            echo $i . ' :&nbsp;<input type="text" name="en_tete' . $donnees['ID'] . '" id="sport" maxlength ="30" value="' . $donnees['nom'] . '">&nbsp;&nbsp;';
-                        }
-                    ?>
-                </div>
-
-            </div></br></br>
-            
             <fieldset class="bloc">
                 <legend>Modifier la liste exhaustive des sports représentés sur ce site</legend> 
 
@@ -87,8 +60,8 @@
 
         <form action="Edition page d'accueil.php#roulement_photos" method="post" enctype="multipart/form-data">
             <fieldset class="bloc" id="roulement_photos">
-                
                 <legend >Modifier le roulement des photos</legend>
+
                 </br><em>L'envoi du fichier peut prendre quelques instants, merci de patienter.</br>
                 Formats acceptés : .jpg, .jpeg, .gif ou .png. Taille : max 1 Mo.</em></br>
 
