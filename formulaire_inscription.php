@@ -30,22 +30,22 @@
             $nb_champs=4;
             include('champs_vides.php');
             if (!isset($vide)) {
-              if ($nom_champ[3]==$nom_champ[4]) { // On vérifie que le mdp et sa confirmation sont identiques
+              if ($contenu_champ[3]==$contenu_champ[4]) { // On vérifie que le mdp et sa confirmation sont identiques
                 $req = $bdd->prepare('INSERT INTO inscrit(id, nom, prenom, date_naissance, sexe, departement, email, mdp, sport) VALUES(NULL, :nom, :prenom, :date_naissance, :sexe, :departement, :email, :mdp, :sport)'); // On inscrit le membre
                 $req->execute(array(
-                  'nom' => $nom_champ[0],
-                  'prenom' => $nom_champ[1],
+                  'nom' => $contenu_champ[0],
+                  'prenom' => $contenu_champ[1],
                   'date_naissance' => '1900-01-01', // Date par défaut
                   'sexe' => '',
                   'departement' => '',
-                  'email' => $nom_champ[2],
-                  'mdp' => $nom_champ[3],
+                  'email' => $contenu_champ[2],
+                  'mdp' => $contenu_champ[3],
                   'sport' => $_POST['sport']
                 ));
                 $req = $bdd->prepare('UPDATE liste_sports SET nb_membres=nb_membres+1 WHERE nom=:nom'); // On incrémente le nombre de gens qui pratiquent ce sport
                 $req->execute(array('nom' => $_POST['sport']));
                 $reponse = $bdd->prepare('SELECT id FROM inscrit WHERE email=:email'); // On incrémente le nombre de gens qui pratiquent ce sport
-                $reponse->execute(array('email' => $nom_champ[2]));
+                $reponse->execute(array('email' => $contenu_champ[2]));
                 $donnees = $reponse->fetch();
                 header('Location: Profil.php?id=' . $donnees['id']);
               }
