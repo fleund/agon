@@ -33,7 +33,7 @@
                 $max=$_POST['max'];
             }
             if (isset($sport)) {
-                for($i=0; $i<=2; $i++) { // La boucle tourne 3 fois : pour club, pour événement et pour groupe
+                for ($i=0; $i<=2; $i++) { // La boucle tourne 3 fois : pour club, pour événement et pour groupe
                     if (isset($_POST[$table[$i]]) or isset($_GET['sport'])) {
                         if (empty($min)) {$min=0;} // On donne des valeurs par défaut à min et max
                         if (empty($max)) {$max=1000000;}
@@ -67,7 +67,7 @@
                             </tr>'; // Affichage de l'en-tête du tableau des résultats
                             while ($donnees = $reponse->fetch()) {
                                 echo '<tr>'
-                                    . '<td><a href="">' . $donnees['nom'] . '</a></td>'
+                                    . '<td><a href="' . $nom_table[$i] . '.php?id=' . $donnees['id'] . '">' . $donnees['nom'] . '</a></td>'
                                     . '<td>' . $donnees['sport'] . '</td>'
                                     . '<td>' . $donnees['departement'] . '</td>'
                                     . '<td>' . $donnees['inscrits'] . '</td>'
