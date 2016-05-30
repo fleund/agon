@@ -19,19 +19,15 @@
                 while($donnees = $reponse->fetch()) { // On teste si le sport à ajouter est déjà dans la liste
                     if ($donnees['nom']==$_POST['ajout_sport']) {
                         $doublon=True;
-                        echo '</br><strong class="erreur">Le sport "' . $_POST['ajout_sport'] . '" est déjà  dans la liste des sports. Il n\'a donc pas été ajouté.</strong></br>';
+                        echo '</br><strong class="erreur">Le sport "' . $_POST['ajout_sport'] . '" est déjà dans la liste des sports. Il n\'a donc pas été ajouté.</strong></br>';
                     }
                 }
                 if (!isset($doublon)) {
-                    $req = $bdd->prepare('INSERT INTO liste_sports(nom) VALUES(:tmp)'); // On ajoute le sport à la liste globale
-                    $req->execute(array(
-                        'tmp' => $_POST['ajout_sport']
-                    ));
+                    $req = $bdd->prepare('INSERT INTO liste_sports(nom, nb_membres) VALUES(:nom, 0)'); // On ajoute le sport à la liste globale
+                    $req->execute(array('nom' => $_POST['ajout_sport']));
                 }
-                $req = $bdd->prepare('DELETE FROM liste_sports WHERE nom=:tmp'); // On supprime un sport de la liste globale
-                $req->execute(array(
-                    'tmp' => $_POST['sport']
-                ));
+                $req = $bdd->prepare('DELETE FROM liste_sports WHERE nom=:nom'); // On supprime un sport de la liste globale
+                $req->execute(array('nom' => $_POST['sport']));
                 echo '<strong>Les ';
                 if (isset($doublon)) {echo 'autres ';}
                 echo 'modifications ont été enregistrées.</strong></br></br>';
@@ -49,7 +45,7 @@
                 ?>
 
                 </br></br>Ajouter un sport à la liste :
-                <input name=ajout_sport type="text" maxlength="30">
+                <input name="ajout_sport" type="text" maxlength="30">
 
             </fieldset></br></br>
 
@@ -85,9 +81,9 @@
                                 if (in_array($extension_upload, $extensions_autorisees)) { // On vérifie que l'extension de la photo est bonne
                                     @unlink('uploads/' . $donnees['nom']); // Si il y avait déjà une photo dans ce champ, on la supprime du dossier "uploads"
                                     move_uploaded_file($_FILES['photo' . $i]['tmp_name'], 'uploads/' . basename($_FILES['photo' . $i]['name'])); // Toutes les conditions sont vérifiées, donc on stocke la photo dans le dossier "uploads"
-                                    $req = $bdd->prepare('UPDATE liste_photos SET nom = :tmp WHERE ID = :i'); // On stocke également le nom de cette photo dans la table "liste_photos"
+                                    $req = $bdd->prepare('UPDATE liste_photos SET nom = :nom WHERE ID = :i'); // On stocke également le nom de cette photo dans la table "liste_photos"
                                     $req->execute(array(
-                                        'tmp' => basename($_FILES['photo' . $i]['name']),
+                                        'nom' => basename($_FILES['photo' . $i]['name']),
                                         'i' => $i
                                     ));
                                     $j+=1; // on incrémente une variable qui compte le nombre de modifications effectuées
