@@ -43,7 +43,7 @@
         </div>
         <div class="sports_en_tete">
             <?php // Affichage des sports en en-tête
-                $reponse = $bdd->query('SELECT * FROM sports_en_tete ORDER BY ID');
+                $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nb_membres DESC LIMIT 15');
                 while ($donnees = $reponse->fetch()) {
                     echo '<a href="resultats_recherche.php?avancee=false&amp;sport=' . $donnees['nom'] . '">' . $donnees['nom'] . '</a>&nbsp;';
                 }
@@ -63,7 +63,7 @@
         <?php // Affichage du roulement de photos
             $reponse = $bdd->query('SELECT * FROM liste_photos ORDER BY ID');
             while ($donnees = $reponse->fetch()) {
-                if ($donnees['nom']!='') {
+                if (!empty($donnees['nom'])) {
                     echo '<img src="uploads/' . $donnees['nom'] . '"title="' . $donnees['nom'] . '" id="photo' . $donnees['ID'] . '">';
                 }
             }
