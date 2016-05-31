@@ -1,0 +1,186 @@
+.bordure 
+{
+	border : 2px solid #F13D7D;
+        padding: 12px;
+        margin:	320px 10px 165px 80px;
+        border-radius:10px;
+	width:35%
+}
+.bordure1 
+{
+	border : 2px solid #33A2FF;
+	padding: 12px;
+        margin:	-850px 800px 10px 600px;
+        border-radius:10px;
+        width:40%;
+        
+}
+.bordure2 
+{
+	width:40%; 
+        height:250px; 
+        overflow:auto; 
+        padding: 12px;
+        margin:	10px 800px -40px 600px;
+        border-radius:10px;
+        border: 2px solid #33A2FF;
+        
+        
+}
+
+.bordure3 
+{
+	border : 2px solid #33A2FF;;
+	width:40%;
+        height:235px;
+        padding: 12px;
+        margin:	50px 800px 50px 600px;
+        overflow: auto;
+        border-radius:10px;
+        
+        
+}        
+.marge
+{
+   position : absolute;
+  
+   width:690px;
+   height:100px;
+   left : 35%;
+   margin-left : -340px;
+   margin-top:100px; 
+}
+.titremarge
+{
+    margin-left: 500px;
+    margin-top: 150px;
+}
+
+
+
+#onglets_accueil {
+	display:inline-block;
+	float:right;
+	text-align:right;
+	height:30%;
+	margin-top:1%;
+	background-color:#F13D7D;
+	width:20%;
+	min-width:30em;
+	border-radius:20px;
+}
+#onglets_accueil a {
+	border:2px solid black;
+	margin:0.1em -0.25em;
+	padding:0.25em;
+	background-color:#33A2FF;
+	border-radius:20px;
+}
+#onglets_accueil a:hover {
+	background-color:#BFFF09;
+	color:black;
+	font-weight:bold;
+	font-size:larger;
+}
+
+header{
+	background-color: white;
+	position: fixed;
+	height:100px; 
+        
+	margin-left:-0.5em;
+	margin-top:-150px;
+	z-index:10000;
+	width:100%;
+	box-shadow:0 0 10px 4px grey
+}
+
+/*Pour l'identifiant et mot de passe */
+#identifiants{
+	display:flex;
+	justify-content:flex-end;
+	align-items:center;
+	margin-right:1em;
+	width:98%;
+	margin-left:1em;
+	margin-top:-10%;
+}
+
+
+
+
+/*Pour les liens Accueil, Groupes, Mon espace... */
+
+
+/*CSS pour l'affichage du Logo. Il faut y mettre les dimensions prévues par la charte graphique */
+.Logo { 
+	width:95%;
+	position: left;
+	margin:-2px 5px;
+}
+
+#barre_bleue_gauche 
+{
+	width:1%;
+	display:inline-block;
+	background-color:#33A2FF;
+	border-radius:10px;
+	height:50em;
+	float:left;
+	clear:none;
+        margin-top:5em;
+}
+
+#barre_bleue_droite {
+	width:1%;
+	display:inline-block;
+	background-color:#33A2FF;
+	border-radius:10px;
+	height:50em;
+	float:right;
+	clear:none;
+        margin-top:5em;
+}
+
+#barre_mauve_gauche {
+	width:1%;
+	display:inline-block;
+	background-color:#F13D7D;
+	border-radius:10px;
+	height:48em;
+	margin-top:6em;
+	margin-left:0.25em;
+	float:left;
+	clear:none;
+}
+
+#barre_mauve_droite{
+	width:1%;
+	display:inline-block;
+	background-color:#F13D7D;
+	border-radius:10px;
+	height:48em;
+	top:1em;
+	margin-top:6em;
+	margin-right:0.25em;
+	float:right;
+	clear:none;
+}
+
+
+
+
+
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14 mars 2016, 15:00:58
+    Author     : Quillin
+*/
+
