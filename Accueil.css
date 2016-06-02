@@ -99,7 +99,7 @@ body
     justify-content : space-around;
 }
 
-#connexion, #inscription, #creation_groupe, #edition_acceuil
+.bouton_accueil
 {
     position : relative;
     float : right;
@@ -117,7 +117,7 @@ body
     margin-bottom: 2em;
 }
 
-#connexion:hover, #inscription:hover, #creation_groupe:hover, #edition_acceuil:hover
+.bouton_accueil:hover
 {
 	color : rgb(241,61,125);
 }
@@ -565,5 +565,3 @@ legend
 {
 	width : 12%;
 }
-
-  
