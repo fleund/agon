@@ -91,10 +91,32 @@
                         <h2>Groupes</h2>  
                         <?php
                         
-                        $requ = $bdd->prepare('SELECT * FROM `inscrit`, `groupe`WHERE inscrit.id_groupe = groupe.id LIMIT 0, 30 ');
-                            $requ->execute(array('id' => $_GET['id'] ));
-                            $donnee = $requ->fetch(); 
-                            echo $donnee['nom_groupe']
+                        $id_groupe = $donnees['id_groupe'];
+                        
+                   
+                        $requ = $bdd->query('SELECT * FROM groupe');
+                        while ($donnees2 = $requ->fetch()){
+                            if ($id_groupe == $donnees2['id']){echo $donnees2['nom_groupe'];}
+                        }
+                        
+                        
+                        
+                           
+                            
+                            
+             
+                        
+                        //$requ = $bdd->prepare('SELECT * FROM `inscrit`, `groupe`WHERE inscrit.id_groupe = groupe.id LIMIT 0, 30 ');
+                          //  $requ->execute(array('id' => $_GET['id'] ));
+                           // $donnee = $requ->fetch(); 
+                            
+                            //if ($donnee['id_groupe']!=0)
+                            //{
+                              //  echo $donnee['nom_groupe'];
+                            //}
+                            
+                               
+                            
                         ?>
                     </div > 
                     
