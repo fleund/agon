@@ -14,7 +14,6 @@
 	<?php include("header.php"); ?>
 		
         <p class = "titre">Édition de la page d'accueil</p>
-		
 
         <?php // Mise à jour de la base de données, suite au remplissage des champs
             if (isset($_GET['modifications'])) {
