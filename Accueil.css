@@ -1,8 +1,11 @@
+/* CSS Acceuil */  
+
+
 #conteneur
 {
-    background-image: url("Jogger2.jpg");
+    background-image: url(Jogger2.jpg);
     background-origin: border-box;
-    background-size: 100% auto;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -90,12 +93,13 @@ body
     position: relative;
     float : right;
     margin-top: -7em;
+	margin-right : 3em;
     padding-top :1.5em;
     display : flex;
     justify-content : space-around;
 }
 
-#connexion, #inscription
+#connexion, #inscription, #creation_groupe, #edition_acceuil
 {
     position : relative;
     float : right;
@@ -103,7 +107,7 @@ body
     border-width: 1px;
     border-color: rgb(51,162,255);
     padding: 5px 10px 5px 10px;
-    width: 30%;
+    width: 100%;
     box-sizing: border-box;
     font-size: 13px;
     font-weight: normal;
@@ -113,7 +117,7 @@ body
     margin-bottom: 2em;
 }
 
-#connexion:hover, #inscription:hover
+#connexion:hover, #inscription:hover, #creation_groupe:hover, #edition_acceuil:hover
 {
 	color : rgb(241,61,125);
 }
@@ -132,7 +136,7 @@ a:hover
 {
     text-align: center;
     font-size: 2em;
-    color : rgb(51,162,255);
+    color : rgb(241,61,125);
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -171,14 +175,36 @@ a
     margin-top: 7em;
 }
 
-.critere
+
+#conteneur
 {
-    width : 45%;
-    padding: 5px 0px 5px 10px;
-    margin-top: 2em;
-    border-style: solid;
-    font-size: 13px;
-    color: rgb(51,162,255);
+    margin-bottom: 0em;
+}
+
+.sports_en_tete
+{
+	justify-content: space-around;
+    display: flex;
+	margin-top : 2em;
+	text-transform : uppercase;
+	font-size : 1em;
+	background-color : rgba(0,0,0,0.6);
+}
+
+.erreur {
+    color: red;
+}
+
+
+
+/* CSS Recherche */  
+
+h1
+{
+	text-align : center;
+	text-transform : uppercase;
+	font-size : 2em;
+	color : rgb(241,61,125);
 }
 
 #search-btn
@@ -196,13 +222,348 @@ a
     text-transform: uppercase;
     color: rgb(51,162,255);
     margin-bottom: 2em;
+	margin-left : 5%;
+	margin-right : 5%;
 }
 
-#conteneur
+.Rechercher
 {
-    margin-bottom: 0em;
+	width : 90%;
+	margin-left : auto;
+	margin-right : auto;
+	margin-top : -2em;
+	
 }
 
-.erreur {
-    color: red;
+#checkbox
+{
+	margin-left : auto;
+	margin-right : auto;
+	text-align : left;
+	width : 90%;
 }
+
+#checkbox div {
+	width:40%;
+	margin-left :32%;
+	text-align : center; 
+	display : flex;
+}
+
+#checkbox label {
+	padding-bottom : -2em;
+	position : relative;
+	float : left;
+	margin-right : 10%;
+}
+
+#search-btn:hover
+{
+	color: rgb(241,61,125);
+}
+
+#activer
+{
+	margin-left : auto;
+	margin-right :auto;
+	text-transform : uppercase;
+}
+
+body
+{
+	background-color : rgba(51,162,255,0.4);
+	
+}
+
+#recherche_avancee
+{
+	margin-top : 2em;
+	width : 90%;
+	margin-left : auto;
+	margin-right : auto;
+}
+
+.selection
+{
+	display : flex;
+	justify-content : space-around;
+	width : 90%;
+	margin-left : auto;
+	margin-right : auto;
+}
+
+.critere
+{
+	width : 30%;
+	margin-left : 1%;
+	margin-right:1%;
+}
+
+/* CSS Groupe */  
+
+.bordure 
+{
+	border : 2px solid #F13D7D;
+        padding: 12px;
+        margin:	320px 10px 165px 80px;
+        border-radius:10px;
+	width:35%
+}
+        
+.marge
+{
+   position : absolute;
+  
+   width:690px;
+   height:100px;
+   left : 35%;
+   margin-left : -340px;
+   margin-top:100px; 
+}
+.titremarge
+{
+    margin-left: 500px;
+    margin-top: 150px;
+}
+
+/* CSS Header */  
+
+#header
+{
+	position: fixed; 
+	width : 99%;
+	box-shadow:0 0 10px 4px grey;
+	margin-top:-15px;
+	padding-bottom : 0.1em;
+}
+
+/* CSS  */  
+
+.liste1, .liste2, .liste3, .liste4
+{
+    position: relative;
+    float : left;
+    margin-right : 1em;
+    margin-left: 1em;
+}
+
+#sport, #compet
+{
+    margin-top:1em;
+    margin-bottom:1em;
+}
+
+/* CSS Edition page d'acceuil */  
+
+.titre
+{
+    font-size: 2em;
+    font-weight: bold;
+    text-align : center;
+    min-width: 820px;
+    width : 50%;
+    color : rgb(51,162,255);
+    bakground-color: rgba(241,61,125, 0.9);
+    margin : 0 auto 1em auto;
+}
+
+
+#bloc1
+{
+    padding-left : 2em;
+    padding-right : 2em;
+    padding-bottom: 2em;
+    min-width: 820px;
+    width : 90%;
+    border : 2px solid black;
+}
+
+.bloc
+{
+    padding-left : 2em;
+    padding-right : 2em;
+    padding-bottom: 2em;
+    min-width: 820px;
+    width : 90%;
+}
+
+#essai
+{
+	display: flex;
+        flex-wrap : wrap;
+        justify-content : center;
+}
+
+#sport:hover
+{
+    color : rgb(51,162,255);
+}
+
+.tb1
+{
+	background-color : white;
+	width : 35%;
+	margin-top : -0.75em;
+	text-align : center;
+	font-size : 1.1em;
+        color : rgb(241,61,125);
+}
+
+legend
+{
+     color : rgb(241,61,125);
+}
+
+bouton
+{
+    position : relative;
+    float : right;
+    margin-bottom: 3em;
+    margin-right : 12em;
+    box-shadow : 3px 3px 3px 3px;
+}
+
+.agrandir_bouton
+{
+    font-size:1.1em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(51,162,255);
+    padding: 5px 10px 5px 10px;
+    width: 30%;
+    box-sizing: border-box;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+    color: rgb(51,162,255);
+    margin-bottom: 2em;
+    margin-left : 60%;
+}
+
+.agrandir_bouton:hover
+{
+    color : rgb(241,61,125);
+}
+
+legend
+{
+    font-size : 1.2em;
+}
+
+
+/* CSS Creation_groupe */
+
+
+#Creer_un_groupe
+{
+    display: flex;
+    justify-content : space-around; 
+}
+
+#bloc_image, #bloc_champ
+{
+	width : 40%;
+	text-align : left;
+	margin-bottom : auto;
+	margin-top : auto;
+	
+}
+
+
+#conteneur_groupe
+{
+    border: 1px solid black;
+    width : 60%;
+	margin-top : 2em;
+}
+
+.legend_groupe
+{
+    margin-top : -1.2em;
+	text-transform : uppercase;
+}
+
+.champ
+{
+    width : 60%;
+}
+
+.champ .critere
+{
+    width : 100%;
+}
+
+#search-btn_creation_groupe
+{
+       /* Couleur de fond */
+    border-style: solid;   /* Style de la bordure  */
+    border-width: 1px;   /* Epaisseur de la bordure  */
+    border-color: rgb(51,162,255);   /* Couleur de la bordure  */
+    padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
+    width: 90%;   /* Permet d'ajuster la largeur du bouton à 100% */
+    box-sizing: border-box;   /* Important */
+    font-size: 13px;   /* Taille de la police du texte */
+    font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
+    letter-spacing: 2px;   /* Espacement des caractères */
+    margin: 10px 0 0 0;   /* Espace autour du bouton : haut droite bas gauche  */
+    text-transform: uppercase;   /* Transforme le texte en majuscules */
+    color: rgb(51,162,255);   /* Couleur du texte */
+    margin-bottom: 2em;
+}
+
+#search-btn_creation_groupe:hover
+ {
+	color:rgb(241,61,125);
+}
+
+/* CSS Créer un compte */
+
+.champ_inscription #nom, .champ_inscription #prenom, .champ_inscription #date_naissance, .champ_inscription #email, .champ_inscription #mdp, .champ_inscription #confirmation
+{
+	width : 20%;
+}
+
+.champ_inscription .critere
+{
+	width : 20%;
+}
+
+.titre_creer_compte
+{
+    
+	text-transform : uppercase;
+	margin-bottom : -1.5em;
+}
+
+.champ_inscription
+{
+	padding-top : 2em;
+	padding-left : 1em;
+}
+
+
+/* CSS Créer une compétition */
+
+.champ_compet
+{
+	border : 1px solid black;
+	margin-top : 2em;
+	padding-left : 1em;
+	padding-top : 2em;
+	padding-right : 2em;
+	width : 60%;
+}
+
+.champ_compet input, .champ_compet textarea, .champ_compet .critere
+{
+	width : 40%;
+	bakground-color : blue;
+}
+
+.champ_compet .champ_date
+{
+	width : 12%;
+}
+
+  

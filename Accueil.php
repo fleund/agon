@@ -14,27 +14,27 @@
     
     <body>
     <div id="conteneur">
-        <div class="element">
-            <img class="Logo" src="Logo.png" alt="Logo Agon" />
-        </div>
-        <div class="element">
-            <a href="creation_groupe.php" class="bouton">Créer un groupe</a>
-            <a href="Edition page d'accueil.php" class="bouton">Édition de la page d'accueil</a>
-            <input id="connexion" type="submit" value="Connexion" />
-            <input id="inscription" type="submit" value="Inscription" />
-	    </div>
+		<div class="element">
+			<img class="Logo" src="Logo.png" alt="Logo Agon" />
+		</div>
+		<div class="element">
+			<form method="POST" action="Edition page d'accueil.php"><input id="edition_acceuil" type="submit" value="Editer accueil"/></form>
+			<form method="POST" action="creation_groupe.php"><input id="creation_groupe" type="submit" value="Créer groupe"/></form>
+			<form method="POST" action=".php"><input id="connexion" type="submit" value="Connexion" /></form>
+			<form method="POST" action="formulaire_inscription.php"><input id="inscription" type="submit" value="Inscription" /></form>
+		</div>
 		<div class="element">    
-        </div>
-        <div class="element">
-            <div id="onglets_accueil">
-                <div><a href="Accueil.php">Accueil</a></div>
-                <div><a href="Index des forums.php">Forum</a></div>
-                <div><a href="">Groupes</a></div> 
-                <div><a href="">Mon espace</a></div>
-            </div>   
-	    </div>
-		<div class="element">    
-        </div>
+		</div>
+		<div class="element">
+			<div id="onglets_accueil">
+				<div><a href="Accueil.php">Accueil</a></div>
+				<div><a href="Index des forums.php">Forum</a></div>
+				<div><a href="groupe.php">Groupes</a></div> 
+				<div><a href="">Mon espace</a></div>
+			</div>   
+		</div>
+		<div class="element">
+		</div>
         <div class="element">
                 <p class="message_important"> SPORTIFS DE TOUS LES JOURS, VENEZ !</p>
                 <li>FORME TON GROUPE</li>
@@ -54,7 +54,7 @@
             $_GET['avancee']='false'; // On initialise la recherche avancée en mode "désactivée"
             include('search.php');
         ?> 
-
+		
     </div>
     <div id='bloc_galerie'>
         <div id="galerie">

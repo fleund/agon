@@ -7,11 +7,14 @@
     <head>
         <meta charset="utf-8">
         <title>Édition de la page d'accueil</title>
-        <link rel="stylesheet" href="Edition page d'accueil.css" />
+        <link rel="stylesheet" href="Accueil.css" />
     </head>
 
     <body>
+	<?php include("header.php"); ?>
+		
         <p class = "titre">Édition de la page d'accueil</p>
+		
 
         <?php // Mise à jour de la base de données, suite au remplissage des champs
             if (isset($_GET['modifications'])) {

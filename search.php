@@ -1,4 +1,6 @@
 <form method="post" <?php echo 'action="resultats_recherche.php?avancee=' . $_GET['avancee'] . '#search-btn"' ?> class="champ_recherche" id="champ_recherche">
+	<fieldset>
+    
     <?php
         include('liste_sports.php');
         include('liste_departements.php');
@@ -36,7 +38,9 @@
         if ($_GET['avancee']=='false') {echo '<script>recherche_avancee(\'recherche_avancee\');</script>';}
     ?>
 
-    <p><br/>Rechercher...</p>
+    <p><div class="Rechercher">Rechercher...</div></p>
+	<div id="checkbox">
+	<div>
     <?php
         $nom_table = array('groupe', 'club', 'événement');
         $table = array('groupe', 'clubs', 'liste_compets');
@@ -49,5 +53,8 @@
             echo '><label for="' . $table[$i] . '">Des ' . $nom_table[$i] . 's</label><br/>';
         }
     ?>
+	</div>
+	</div>
     <input id="search-btn" type="submit" value="Rechercher" name="submit">
+	</fieldset>
 </form>
