@@ -28,7 +28,7 @@
                   'email' => $contenu['email'],
                   'mdp' => $contenu['mdp'],
                   'sport' => $contenu['sport'],
-				  'sexe' => $contenu['']
+				  'sexe' => $contenu['sexe']
                 ));
                 $req = $bdd->prepare('UPDATE liste_sports SET nb_membres=nb_membres+1 WHERE nom=:nom'); // On incrémente le nombre de gens qui pratiquent ce sport
                 $req->execute(array('nom' => $_POST['sport']));
