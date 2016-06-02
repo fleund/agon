@@ -15,6 +15,32 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        
+        <?php
+        var_dump($_POST);
+        
+        
+        if(isset($_POST['submit'])){
+            
+            $champ=array('nom_topic', 'description_topic', 'sport');
+            include('champs_vides.php');
+            if(!isset($vide)){
+                for($i=0; $i<=count($champ)-1; $i++) 
+                        {$pre_array[$champ[$i]] = $contenu[$champ[$i]];}
+                $req = $bdd->prepare('INSERT INTO topic(nom_topic, description_topic, sport) VALUES (:nom_topic, :description_topic, :sport)');
+                var_dump($req);
+                $req->execute($pre_array);
+                $reponse = $bdd->query('SELECT MAX(id_topic) AS id FROM topic');
+                $donnees = $reponse->fetch();
+                header('Location : topic.php?id=' . $donnees['id']);
+                $requete = $bdd->query('SELECT * FROM topic');
+                $result = $requete->fetchAll();
+                var_dump($result);
+            }
+            else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
+            }
+        
+        ?>
         <div>
             <form method="post">
                 <label for="nom_topic">Nom</label>
@@ -35,25 +61,8 @@ and open the template in the editor.
                         }
                     ?>
                 </select>
-                <br/><input type="submit" />
+                <br/><input type="submit" value="Créer le topic" name="submit" />
             </form>
         </div>
-        <?php
-        if(isset($_POST['submit'])){
-            $champ=array('nom_topic', 'description_topic', 'sport');
-            include('champs_vides.php');
-            if(!isset($vide)){
-                for($i=0; $i<=count($champ)-1; $i++) 
-                        {$pre_array[$champ[$i]] = $contenu[$champ[$i]];}
-                $req = $bdd->prepare('INSERT INTO topic(nom_topic, description topic, sport) VALUES (:nom_topic, :description_topic, :sport)');
-                $req->execute($pre_array);
-                $reponse = $bdd->query('SELECT MAX(id) AS id FROM topic');
-                $donnees = $reponse->fetch();
-                header('Location : topic.php?id=' . $donnees['id']);
-            }
-            else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
-            }
-        
-        ?>
     </body>
 </html>
