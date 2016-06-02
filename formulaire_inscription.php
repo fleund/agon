@@ -22,7 +22,7 @@
             include('champs_vides.php');
             if (!isset($vide)) {
               if ($contenu['mdp']==$contenu['confirmation']) { // On vérifie que le mdp et sa confirmation sont identiques
-                $req = $bdd->prepare('INSERT INTO inscrit(nom, prenom, date_naissance, sexe, departement, email, mdp, sport) VALUES(:nom, :prenom, :date_naissance, :sexe, :departement, :email, :mdp, :sport)'); // On inscrit le membre
+                $req = $bdd->prepare('INSERT INTO inscrit(nom, prenom, date_naissance, sexe, departement, email, mdp, sport, id_groupe) VALUES(:nom, :prenom, :date_naissance, :sexe, :departement, :email, :mdp, :sport, 0)'); // On inscrit le membre
                 $req->execute(array(
                   'nom' => $contenu['nom'],
                   'prenom' => $contenu['prenom'],
@@ -33,11 +33,14 @@
                   'mdp' => $contenu['mdp'],
                   'sport' => $contenu['sport']
                 ));
+                $_SESSION['prenom']=$contenu['prenom'];
+                $_SESSION['nom']=$contenu['nom'];
                 $req = $bdd->prepare('UPDATE liste_sports SET nb_membres=nb_membres+1 WHERE nom=:nom'); // On incrémente le nombre de gens qui pratiquent ce sport
                 $req->execute(array('nom' => $_POST['sport']));
                 $reponse = $bdd->query('SELECT MAX(id) AS id FROM inscrit');
                 $donnees = $reponse->fetch();
-                header('Location: Profil.php?id=' . $donnees['id']);
+                $_SESSION['id']=$donnees['id'];
+                header('Location: Profil.php?id=' . $_SESSION['id']);
               }
               else {echo '<strong class="erreur">Les deux mots de passe doivent être identiques.</strong></br>';}
             }
