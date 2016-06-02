@@ -12,12 +12,22 @@
     </head>
 
     <body>
+        <?php include('header.php'); ?>
+
     	<h1>Résultats de la recherche</h1></br></br>
     	<?php
             include('search.php'); // Affichage de la recherche
 
             // Traitement de la recherche et affichage des résultats
 
+            if (isset($_GET['groupe'])) { // Lien de recherche rapide cliqué sur l'accueil : seul le sport prend une valeur
+                $_POST['groupe']=True;
+                $sport='';
+                $departement='';
+                $nom='';
+                $min='';
+                $max='';
+            }
             if (isset($_GET['sport'])) { // Lien de recherche rapide cliqué sur l'accueil : seul le sport prend une valeur
                 $sport=$_GET['sport'];
                 $departement='';
@@ -41,7 +51,7 @@
                             echo '<strong class="erreur">Le nombre maximum de membres doit être supérieur au nombre minimum !</strong>';
                             break;
                         }
-                        $pre_requete = ' FROM ' . $table[$i] . ' WHERE sport LIKE :sport AND departement LIKE :departement AND nom LIKE :nom AND inscrits >= :min AND inscrits <= :max ORDER BY nom';
+                        $pre_requete = ' FROM ' . $table[$i] . ' WHERE sport LIKE :sport AND departement LIKE :departement AND nom LIKE :nom AND inscrits >= :min AND inscrits <= :max ORDER BY inscrits DESC';
                         $pre_array = array(
                             'sport' => '%' . $sport . '%',
                             'departement' => '%' . $departement . '%',
