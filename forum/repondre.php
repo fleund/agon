@@ -7,18 +7,18 @@ include("bdd.php");
 if(isset($_POST['submit'])) {
     
     $correspondance_sujet=$_GET['id_topic'];
-    $champ=array('prenom_auteur', 'nom_auteur', 'message');
+    $champ=array('prenom_repondant', 'nom_repondant', 'message');
     include('champs_vides.php');
     if(!isset($vide)){
         for($j=0; $j<=count($champ)-1; $j++)
     {$pre_array[$champ[$j]]= $contenu[$champ[$j]];}
     $correspondance_sujet=$_GET['id_topic'];
-    $req = $bdd->prepare('INSERT INTO forum_reponses(prenom_auteur, nom_auteur, message, correspondance_sujet) VALUES (:prenom_auteur, :nom_auteur, :message, :correspondance_sujet)');
+    $req = $bdd->prepare('INSERT INTO forum_reponses(prenom_repondant, nom_repondant, message, correspondance_sujet) VALUES (:prenom_repondant, :nom_repondant, :message, :correspondance_sujet)');
     $req->execute(array(
-        ':prenom_auteur'=>$_POST['prenom_auteur'],
-        ':nom_auteur'=>$_POST['nom_auteur'],
-        ':message'=>$_POST['message'],
-        ':correspondance_sujet'=>$correspondance_sujet
+        'prenom_repondant' => $_POST['prenom_repondant'],
+        'nom_repondant' => $_POST['nom_repondant'],
+        'message' => $_POST['message'],
+        'correspondance_sujet' => $correspondance_sujet,
             ));
     //$req->execute($pre_array);
     $date = date("Y-m-d H:i:s");
@@ -51,13 +51,13 @@ if(isset($_POST['submit'])) {
         <form action="repondre.php?id_topic=<?php echo $_GET['id_topic']; ?>" method="post">
             <table>
                         <tr><td>
-                                <label for="prenom_auteur">Prenom de l'auteur : </label>
+                                <label for="prenom_repondant">Prenom de l'auteur : </label>
                             </td><td>
-                                <input type='text' name='prenom_auteur'>
+                                <input type='text' name='prenom_repondant'>
                             </td></tr><tr><td>
-                                <label for='nom_auteur'>Nom de l'auteur : </label>
+                                <label for='nom_repondant'>Nom de l'auteur : </label>
                             </td><td>
-                                <input type='text' name='nom_auteur'>
+                                <input type='text' name='nom_repondant'>
                             </td></tr><tr><td>                           
                                 <label for='message'>Message : </label>
                             </td><td>

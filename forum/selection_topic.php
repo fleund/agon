@@ -1,7 +1,7 @@
 <select name="topic" class="critere">
     <option value="">Choisir un topic</option>
     <?php
-    $reponse = $bdd->query('SELECT nom_topic FROM topic ORDRE BY nom_topic');
+    $reponse = $bdd->query('SELECT nom_topic FROM topic ORDER BY nom_topic');
     while ($donnees = $reponse->fetch()){
         echo '<option';
         if (isset($_POST['topic'])){

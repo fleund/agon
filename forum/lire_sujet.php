@@ -27,23 +27,35 @@ and open the template in the editor.
                             Messages
                         </td></tr>
                     <?php
-        $sql=$bdd->query('SELECT prenom_auteur, nom_auteur, message, date_reponse FROM forum_reponses WHERE correspondance_sujet="'.$_GET['id_topic'].'" ORDER BY date_reponse ASC');
-                while($data=$sql->fetch()) {
+        $sq=$bdd->query('SELECT prenom_auteur, nom_auteur, premier_message, date_last_post FROM topic WHERE id_topic="'.$_GET['id_topic'].'"');
+        $data=$sq->fetch();
+        sscanf($data['date_last_post'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
+            echo'<tr><td>';
+            $auteur=$data['prenom_auteur'] .' ' . $data['nom_auteur'];
+            echo $auteur;
+            echo '<br/>';
+            echo $jour . '-' . $mois . '-' .$annee . ' ' . $heure . ':' . $minute;
+            echo '</td><td>';
+            echo nl2br(htmlentities(trim($data['premier_message'])));
+            echo '</td></tr>';
+        $sql=$bdd->query('SELECT prenom_repondant, nom_repondant, message, date_reponse FROM forum_reponses WHERE correspondance_sujet="'.$_GET['id_topic'].'" ORDER BY date_reponse ASC');
+
+            while($data=$sql->fetch()) {
                     /*
                      * sscanf permet de prendre les éléments de datetime et de définir à quoi ils correspondent
                      * (pour afficher d'une meilleure manière plus tard
                      */
-            sscanf($data['date_reponse'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
-            
-            echo '<tr> <td>';
-            $auteur= $data['prenom_auteur']. ' '. $data['nom_auteur'];
-            echo $auteur;
-            //echo htmlentities(trim($data['prenom_auteur'].' '.$data['nom_auteur']));
-            echo '<br/>';
-            echo $jour . '-' . $mois . '-' .$annee . ' ' . $heure . ':' . $minute;
-            echo '</td><td>';
-            echo nl2br(htmlentities(trim($data['message'])));
-            echo '</td></tr>';
+                sscanf($data['date_reponse'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
+
+                echo '<tr> <td>';
+                $auteur= $data['prenom_repondant']. ' '. $data['nom_repondant'];
+                echo $auteur;
+                //echo htmlentities(trim($data['prenom_auteur'].' '.$data['nom_auteur']));
+                echo '<br/>';
+                echo $jour . '-' . $mois . '-' .$annee . ' ' . $heure . ':' . $minute;
+                echo '</td><td>';
+                echo nl2br(htmlentities(trim($data['message'])));
+                echo '</td></tr>';
         
             }
             ?>

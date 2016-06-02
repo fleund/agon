@@ -22,12 +22,12 @@ and open the template in the editor.
         
         if(isset($_POST['submit'])){
             
-            $champ=array('nom_topic', 'description_topic', 'sport', 'prenom_auteur', 'nom_auteur', 'message');
+            $champ=array('nom_topic', 'description_topic', 'sport', 'prenom_auteur', 'nom_auteur', 'premier_message');
             include('champs_vides.php');
             if(!isset($vide)){
                 for($i=0; $i<=count($champ)-1; $i++) 
                         {$pre_array[$champ[$i]] = $contenu[$champ[$i]];}
-                $req = $bdd->prepare('INSERT INTO topic(nom_topic, description_topic, sport, prenom_auteur, nom_auteur, message) VALUES (:nom_topic, :description_topic, :sport, :prenom_auteur, :nom_auteur, :message)');
+                $req = $bdd->prepare('INSERT INTO topic(nom_topic, description_topic, sport, prenom_auteur, nom_auteur, premier_message) VALUES (:nom_topic, :description_topic, :sport, :prenom_auteur, :nom_auteur, :premier_message)');
                 var_dump($req);
                 $req->execute($pre_array);
                 $reponse = $bdd->query('SELECT MAX(id_topic) AS id FROM topic');
@@ -66,8 +66,8 @@ and open the template in the editor.
                         }
                     ?>
                 </select>
-                <br/><label for='message'>Message</label>
-                <input type='text' name='message'>
+                <br/><label for='premier_message'>Message</label>
+                <input type='text' name='premier_message'>
                 <br/><input type="submit" value="Créer le topic" name="submit" />
             </form>
         </div>
