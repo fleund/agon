@@ -9,15 +9,15 @@
     </head>
     <body>
         
-        <?php 
+        <?php
             include ('bdd.php');
-	    include ('header.php');
-            $req = $bdd->prepare('SELECT * FROM groupe WHERE id = :id'); // Table de la liste des sports en en-tête
-            $req->execute(array('id' => $_GET['id']));
-            $donnees = $req->fetch();
+			include ('header.php');
+            $reponse = $bdd->prepare('SELECT * FROM groupe WHERE id = :id'); // Table de la liste des sports en en-tête
+            $reponse->execute(array('id' => $_GET['id']));
+            $donnees = $reponse->fetch();
         ?>
         <div class="titremarge"><h1>Groupe : <?php echo $donnees['nom']; ?></h1></div>
-        <div class="marge"><img src="poque.png" alt="Profil" title="Pseudo"></div>
+        <div class="marge"><img src="" alt="Profil" title="Pseudo"></div>
         <div class="bordure">
             <h2>Informations</h2>
             <ul>
