@@ -3,55 +3,18 @@
         <title>Mon profil</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Style.css"/>
+        <link rel="stylesheet" href="Accueil.css"/>
         
         
     </head>
     
     <body>
         
-             <header>
-			<div class="Logo">
-                            <img src="Logo.jpg" height="100"  >
-                        
-			<p id="onglets_accueil">
-				<a href="">Accueil</a> |
-				<a href="">Forums</a> |
-				<a href="">Groupes</a> |
-				<a href="">Mon espace</a> |
-				<a href="">Déconnexion</a> |
-			</p>
-                        
-			<div id="identifiants">
-				
-			</div>
-		
-        </header>    
-            <div id="barre_bleue_gauche">
-                </div>
-             <div id="barre_bleue_droite">
-            </div>
-               <div id="barre_mauve_gauche">
-              </div>
-               <div id="barre_mauve_droite">
-             </div>
-           
-               <div class="header">
-                    
-                </div>
-		
-                <div class = "titremarge" >
-                    <h1>Mon profil</h1>
-                </div>   
-        
-              <div class = "marge" >
-                    <img src="poque.png" alt="Profil" title="Pseudo"/>
-                </div>
-                <div class = "bordure" >
+             
 		<?php 
                 
                 
-                
+                include('header.php');
                 include ('bdd.php');
                 
                 $req = $bdd->prepare('SELECT * FROM inscrit WHERE id = :id '); 
