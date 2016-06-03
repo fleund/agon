@@ -117,6 +117,24 @@ body
     margin-bottom: 2em;
 }
 
+#inscription
+{
+    position : relative;
+    float : right;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(51,162,255);
+    padding: 5px 10px 5px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgb(51,162,255);
+    margin-bottom: 2em;
+}
+
 .bouton_accueil:hover
 {
 	color : rgb(241,61,125);
@@ -132,13 +150,14 @@ a:hover
     border-bottom: rgb(51, 162, 255) solid 1.2px;
 }
 
-.element:nth-child(6)
+#conteneur .element
 {
     text-align: center;
     font-size: 2em;
     color : rgb(241,61,125);
     margin-top: auto;
     margin-bottom: auto;
+	width : 100%;
 }
 
 a
@@ -335,6 +354,42 @@ body
 	box-shadow:0 0 10px 4px grey;
 	margin-top:-15px;
 	padding-bottom : 0.1em;
+	background-color : white;
+	opacity : 0.9;	
+}
+
+.champ_connexion input
+{
+	width : 45%;
+	margin-right : 2px;
+}
+
+.bouton_header .bouton_accueil:hover, #inscription:hover, #creation_groupe:hover, #edition_acceuil:hover, #deconnexion:hover
+{
+	color : rgb(241,61,125);
+}
+
+.pseudo_header
+{
+	text-transform : uppercase;
+	color : rgb(241,61,125);
+	margin-left : -5px;
+}
+
+.bouton_header .bouton_accueil, #inscription, #creation_groupe, #edition_acceuil, #deconnexion
+{
+	position : relative;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(51,162,255);
+    padding: 3px 5px 3px 5px;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgb(51,162,255);
+    
 }
 
 /* CSS  */  

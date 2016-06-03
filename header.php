@@ -22,18 +22,18 @@
                 else {echo '<strong class="erreur">Veuillez renseigner une adresse e-mail et un mot de passe.</strong>';}
             }
             if (empty($_SESSION)) {
-                echo '<form method="post" action="Accueil.php">
+                echo '<div class="champ_connexion"><form method="post" action="Accueil.php">
                 <input name="email" type="email" placeholder="Adresse e-mail"';
                 if (isset($_POST['email'])) {echo ' value="' . $_POST['email'] . '"';}
-                echo '><input name="mdp" type="password" placeholder="Mot de passe">
-                <input type="submit" name="connexion" value="Se connecter" class="bouton_accueil">
-                </form><div><a href="formulaire_inscription.php" class="bouton_accueil">S\'inscrire</a></div>';
+                echo '><input name="mdp" type="password" placeholder="Mot de passe"></div>
+                <div class="bouton_header"><input type="submit" name="connexion" value="Se connecter" class="bouton_accueil">
+                </form></br><form method="POST" action="formulaire_inscription.php"><input id="inscription" type="submit" value="Inscription" /></form></div>';
             }
             else {
-                echo '<div><a href="creation_groupe.php" class="bouton_accueil">Créer un groupe</a></div>
-                <div><a href="Edition page d\'accueil.php" class="bouton_accueil">Édition de la page d\'accueil</a></div>';
-                echo '<div><a href="Profil.php?id=' . $_SESSION['id'] . '" class="bouton_accueil">' . $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . '</a></div>';
-                echo '<form method="post" action="Accueil.php"><input type="submit" name="deconnexion" value="Déconnexion" class="bouton_accueil"></form>';
+                echo '<div><a href="Profil.php?id=' . $_SESSION['id'] . '" class="pseudo_header">' . $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . '</a></div>';
+				echo '<div><form method="POST" action="creation_groupe.php"><input id="creation_groupe" type="submit" value="Créer groupe"/></form></div>
+                <div><form method="POST" action="Edition page d\'accueil.php"><input id="edition_acceuil" type="submit" value="Editer accueil"/></form></div>';
+                echo '<form method="post" action="Accueil.php"><input type="submit" name="deconnexion" value="Déconnexion" id="deconnexion"></form>';
             }
         ?>
     </div>
@@ -41,7 +41,7 @@
     <div class="element">
         <div id="onglets_accueil">
             <div><a href="Accueil.php">Accueil</a></div>
-                <div><a href="index.php">Forum</a></div>
+                <div><a href="Index des forums.php">Forum</a></div>
                 <div><a href="resultats_recherche.php?avancee=false&amp;groupe=oui">Groupes</a></div>
                 <?php if (!empty($_SESSION)) {echo '<div><a href="">Mon espace</a></div>';} ?>
         </div>   
