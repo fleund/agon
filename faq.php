@@ -27,6 +27,11 @@ include("bdd.php");
           
         }
         */
+        if(isset($_POST['supprimer'])){
+            $id_supprimer=$data['id_faq'];
+            $req= $bdd->prepare('DELETE FROM faq WHERE id_faq=:id_supprimer');
+            $req->execute(array('$id_supprimer'=>$id_supprimer));
+        }
         ?>       
                 
                 
@@ -52,11 +57,19 @@ include("bdd.php");
                     echo $data['reponse'];
                     echo'</td><td>';
                     echo $data['id_faq'];
-                    echo '</td></tr>';
-            
-        }
+                    
+                    if (isset($_SESSION['id'])) {
+                        if ($_SESSION['id']==1) 
+                            {echo '</td><td>';
+                            echo '<input type="button" value="supprimer ligne" name="supprimer">';
+                            }    
+                        }
+                    }          
+                    
         ?>
                 </td></tr></table>
+        
+        
         
         
     </body>
