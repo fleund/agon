@@ -10,6 +10,11 @@
     background-position: center;
 }
 
+#content
+{
+	margin-top : 150px;
+}
+
 table
 {
     border-collapse: collapse;
@@ -352,10 +357,10 @@ body
 	position: fixed; 
 	width : 99%;
 	box-shadow:0 0 10px 4px grey;
-	margin-top:-15px;
 	padding-bottom : 0.1em;
 	background-color : white;
-	opacity : 0.9;	
+	top: 0;
+    z-index: 10;
 }
 
 .champ_connexion input
