@@ -15,7 +15,7 @@
     <body>
 
         <?php include('header.php'); ?>
-        
+		<div id = "content">
         <div id="conteneur">
             <div class="element">
                 <p class="message_important"> SPORTIFS DE TOUS LES JOURS, VENEZ !</p>
@@ -82,7 +82,7 @@
                 if (!isset($verif)) {echo '<tr><td style="border: none;">Pas de compétitions à afficher.</td></tr>';}
             ?>
         </table>
-        
+        </div>
         <footer>
             <p>Partage la page sur</p>
             <a href="http://www.facebook.com"><img src="tn_facebook.png"></a>
