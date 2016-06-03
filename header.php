@@ -41,7 +41,7 @@
     <div class="element">
         <div id="onglets_accueil">
             <div><a href="Accueil.php">Accueil</a></div>
-                <div><a href="Index des forums.php">Forum</a></div>
+                <div><a href="index.php">Forum</a></div>
                 <div><a href="resultats_recherche.php?avancee=false&amp;groupe=oui">Groupes</a></div>
                 <?php if (!empty($_SESSION)) {echo '<div><a href="">Mon espace</a></div>';} ?>
         </div>   
