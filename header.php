@@ -42,7 +42,7 @@
             <div><a href="Accueil.php">Accueil</a></div>
                 <div><a href="Index.php">Forum</a></div>
                 <div><a href="resultats_recherche.php?avancee=false&amp;groupe=oui">Groupes</a></div>
-                <?php if (!empty($_SESSION)) {echo '<div><a href="">Mon espace</a></div>';} ?>
+                <?php if (!empty($_SESSION)) {echo '<div><a href="Profil.php?id=' . $_SESSION['id'] . '">Mon espace</a></div>';} ?>
         </div>   
     </div>
     <div class="element"></div>
