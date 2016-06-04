@@ -22,6 +22,16 @@ and open the template in the editor.
                     $donnees = $req->fetch();
             
             ?>
+			
+				<div id="barre_bleue_gauche">
+				</div>
+				<div id="barre_bleue_droite">
+				</div>
+				<div id="barre_mauve_gauche">
+				</div>
+				<div id="barre_mauve_droite">
+				</div>
+				
                 <div class = "titremarge" >
                     <h1>Groupe : <?php echo $donnees['nom']; ?></h1>
                 </div>   
