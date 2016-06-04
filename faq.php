@@ -12,7 +12,7 @@ include("bdd.php");
     <body>
         
         <?php
-        include("header.php");
+        //include("header.php");
         /*var_dump($_POST);
         if(isset($_POST['submit'])){
         $champ=array('question', 'reponse');
@@ -29,49 +29,114 @@ include("bdd.php");
         }
         */
         if(isset($_POST['supprimer'])){
-            $id_supprimer=$data['id_faq'];
-            $req= $bdd->prepare('DELETE FROM faq WHERE id_faq=:id_supprimer');
-            $req->execute(array('$id_supprimer'=>$id_supprimer));
+            $id_supprimer=$_POST['select'];
+            var_dump($id_supprimer);
+            var_dump($_POST['select']);
+            $del= $bdd->prepare('DELETE FROM faq WHERE id_faq=:id_supprimer');
+            var_dump($del);
+            $del->execute(array('id_supprimer'=>$id_supprimer));
         }
         ?>       
                 
                 
         <?php
-        $req= $bdd->query('SELECT * FROM faq');
+        $req= $bdd->query('SELECT * FROM faq ORDER BY id_faq ASC');
         var_dump($req);
         
             ?>
-                <table>
+        <a href='Accueil.php'>Retourner Accueil</a>
+                <br/><table>
                     <tr>
                         <td>
                             Question
                         </td><td>
                             Réponse
-                        </td><td>
-                            Numéro question/réponse
+                            <?php
+                            if (isset($_SESSION['id'])) {
+                                if ($_SESSION['id']==1) {
+                                    echo'</td><td>';
+                                    echo'Numéro question/réponse';}}?>
                         </td></tr>
                     <?php
-                    while($data=$req->fetch()){
-                    echo'<tr><td>';
-                    echo $data['question'];
-                    echo'</td><td>';
-                    echo $data['reponse'];
-                    echo'</td><td>';
-                    echo $data['id_faq'];
+                    //On crée un tableau stack
+                    $stack=array();
+                    //On initialise le début du remplissage pour arriver jusqu'au premier id
+                    $id_fill_debut=0;
                     
-                    if (isset($_SESSION['id'])) {
-                        if ($_SESSION['id']==1) 
-                            {echo '</td><td>';
-                            echo '<input type="button" value="supprimer ligne" name="supprimer">';
+                    
+                    
+                    while($data=$req->fetch()){
+                        $id_faq=$data['id_faq'];
+                        echo'<tr><td>';
+                        echo $data['question'];
+                        echo'</td><td>';
+                        echo $data['reponse'];
+                        if (isset($_SESSION['id'])) {
+                            if ($_SESSION['id']==1) {
+                            echo'</td><td>';
+                            echo $data['id_faq'];                    
                             }    
                         }
-                    }          
+                    
+                    }
+                    $req->closeCursor();
+                    
                     
         ?>
                 </td></tr></table>
         
+        <?php
+        if (isset($_SESSION['id'])) {
+                        if ($_SESSION['id']==1) {
+                            ?>
+        <h2>Supprimer une ligne</h2> 
+        <form method="post">
+        <select name="select">
+            <?php
+            $req= $bdd->query('SELECT * FROM faq ORDER BY id_faq ASC');
+            while($data=$req->fetch()){
+                echo '<option>'.$data['id_faq'].'</option>';
+            }
+            ?>
+        </select>
+        <input type="submit" name="supprimer" value="Supprimer cette ligne">
+        </form>
+        <?php
+        }
+        }
+        ?>
+        
+        <h2>Ajouter une ligne</h2>
         
         
+        <?php
+        var_dump($_POST);
+        if(isset($_POST['submit'])){
+        $champ=array('question', 'reponse');
+        var_dump($champ);
+            include('champs_vides.php');
+            if(!isset($vide)){
+                for($i=0; $i<=count($champ)-1; $i++) 
+                        {$pre_array[$champ[$i]] = $contenu[$champ[$i]];}
+                $req = $bdd->prepare('INSERT INTO faq(question, reponse) VALUES(:question, :reponse)');
+                $req->execute($pre_array);
+                var_dump($req);
+            }
+        else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
+            
+        }
+       
+        ?>       
+                
+                
+        <form method="post">
+        <label for="question">Question posée : </label>
+        <br/><input type="text" name="question">
+        <br/><label for="reponse">Réponse à la question : </label>
+        <br/><input type="text" name="reponse">
+        <br/><br/><input type="submit" name="submit" value="Envoyer question-réponse">
+        
+        </form>
         
     </body>
 </html>
