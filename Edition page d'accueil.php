@@ -12,6 +12,8 @@
 
     <body>
 	<?php include("header.php"); ?>
+	
+	<div id="content">
 		
         <p class = "titre">Édition de la page d'accueil</p>
 
@@ -113,5 +115,7 @@
                 <input type="submit" value="Enregistrer les modifications" class ="agrandir_bouton">
             </div>
         </form>
+        
+        </div>
     </body>
 </html>
