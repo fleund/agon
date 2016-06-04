@@ -22,6 +22,7 @@
                     $donnees = $req->fetch();
             
                 ?>
+                <div id="content"></div>
                     <h2>Informations</h2>
                     <ul>
                         <li>Nom: <?php echo $donnees['nom'];?></li> </br>
