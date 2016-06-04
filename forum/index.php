@@ -4,7 +4,7 @@
     </head>
 </html>
 
-<a href="creation_topic.php">Créer nouveau sujet</a>
+<a href="creation_topic.php">CrÃ©er nouveau sujet</a>
 <br/><br/>
 
 <?php
@@ -35,7 +35,7 @@ echo $nb;
 
 if ($nb==0)
 {
-    echo 'Aucun sujet, créez en un!';
+    echo 'Aucun sujet, crÃ©ez en un!';
 }
 else {
     ?>
@@ -68,5 +68,8 @@ else {
 <?php
 }
 ?>
+</body>
+</html>
+
                 
             
