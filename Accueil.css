@@ -306,7 +306,7 @@ body
 	margin-right : auto;
 }
 
-fieldset
+#fieldset
 {
 	color : rgb(51,162,255);
 	text-transform : uppercase;
