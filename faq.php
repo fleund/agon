@@ -30,10 +30,7 @@ include("bdd.php");
         */
         if(isset($_POST['supprimer'])){
             $id_supprimer=$_POST['select'];
-            var_dump($id_supprimer);
-            var_dump($_POST['select']);
             $del= $bdd->prepare('DELETE FROM faq WHERE id_faq=:id_supprimer');
-            var_dump($del);
             $del->execute(array('id_supprimer'=>$id_supprimer));
         }
         ?>       
