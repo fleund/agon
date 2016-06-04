@@ -10,8 +10,9 @@
     </head>
 
     <body>
+    <?php include('header.php') ?>
+    <div id='content'>
         <?php
-            include('header.php');
             if(isset($_POST['submit'])) {
                 $champ=array('nom', 'sport', 'lieu', 'departement', 'places', 'jour', 'mois', 'annee');
                 include('champs_vides.php');
@@ -37,5 +38,6 @@
             <p>Nombre total de places : </br>&nbsp;&nbsp;&nbsp;<input type="number" name="places" maxlength="6" <?php if (isset($contenu['places'])) {echo ' value="' . $contenu['places'] . '" ';} ?>></p>
             <input class="agrandir_bouton" type="submit" value="Créer la compétition" name="submit"> 
         </form>
+    </div>
     </body>
 </html>
