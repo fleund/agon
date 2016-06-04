@@ -123,7 +123,8 @@ include("bdd.php");
        
         ?>       
                 
-                
+        <?php if (isset($_SESSION['id'])) {
+                        if ($_SESSION['id']==1) { ?>        
         <form method="post">
         <label for="question">Question posée : </label>
         <br/><input type="text" name="question">
@@ -132,7 +133,7 @@ include("bdd.php");
         <br/><br/><input type="submit" name="submit" value="Envoyer question-réponse">
         
         </form>
-        
+        <?php }} ?>
     </body>
 </html>
         
