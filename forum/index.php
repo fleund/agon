@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="Accueil.css">
     </head>
     <body>
+        <div id="content"></div>
 
 <a href="creation_topic.php">Créer nouveau sujet</a>
 <br/><br/>
