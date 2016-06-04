@@ -13,6 +13,7 @@
     </head>
 
     <body>
+		<div id="content">
         <?php
           include('header.php');
           $champ=array('nom', 'prenom', 'email', 'mdp', 'confirmation', 'sport');
@@ -46,8 +47,9 @@
             }
             else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
           }
-          echo '<h1 class="titre">Créer un compte</h1>
-          <form method="post" action="formulaire_inscription.php"><div class="conteneur">'; // Affichage du formulaire d'inscription
+          echo '<legend class="titre_creer_compte">Créer un compte</legend>
+		  <div id="conteneur_groupe">
+          <form method="post" action="formulaire_inscription.php"><div class="champ_inscription">'; // Affichage du formulaire d'inscription
           for($i=0; $i<=4; $i++) {
             echo '<label for = "' . $champ[$i] . '">' . $label[$i] . ' : </label></br>
             &nbsp;&nbsp;&nbsp;<input type="' . $type[$i] . '" name="' . $champ[$i] . '" id="' . $champ[$i] . '"';
@@ -57,7 +59,9 @@
           echo 'Sport pratiqué :</br>';
           include('liste_sports.php');
           echo '</br></br><input type="submit" value="Valider" name="submit" class="agrandir_bouton">
-          </form></div>';
+          </form></div>
+		  </div>';
         ?>
+		</div>
     </body>
 </html>

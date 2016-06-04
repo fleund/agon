@@ -10,6 +10,7 @@
     </head>
 
     <body>
+	<div id="content_creation_groupe">
         <?php
             include('header.php');
             if(isset($_POST['submit'])) {
@@ -31,11 +32,11 @@
             <form action="creation_groupe.php" method="post">
                 <div id="Creer_un_groupe">
                     <div id="bloc_champ">
-                        <p>Nom du groupe : <input type="text" name="nom" class="champ"<?php if (isset($contenu['nom'])) {echo ' value="' . $contenu['nom'] . '"';} ?>></p>
+                        <p>Nom du groupe : </br><input type="text" name="nom" class="champ"<?php if (isset($contenu['nom'])) {echo ' value="' . $contenu['nom'] . '"';} ?>></p>
                         <p>Description (facultatif) :</br><textarea name="description" rows="8" maxlength="1000" class="champ" placeholder="Décrivez votre groupe ici..."><?php if (isset($contenu['description'])) {echo $contenu['description'];} ?></textarea></p>
                         <p>Sport principal : <?php include('liste_sports.php') ?></p>
                         <p>Statut :</br>
-                            <select name='statut'>
+                            <select name='statut' class="champ">
                                 <option>Public</option>
                                 <option
                                 <?php if (isset($contenu['statut'])) {
@@ -45,16 +46,17 @@
                             </select>
                         </p>
                         <p>Département : <?php include('liste_departements.php') ?></p>
-                        <p>Nombre maximum de membres :
-                        <input type="number" min="5" max="200" name="membres_max" maxlength="3"<?php if (isset($contenu['membres_max'])) {echo ' value="' . $contenu['membres_max'] . '"';} ?>></p>
+                        <p>Nombre maximum de membres :</br>
+                        <input type="number" min="5" max="200" name="membres_max" class="champ" maxlength="3"<?php if (isset($contenu['membres_max'])) {echo ' value="' . $contenu['membres_max'] . '"';} ?>></p>
                     </div>
                     <div id="bloc_image">
-                        <p>Image du groupe : <input name="image"<?php if (isset($contenu['image'])) {echo ' value="' . $contenu['image'] . '"';} ?>>
+                        <p>Image du groupe : <input name="image"<?php if (isset($contenu['image'])) {echo ' value="' . $contenu['image'] . '"';} else{$contenu['image']='http://img11.hostingpics.net/pics/356018groupejabbericone6297961.png'; echo' value="' . $contenu['image'] . '"';} ?>>
                         </br><a href='http://www.hostingpics.net/' target="_blank">Lien vers un uploader de photos</a></p>
-                        <input id="search-btn" type="submit" value="Créer la compétition" name="submit">
+                        <input id="search-btn" type="submit" value="Créer le groupe" name="submit">
                     </div>
                 </div>
             </form>
         </div>
+	</div>
     </body>
 </html>
