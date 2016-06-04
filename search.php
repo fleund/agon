@@ -1,5 +1,5 @@
 <form method="post" <?php echo 'action="resultats_recherche.php?avancee=' . $_GET['avancee'] . '#search-btn"' ?> class="champ_recherche" id="champ_recherche">
-    <fieldset>
+    <fieldset id="fieldset">
 		<div class="selection">
         <?php
             include('liste_sports.php');
