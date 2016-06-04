@@ -41,6 +41,7 @@ include("bdd.php");
         var_dump($req);
         
             ?>
+            <div id="content"></div>
         <a href='Accueil.php'>Retourner Accueil</a>
                 <br/><table>
                     <tr>
