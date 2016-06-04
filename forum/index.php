@@ -16,7 +16,7 @@ include('bdd.php');
 include('header.php');
 
 $req= $bdd->query('SELECT id_topic, prenom_auteur, nom_auteur, date_last_post, nom_topic, description_topic FROM topic ORDER BY date_last_post DESC');
-var_dump($req);
+
 /*echo'La liste des topic est la suivante : ';
 
 while ($topic=$req->fetch())
@@ -32,9 +32,9 @@ while ($topic=$req->fetch())
 }
 */
 $count= $bdd->query('SELECT COUNT(*)  AS nb FROM topic');
-var_dump($count);
+
 $exe=$count->fetch();
-var_dump($exe);
+
 $nb=$exe['nb'];
 echo $nb;
 
