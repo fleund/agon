@@ -107,17 +107,14 @@ include("bdd.php");
         
         
         <?php
-        var_dump($_POST);
         if(isset($_POST['submit'])){
         $champ=array('question', 'reponse');
-        var_dump($champ);
             include('champs_vides.php');
             if(!isset($vide)){
                 for($i=0; $i<=count($champ)-1; $i++) 
                         {$pre_array[$champ[$i]] = $contenu[$champ[$i]];}
                 $req = $bdd->prepare('INSERT INTO faq(question, reponse) VALUES(:question, :reponse)');
                 $req->execute($pre_array);
-                var_dump($req);
             }
         else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
             
