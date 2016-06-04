@@ -36,7 +36,7 @@ $count= $bdd->query('SELECT COUNT(*)  AS nb FROM topic');
 $exe=$count->fetch();
 
 $nb=$exe['nb'];
-echo $nb;
+echo 'Il y a '.$nb . ' sujets en cours';
 
 if ($nb==0)
 {
