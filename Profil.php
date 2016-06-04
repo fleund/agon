@@ -61,11 +61,14 @@
         <div class="bordure2"> 
 			<h2>Groupes</h2>  
             <?php
-                $id_groupe = $donnees['id_groupe'];
-                $requ = $bdd->query('SELECT * FROM groupe');
-                        while ($donnees2 = $requ->fetch()){
-                            if ($id_groupe == $donnees2['id']){echo $donnees2['nom_groupe'];}
+                $id = $donnees['id'];
+                $requ = $bdd->query('SELECT * FROM appartenance INNER JOIN groupe INNER JOIN inscrit WHERE id_g=groupe.id AND id_i = inscrit.id');
+                    while ($donnees2 = $requ->fetch()){
+                        if ($id == $donnees2['id_i']){
+                            echo $donnees2['nom_groupe'];
+                              
                         }
+                    }
 			?>
 		</div> 
                     
