@@ -12,7 +12,7 @@ include("bdd.php");
     <body>
         
         <?php
-        //include("header.php");
+        include("header.php");
         /*var_dump($_POST);
         if(isset($_POST['submit'])){
         $champ=array('question', 'reponse');
