@@ -1,9 +1,11 @@
 <form method="post" <?php echo 'action="resultats_recherche.php?avancee=' . $_GET['avancee'] . '#search-btn"' ?> class="champ_recherche" id="champ_recherche">
     <fieldset>
+		<div class="selection">
         <?php
             include('liste_sports.php');
             include('liste_departements.php');
         ?>
+		</div>
         <br/><br/>
         <span id="activer" onclick="javascript:recherche_avancee('recherche_avancee');"> <!-- Permet d'activer/désactiver la recherche avancée -->
             <?php
@@ -39,6 +41,7 @@
 
         <div class="Rechercher">Rechercher...</div>
             <div id="checkbox">
+				<div>
                 <?php
                     $nom_table = array('groupe', 'club', 'événement');
                     $table = array('groupe', 'clubs', 'liste_compets');
@@ -51,6 +54,7 @@
                         echo '><label for="' . $table[$i] . '">Des ' . $nom_table[$i] . 's</label><br/>';
                     }
                 ?>
+				</div>
             </div>
         <input id="search-btn" type="submit" value="Rechercher" name="submit">
     </fieldset>

@@ -13,7 +13,7 @@
 
     <body>
         <?php include('header.php'); ?>
-
+		<div id="content">
     	<h1>Résultats de la recherche</h1></br></br>
     	<?php
             include('search.php'); // Affichage de la recherche
@@ -65,7 +65,7 @@
                         $nb_resultats->execute($pre_array);
                         $donnees = $nb_resultats->fetch();
                         if ($donnees['nb_resultats']!=0) {
-                            echo '<table><caption>' . $donnees['nb_resultats'] . ' ' . $nom_table[$i];
+                            echo '<table class="tableau_res_recherche"><caption>' . $donnees['nb_resultats'] . ' ' . $nom_table[$i];
                             if ($donnees['nb_resultats']==1) {echo ' trouvé';}
                             else {echo 's trouvés';}
                             echo '</caption>
@@ -83,12 +83,13 @@
                                     . '<td>' . $donnees['inscrits'] . '</td>'
                                 . '</tr>'; // Affichage des résultats ligne par ligne
                             }
-                            echo '</table><br/><br/>';
+                            echo '</table>';
                         }
                         else {echo 'Aucun ' . $nom_table[$i] . ' ne correspond à cette recherche.<br/><br/>';}
                     }
                 }
             }
         ?>
+		</div>
     </body>
 </html>
