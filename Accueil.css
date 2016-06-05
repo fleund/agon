@@ -12,7 +12,7 @@
 
 #content
 {
-	margin-top : 140px;
+	margin-top : 150px;
 }
 
 table
@@ -779,3 +779,47 @@ legend
 	float:right;
 	clear:none;
 }
+
+
+/* index.php */
+
+
+.table_index {
+    width:80%;
+    border-width:thick;
+    border-color: black;
+    border-style: double;
+    margin-left:10%;
+    margin-top:10px;
+    border-radius:5%;
+    }
+
+    .table_index td {
+        border : 1px solid black;
+       
+    }
+table_index tr:first-child {
+        background-color:rgb(4,127,173);
+        font-size:24px;
+    }
+   
+table_index tr td {
+    padding:10px;
+    }
+    
+.bouton_forum {
+       border:1px solid red;
+       margin:10px;
+       top:10%;
+       padding:10px;
+       background-color:rgb(36,170,233);
+       }
+    
+.bouton_forum:hover {
+       background-color:rgb(153,204,0);
+       }
+       
+.message_forum {
+       width:50%;
+       height:200px;
+       }
