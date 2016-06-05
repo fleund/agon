@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 05 Juin 2016 à 19:43
+-- Généré le :  Dim 05 Juin 2016 à 19:44
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.15
 
@@ -180,19 +180,6 @@ CREATE TABLE IF NOT EXISTS `faq` (
   PRIMARY KEY (`id_faq`)
 ) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `faq`
---
-
-INSERT INTO `faq` (`question`, `reponse`, `id_faq`) VALUES
-('LKJN', 'MJKLN?', 30),
-('LKJN', 'MJKLN?', 31),
-('qsd', 'qsd', 32),
-('LKJN', 'MJKLN?', 29),
-('IJKN', 'LKJN', 28),
-('PMKJ', 'PONK7', 27),
-('kjn', 'LKJN', 26);
-
 -- --------------------------------------------------------
 
 --
@@ -209,20 +196,6 @@ CREATE TABLE IF NOT EXISTS `forum_reponses` (
   `correspondance_sujet` int(6) NOT NULL,
   PRIMARY KEY (`id_reponse`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `forum_reponses`
---
-
-INSERT INTO `forum_reponses` (`id_reponse`, `prenom_repondant`, `nom_repondant`, `message`, `date_reponse`, `correspondance_sujet`) VALUES
-(9, 'sdfff', 'fffff', 'ffff', '2016-06-02 23:57:14', 8),
-(8, 'côme', 'COthenet', 'non je ne suis pas d''accord', '2016-06-02 23:23:55', 8),
-(7, '2', '2', '2', '2016-06-02 23:13:34', 7),
-(6, 'Prenom repondant', 'Nom répondant', 'Message répondant', '2016-06-02 23:10:03', 6),
-(10, 'sdfsdf', 'sdfdk', 'lk,', '2016-06-02 23:58:22', 8),
-(11, 'sqdsq', 'sqdsdq', 'dsqdq', '2016-06-02 23:59:09', 8),
-(12, 'Côme', 'Cothenet', 'message de réponse 03/06/2016', '2016-06-03 10:46:12', 8),
-(13, 'dftrdtfcg', 'gfdgdf', 'dfc', '2016-06-03 13:37:14', 8);
 
 -- --------------------------------------------------------
 
@@ -406,21 +379,6 @@ CREATE TABLE IF NOT EXISTS `topic` (
   `nombre_reponses` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_topic`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin7;
-
---
--- Contenu de la table `topic`
---
-
-INSERT INTO `topic` (`nom_topic`, `description_topic`, `sport`, `id_topic`, `date_last_post`, `prenom_auteur`, `nom_auteur`, `premier_message`, `nombre_reponses`) VALUES
-('fdgfdf', 'sds', 'Danse', 3, '2016-06-02 19:16:21', 'Csdcsd', 'csdcs', 'cssdc', 1),
-('dssdfs', 'ffsdfs', 'Athlétisme', 4, '2016-06-02 19:28:38', 'fsdfdsfs', 'fsfsdf', 'sfsdf', 0),
-('zerzer', 'zerrezrezezr', 'Badminton', 5, '2016-06-02 19:30:49', 'rzerzrz', 'rzerzer', 'zrzerzer', 1),
-('Nom sujet', 'Description sujet', 'Athlétisme', 6, '2016-06-02 22:59:13', 'Prénom sujet', 'Nom sujet', 'Message sujet', 5),
-('1', '1', 'Athlétisme', 7, '2016-06-02 23:10:49', '1', '1', '1', 1),
-('Nodf^sdo', 'pijnpijn', 'Natation', 8, '2016-06-02 23:23:33', 'lijnpij', 'npijn', 'pioun', 6),
-('qsd', 'doiy', 'Golf', 9, '2016-06-03 16:12:01', 'gouygsdouy', 'giuvfouy', '_ygouvfo', 0),
-('qsd', 'doiy', 'Golf', 10, '2016-06-03 16:12:01', 'gouygsdouy', 'giuvfouy', '_ygouvfo', 0),
-('qsd', 'doiy', 'Golf', 11, '2016-06-03 16:13:34', 'gouygsdouy', 'giuvfouy', '_ygouvfo', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
