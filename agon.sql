@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 31 Mai 2016 à 23:35
+-- Généré le :  Dim 05 Juin 2016 à 19:43
 -- Version du serveur :  5.7.9
--- Version de PHP :  5.6.16
+-- Version de PHP :  5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -169,6 +169,64 @@ INSERT INTO `departement` (`nom`, `numero`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE IF NOT EXISTS `faq` (
+  `question` text NOT NULL,
+  `reponse` text NOT NULL,
+  `id_faq` int(6) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_faq`)
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `faq`
+--
+
+INSERT INTO `faq` (`question`, `reponse`, `id_faq`) VALUES
+('LKJN', 'MJKLN?', 30),
+('LKJN', 'MJKLN?', 31),
+('qsd', 'qsd', 32),
+('LKJN', 'MJKLN?', 29),
+('IJKN', 'LKJN', 28),
+('PMKJ', 'PONK7', 27),
+('kjn', 'LKJN', 26);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `forum_reponses`
+--
+
+DROP TABLE IF EXISTS `forum_reponses`;
+CREATE TABLE IF NOT EXISTS `forum_reponses` (
+  `id_reponse` int(6) NOT NULL AUTO_INCREMENT,
+  `prenom_repondant` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+  `nom_repondant` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `date_reponse` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `correspondance_sujet` int(6) NOT NULL,
+  PRIMARY KEY (`id_reponse`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `forum_reponses`
+--
+
+INSERT INTO `forum_reponses` (`id_reponse`, `prenom_repondant`, `nom_repondant`, `message`, `date_reponse`, `correspondance_sujet`) VALUES
+(9, 'sdfff', 'fffff', 'ffff', '2016-06-02 23:57:14', 8),
+(8, 'côme', 'COthenet', 'non je ne suis pas d''accord', '2016-06-02 23:23:55', 8),
+(7, '2', '2', '2', '2016-06-02 23:13:34', 7),
+(6, 'Prenom repondant', 'Nom répondant', 'Message répondant', '2016-06-02 23:10:03', 6),
+(10, 'sdfsdf', 'sdfdk', 'lk,', '2016-06-02 23:58:22', 8),
+(11, 'sqdsq', 'sqdsdq', 'dsqdq', '2016-06-02 23:59:09', 8),
+(12, 'Côme', 'Cothenet', 'message de réponse 03/06/2016', '2016-06-03 10:46:12', 8),
+(13, 'dftrdtfcg', 'gfdgdf', 'dfc', '2016-06-03 13:37:14', 8);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `groupe`
 --
 
@@ -185,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   `membres_max` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `groupe`
@@ -195,7 +253,8 @@ INSERT INTO `groupe` (`id`, `nom`, `description`, `sport`, `statut`, `departemen
 (1, 'Groupe de natation d''Évry', 'Groupe de natation qui organise régulièrement des compétitions de natation pour les jeunes de 14 à 18 ans. ', 'Natation', '', '91 - Essonne', '', 5, 40),
 (2, 'Groupe de foot de l''Essonne', 'Groupe de football qui organise régulièrement des matches pour les jeunes de 12 à 16 ans. ', 'Football', '', '91 - Essonne', '', 10, 50),
 (3, 'Natation Bobigny', '', 'Natation', '', '93 - Seine-Saint-Denis', '', 8, 50),
-(4, 'Courir à Saint-Denis', '', 'Footing', '', '93 - Seine-Saint-Denis', '', 38, 40);
+(4, 'Courir à Saint-Denis', '', 'Footing', '', '93 - Seine-Saint-Denis', '', 38, 40),
+(5, 'Cothenet', 'azerty', 'Athlétisme', 'Privé', '02 - Aisne', 'http://img11.hostingpics.net/pics/356018groupejabbericone6297961.png', 1, 200);
 
 -- --------------------------------------------------------
 
@@ -214,15 +273,21 @@ CREATE TABLE IF NOT EXISTS `inscrit` (
   `email` varchar(60) NOT NULL,
   `mdp` varchar(40) NOT NULL,
   `sport` varchar(255) NOT NULL,
+  `nombre_groupe` int(11) NOT NULL,
+  `date_inscription` date NOT NULL,
+  `id_groupe` int(11) NOT NULL,
+  `num_tel` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `inscrit`
 --
 
-INSERT INTO `inscrit` (`id`, `nom`, `prenom`, `date_naissance`, `sexe`, `departement`, `email`, `mdp`, `sport`) VALUES
-(137, 'Tyssandier', 'Nicolas', '1900-01-01', '', '', 'tyssandiernicolas@gmail.com', 'abc', 'Badminton');
+INSERT INTO `inscrit` (`id`, `nom`, `prenom`, `date_naissance`, `sexe`, `departement`, `email`, `mdp`, `sport`, `nombre_groupe`, `date_inscription`, `id_groupe`, `num_tel`) VALUES
+(1, 'Admin', '', '2016-06-03', '', '', 'nicolas_881@hotmail.fr', 'admin', '', 0, '2016-06-03', 0, 0),
+(137, 'Tyssandier', 'Nicolas', '1900-01-01', '', '', 'tyssandiernicolas@gmail.com', 'abc', 'Badminton', 0, '0000-00-00', 0, 0),
+(138, 'Cothenet', 'Côme', '1900-01-01', '', '', 'moche@gmail.com', 'jesuisleplusmoche', 'Danse', 0, '0000-00-00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -243,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `liste_compets` (
   `inscrits` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `liste_compets`
@@ -310,17 +375,52 @@ INSERT INTO `liste_sports` (`nom`, `nb_membres`) VALUES
 ('Karaté', 2),
 ('Natation', 16),
 ('Marche', 4),
-('Basketball', 15),
+('Basketball', 17),
 ('Handball', 12),
 ('Hockey', 1),
 ('Golf', 0),
-('Badminton', 11),
+('Badminton', 12),
 ('Water-polo', 3),
 ('Marathon', 9),
-('Course à pied', 12),
-('Danse', 6),
-('Athlétisme', 12),
+('Course à pied', 14),
+('Danse', 8),
+('Athlétisme', 14),
 ('Escalade', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `topic`
+--
+
+DROP TABLE IF EXISTS `topic`;
+CREATE TABLE IF NOT EXISTS `topic` (
+  `nom_topic` varchar(50) NOT NULL,
+  `description_topic` text NOT NULL,
+  `sport` varchar(50) NOT NULL,
+  `id_topic` int(11) NOT NULL AUTO_INCREMENT,
+  `date_last_post` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `prenom_auteur` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `nom_auteur` varchar(100) NOT NULL,
+  `premier_message` text NOT NULL,
+  `nombre_reponses` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_topic`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin7;
+
+--
+-- Contenu de la table `topic`
+--
+
+INSERT INTO `topic` (`nom_topic`, `description_topic`, `sport`, `id_topic`, `date_last_post`, `prenom_auteur`, `nom_auteur`, `premier_message`, `nombre_reponses`) VALUES
+('fdgfdf', 'sds', 'Danse', 3, '2016-06-02 19:16:21', 'Csdcsd', 'csdcs', 'cssdc', 1),
+('dssdfs', 'ffsdfs', 'Athlétisme', 4, '2016-06-02 19:28:38', 'fsdfdsfs', 'fsfsdf', 'sfsdf', 0),
+('zerzer', 'zerrezrezezr', 'Badminton', 5, '2016-06-02 19:30:49', 'rzerzrz', 'rzerzer', 'zrzerzer', 1),
+('Nom sujet', 'Description sujet', 'Athlétisme', 6, '2016-06-02 22:59:13', 'Prénom sujet', 'Nom sujet', 'Message sujet', 5),
+('1', '1', 'Athlétisme', 7, '2016-06-02 23:10:49', '1', '1', '1', 1),
+('Nodf^sdo', 'pijnpijn', 'Natation', 8, '2016-06-02 23:23:33', 'lijnpij', 'npijn', 'pioun', 6),
+('qsd', 'doiy', 'Golf', 9, '2016-06-03 16:12:01', 'gouygsdouy', 'giuvfouy', '_ygouvfo', 0),
+('qsd', 'doiy', 'Golf', 10, '2016-06-03 16:12:01', 'gouygsdouy', 'giuvfouy', '_ygouvfo', 0),
+('qsd', 'doiy', 'Golf', 11, '2016-06-03 16:13:34', 'gouygsdouy', 'giuvfouy', '_ygouvfo', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
