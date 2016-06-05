@@ -2,10 +2,10 @@
 -- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 30 Mai 2016 à 14:25
--- Version du serveur :  5.7.9
--- Version de PHP :  5.6.16
+-- Host: 127.0.0.1
+-- Generation Time: Jun 05, 2016 at 11:55 PM
+-- Server version: 5.7.9
+-- PHP Version: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `agon`
+-- Database: `agon`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groupe`
+-- Table structure for table `groupe`
 --
 
 DROP TABLE IF EXISTS `groupe`;
@@ -37,20 +37,21 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   `image` text NOT NULL,
   `inscrits` int(11) NOT NULL,
   `membres_max` int(11) NOT NULL,
+  `id_leader` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `groupe`
+-- Dumping data for table `groupe`
 --
 
-INSERT INTO `groupe` (`id`, `nom`, `description`, `sport`, `statut`, `departement`, `image`, `inscrits`, `membres_max`) VALUES
-(1, 'Groupe de natation d''Évry', 'Groupe de natation qui organise régulièrement des compétitions de natation pour les jeunes de 14 à 18 ans. ', 'Natation', '', '91 - Essonne', '', 5, 40),
-(2, 'Groupe de foot de l''Essonne', 'Groupe de football qui organise régulièrement des matches pour les jeunes de 12 à 16 ans. ', 'Football', '', '91 - Essonne', '', 10, 50),
-(3, 'Natation Bobigny', '', 'Natation', '', '93 - Seine-Saint-Denis', '', 8, 50),
-(4, 'Courir à Saint-Denis', '', 'Footing', '', '93 - Seine-Saint-Denis', '', 38, 40),
-(5, 'a', 'a', 'Athlétisme', 'Public', '01 - Ain', 'a', 1, 100);
+INSERT INTO `groupe` (`id`, `nom`, `description`, `sport`, `statut`, `departement`, `image`, `inscrits`, `membres_max`, `id_leader`) VALUES
+(1, 'Groupe de natation d''Évry', 'Groupe de natation qui organise régulièrement des compétitions de natation pour les jeunes de 14 à 18 ans. ', 'Natation', '', '91 - Essonne', '', 5, 40, 137),
+(2, 'Groupe de foot de l''Essonne', 'Groupe de football qui organise régulièrement des matches pour les jeunes de 12 à 16 ans. ', 'Football', '', '91 - Essonne', '', 10, 50, 0),
+(3, 'Natation Bobigny', '', 'Natation', '', '93 - Seine-Saint-Denis', '', 8, 50, 0),
+(4, 'Courir à Saint-Denis', '', 'Footing', '', '93 - Seine-Saint-Denis', '', 38, 40, 0),
+(5, 'Cothenet', 'azerty', 'Athlétisme', 'Privé', '02 - Aisne', 'http://img11.hostingpics.net/pics/356018groupejabbericone6297961.png', 1, 200, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
