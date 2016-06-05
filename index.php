@@ -8,7 +8,7 @@
 </html>
 <body>
     <div id="content"></div>
-<a href="creation_topic.php">Cr�er nouveau sujet</a>
+<a href="creation_topic.php" class="bouton_forum">Créer nouveau sujet</a>
 <br/><br/>
 
 <?php
@@ -37,11 +37,11 @@ echo 'Il y a '.$nb . ' sujets en cours' ;
 
 if ($nb==0)
 {
-    echo 'Aucun sujet, cr�ez en un!';
+    echo 'Aucun sujet, créez en un!';
 }
 else {
     ?>
-    <table width="500" border="1"> <tr>
+    <table class="table_index" width="500" border="1"> <tr>
             <td>
                 Auteur
             </td><td>
