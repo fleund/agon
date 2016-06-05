@@ -50,15 +50,10 @@ if(isset($_POST['submit'])) {
     <div id='content'></div>
     <?php if(!isset($_POST['submit'])) { ?>
         <form action="repondre.php?id_topic=<?php echo $_GET['id_topic']; ?>" method="post">
-            <table>
-                        <tr><td>
-                                <label for='message'>Message : </label>
-                            </td><td>
-                                <input type='text' name='message'>
-                            </td></tr><tr><td>
-                                <input type='submit' name='submit' value='R�pondre'>
-                            </td></tr>
-            </table>
+                                <label  for='message' >Message : </label>
+                                <input type='text' class='message_forum' name='message'>
+                                <input class="bouton_forum" type='submit' name='submit' value='Répondre'>
+                           
             </form>
     <?php 
     }
