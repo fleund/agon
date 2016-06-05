@@ -12,8 +12,8 @@
         <?php
             include ('bdd.php');
             include('header.php');
-            $req = $bdd->prepare('SELECT * FROM groupe WHERE id = :id '); // Table de la liste des sports en en-tÃªte
-            $req->execute(array('id' => $_GET['id'] ));
+            $req = $bdd->prepare('SELECT * FROM groupe WHERE id = :id');
+            $req->execute(array('id' => $_GET['id']));
             $donnees = $req->fetch();
         ?>
         <div id="barre_bleue_gauche"></div>
@@ -32,6 +32,8 @@
                 <li>Département : <?php echo $donnees['departement']; ?></li></br>
             </ul>
         </div>
-        <div class="bouton"><input type="submit" value="Modifier les informations" class="agrandir_bouton"></div>
+        <?php // Si l'utilisateur est le leader du groupe, il peut modifier les informations
+            if ($donnees['id_leader']==$_SESSION['id']) {echo '<button type="button" class="agrandir_bouton"><a href="edition_groupe.php?id=' . $_GET['id'] . '">Modifier les informations</a></button>';}
+        ?>
     </body>
 </html>
