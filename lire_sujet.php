@@ -23,7 +23,7 @@ and open the template in the editor.
         }
         else {
             ?>
-                <table width='500' border='1'><tr>
+                <table class="table_index" width='500' border='1'><tr>
                         <td>
                             Auteur
                         </td><td>
@@ -65,12 +65,12 @@ and open the template in the editor.
             ?>
                 </table>
         <br/><br/>
-        <a href="repondre.php?id_topic=<?php echo $_GET['id_topic']; ?> ">R�pondre</a>";
+        <a class="bouton_forum" href="repondre.php?id_topic=<?php echo $_GET['id_topic']; ?> ">R�pondre</a>
         <?php
             }
         ?>
         <br/><br/>
-        <a href="index.php">Retour � l'index du forum </a>
+        <a class="bouton_forum" href="index.php">Retour � l'index du forum </a>
         
         
     </body>
