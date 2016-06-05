@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 05 Juin 2016 à 19:46
+-- Généré le :  Dim 05 Juin 2016 à 21:51
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.15
 
@@ -34,8 +34,9 @@ CREATE TABLE IF NOT EXISTS `forum_reponses` (
   `message` text NOT NULL,
   `date_reponse` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `correspondance_sujet` int(6) NOT NULL,
+  `id_repondant` int(11) NOT NULL,
   PRIMARY KEY (`id_reponse`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
