@@ -1,6 +1,7 @@
 <!DOCTYPE html>
     <?php
 include("bdd.php");
+
 ?>
 <html>
     
@@ -41,9 +42,9 @@ include("bdd.php");
         var_dump($req);
         
             ?>
-            <div id="content"></div>
+        <div id="content"></div>
         <a href='Accueil.php'>Retourner Accueil</a>
-                <br/><table>
+                <br/><table class="table_index">
                     <tr>
                         <td>
                             Question
@@ -104,7 +105,7 @@ include("bdd.php");
         }
         ?>
         
-        <h2>Ajouter une ligne</h2>
+        
         
         
         <?php
@@ -120,11 +121,11 @@ include("bdd.php");
         else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
             
         }
-       
+       if (isset($_SESSION['id'])) {
+                        if ($_SESSION['id']==1) {
         ?>       
                 
-        <?php if (isset($_SESSION['id'])) {
-                        if ($_SESSION['id']==1) { ?>        
+        <h2>Ajouter une ligne</h2>       
         <form method="post">
         <label for="question">Question posée : </label>
         <br/><input type="text" name="question">
@@ -133,7 +134,7 @@ include("bdd.php");
         <br/><br/><input type="submit" name="submit" value="Envoyer question-réponse">
         
         </form>
-        <?php }} ?>
+       <?php }} ?>
     </body>
 </html>
         
