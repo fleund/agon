@@ -36,6 +36,7 @@
             $req->execute(array('id' => $_GET['id']));
             $donnees = $req->fetch(); // On récupère toutes les infos du groupe
         ?>
+        <div id="content"></div>
         <div id="barre_bleue_gauche"></div>
         <div id="barre_bleue_droite"></div>
         <div id="barre_mauve_gauche"></div>
@@ -65,10 +66,13 @@
                         echo '</br><strong>Vous êtes actuellement leader de ce groupe.</strong>';
                         echo '<button type="button" class="agrandir_bouton"><a href="edition_groupe.php?id=' . $_GET['id'] . '">Modifier les informations</a></button>';
                         echo '<form method="post" action="Accueil.php"><input type="submit" class="agrandir_bouton" value="Détruire ce groupe" name="detruire"></form>';
-                    }
+                     include ('creation_compet.php');
+        }
                     else {
                         echo '</br><strong>Vous êtes actuellement membre de ce groupe.</strong>';
                         echo '<form method="post"><input type="submit" class="agrandir_bouton" value="Quitter ce groupe" name="quitter"></form>';
+
+                        
                     }
                 }
                 elseif ($donnees['statut']=='Public') { // Si l'utilisateur n'est pas membre du groupe, mais il s'agit d'un groupe public
