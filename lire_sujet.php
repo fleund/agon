@@ -66,12 +66,12 @@ and open the template in the editor.
             ?>
                 </table>
         <br/><br/>
-        <a class="bouton_forum" href="repondre.php?id_topic=<?php echo $_GET['id_topic']; ?> ">R�pondre</a>
+        <a class="bouton_forum" href="repondre.php?id_topic=<?php echo $_GET['id_topic']; ?> ">Répondre</a>
         <?php
             }
         ?>
         <br/><br/>
-        <a class="bouton_forum" href="index.php">Retour � l'index du forum </a>
+        <a class="bouton_forum" href="index.php">Retour à l'index du forum </a>
         
         
     </body>
