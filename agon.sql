@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 05 Juin 2016 à 21:51
+-- Généré le :  Lun 06 Juin 2016 à 14:09
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.15
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `agon`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `appartenance`
+--
+
+DROP TABLE IF EXISTS `appartenance`;
+CREATE TABLE IF NOT EXISTS `appartenance` (
+  `id_g` int(11) NOT NULL,
+  `id_i` int(11) NOT NULL,
+  `id_a` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_a`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `appartenance`
+--
+
+INSERT INTO `appartenance` (`id_g`, `id_i`, `id_a`) VALUES
+(6, 138, 1),
+(7, 138, 2),
+(8, 138, 3);
 
 -- --------------------------------------------------------
 
@@ -178,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `reponse` text NOT NULL,
   `id_faq` int(6) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_faq`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -196,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `forum_reponses` (
   `correspondance_sujet` int(6) NOT NULL,
   `id_repondant` int(11) NOT NULL,
   PRIMARY KEY (`id_reponse`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -215,20 +238,20 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   `image` text NOT NULL,
   `inscrits` int(11) NOT NULL,
   `membres_max` int(11) NOT NULL,
+  `id_leader` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `groupe`
 --
 
-INSERT INTO `groupe` (`id`, `nom`, `description`, `sport`, `statut`, `departement`, `image`, `inscrits`, `membres_max`) VALUES
-(1, 'Groupe de natation d''Évry', 'Groupe de natation qui organise régulièrement des compétitions de natation pour les jeunes de 14 à 18 ans. ', 'Natation', '', '91 - Essonne', '', 5, 40),
-(2, 'Groupe de foot de l''Essonne', 'Groupe de football qui organise régulièrement des matches pour les jeunes de 12 à 16 ans. ', 'Football', '', '91 - Essonne', '', 10, 50),
-(3, 'Natation Bobigny', '', 'Natation', '', '93 - Seine-Saint-Denis', '', 8, 50),
-(4, 'Courir à Saint-Denis', '', 'Footing', '', '93 - Seine-Saint-Denis', '', 38, 40),
-(5, 'Cothenet', 'azerty', 'Athlétisme', 'Privé', '02 - Aisne', 'http://img11.hostingpics.net/pics/356018groupejabbericone6297961.png', 1, 200);
+INSERT INTO `groupe` (`id`, `nom`, `description`, `sport`, `statut`, `departement`, `image`, `inscrits`, `membres_max`, `id_leader`) VALUES
+(1, 'Groupe de natation d''Évry', 'Groupe de natation qui organise régulièrement des compétitions de natation pour les jeunes de 14 à 18 ans. ', 'Natation', '', '91 - Essonne', '', 5, 40, 137),
+(2, 'Groupe de foot de l''Essonne', 'Groupe de football qui organise régulièrement des matches pour les jeunes de 12 à 16 ans. ', 'Football', '', '91 - Essonne', '', 10, 50, 0),
+(3, 'Natation Bobigny', '', 'Natation', '', '93 - Seine-Saint-Denis', '', 8, 50, 0),
+(4, 'Courir à Saint-Denis', '', 'Footing', '', '93 - Seine-Saint-Denis', '', 38, 40, 0);
 
 -- --------------------------------------------------------
 
@@ -279,20 +302,12 @@ CREATE TABLE IF NOT EXISTS `liste_compets` (
   `departement` varchar(255) NOT NULL,
   `groupe` varchar(255) NOT NULL,
   `places_total` int(11) NOT NULL,
-  `inscrits` int(11) NOT NULL,
+  `inscrits` int(11) DEFAULT '1',
+  `description` text NOT NULL,
+  `id_groupe` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `liste_compets`
---
-
-INSERT INTO `liste_compets` (`id`, `nom`, `sport`, `date`, `lieu`, `departement`, `groupe`, `places_total`, `inscrits`) VALUES
-(1, 'Coupe de foot', 'Football', '2016-05-18', 'Terrain de football de Wissous', '91 - Essonne', 'groupe', 50, 0),
-(2, 'Tournoi de Badminton', 'Badminton', '2016-06-01', 'Club de badminton de Metz', '57 - Moselle', 'groupe', 35, 0),
-(3, 'Compétition annuelle de pétanque de Marseille', 'Pétanque', '2016-05-20', 'Terrain de pétanque de la calanque de Morgiou', '13 - Bouches-du-Rhône', 'groupe', 20, 0),
-(4, 'Marathon de Paris', 'Marathon', '2017-04-09', 'Départ : avenue des Champs Élysées', '75 - Paris', 'groupe', 50000, 0);
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -339,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `liste_sports` (
 --
 
 INSERT INTO `liste_sports` (`nom`, `nb_membres`) VALUES
-('Football', 25),
+('Football', 26),
 ('Volleyball', 5),
 ('Rugby', 8),
 ('Footing', 10),
@@ -353,7 +368,7 @@ INSERT INTO `liste_sports` (`nom`, `nb_membres`) VALUES
 ('Handball', 12),
 ('Hockey', 1),
 ('Golf', 0),
-('Badminton', 12),
+('Badminton', 13),
 ('Water-polo', 3),
 ('Marathon', 9),
 ('Course à pied', 14),
@@ -380,7 +395,15 @@ CREATE TABLE IF NOT EXISTS `topic` (
   `nombre_reponses` int(11) NOT NULL DEFAULT '0',
   `id_auteur` int(11) NOT NULL,
   PRIMARY KEY (`id_topic`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin7;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin7;
+
+--
+-- Contenu de la table `topic`
+--
+
+INSERT INTO `topic` (`nom_topic`, `description_topic`, `sport`, `id_topic`, `date_last_post`, `prenom_auteur`, `nom_auteur`, `premier_message`, `nombre_reponses`, `id_auteur`) VALUES
+('dcxc', 'wxcxwc', 'Badminton', 31, '2016-06-05 23:57:24', 'Côme', 'Cothenet', 'xwcwx', 0, 138),
+('fsdf', 'sdf', 'Basketball', 32, '2016-06-06 12:10:12', '', 'Admin', 'sdf', 2, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
