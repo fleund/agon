@@ -1,6 +1,11 @@
 /* CSS Accueil */  
 
 
+input[type="submit"]
+{
+    cursor: pointer;
+}
+
 #conteneur
 {
     background-image: url(Jogger3.jpg);
@@ -667,7 +672,7 @@ legend
 .champ_compet input, .champ_compet textarea, .champ_compet .critere
 {
     width : 40%;
-    bakground-color : blue;
+    background-color : blue;
 }
 
 .champ_compet .champ_date
@@ -682,55 +687,52 @@ legend
 .bordure 
 {
     border : 2px solid #F13D7D;
-        padding: 12px;
-        margin: 320px 10px 165px 80px;
-        border-radius:10px;
+    padding: 12px;
+    margin: 320px 10px 165px 80px;
+    border-radius:10px;
     width:35%
 }
 .bordure1 
 {
     border : 2px solid #33A2FF;
     padding: 12px;
-        margin: -850px 800px 10px 600px;
-        border-radius:10px;
-        width:40%;
-        
+    margin: -850px 800px 10px 600px;
+    border-radius:10px;
+    width:40%;
 }
+
 .bordure2 
 {
     width:40%; 
-        height:250px; 
-        overflow:auto; 
-        padding: 12px;
-        margin: 10px 800px -40px 600px;
-        border-radius:10px;
-        border: 2px solid #33A2FF;
-        
-        
+    height:250px; 
+    overflow:auto; 
+    padding: 12px;
+    margin: 10px 800px -40px 600px;
+    border-radius:10px;
+    border: 2px solid #33A2FF;
 }
 
 .bordure3 
 {
     border : 2px solid #33A2FF;;
     width:40%;
-        height:235px;
-        padding: 12px;
-        margin: 80px 800px 50px 600px;
-        overflow: auto;
-        border-radius:10px;
-        
-        
-}        
+    height:235px;
+    padding: 12px;
+    margin: 80px 800px 50px 600px;
+    overflow: auto;
+    border-radius:10px;
+}
+
 .marge
 {
-   position : absolute;
-  
-   width:690px;
-   height:100px;
-   left : 35%;
-   margin-left : -340px;
-   margin-top:100px; 
+    position : absolute;
+    width:690px;
+    height:100px;
+    left : 35%;
+    margin-left : -340px;
+    margin-top:100px; 
 }
+
 .titremarge
 {
     margin-left: 500px;
@@ -747,7 +749,7 @@ legend
     height:50em;
     float:left;
     clear:none;
-        margin-top:5em;
+    margin-top:5em;
 }
 
 #barre_bleue_droite {
@@ -758,7 +760,7 @@ legend
     height:50em;
     float:right;
     clear:none;
-        margin-top:5em;
+    margin-top:5em;
 }
 
 #barre_mauve_gauche {
