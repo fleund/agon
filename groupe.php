@@ -64,15 +64,15 @@
                     if ($donnees['id_leader']==$_SESSION['id']) { // Si l'utilisateur est leader du groupe
                         echo '</br><strong>Vous êtes actuellement leader de ce groupe.</strong>';
                         echo '<button type="button" class="agrandir_bouton"><a href="edition_groupe.php?id=' . $_GET['id'] . '">Modifier les informations</a></button>';
-                        echo '<form method="post" action="groupe.php?id=' . $_GET['id'] . '"><input type="submit" class="agrandir_bouton" value="Détruire ce groupe" name="detruire"></form>';
+                        echo '<form method="post" action="Accueil.php"><input type="submit" class="agrandir_bouton" value="Détruire ce groupe" name="detruire"></form>';
                     }
                     else {
                         echo '</br><strong>Vous êtes actuellement membre de ce groupe.</strong>';
-                        echo '<form method="post" action="groupe.php?id=' . $_GET['id'] . '"><input type="submit" class="agrandir_bouton" value="Quitter ce groupe" name="quitter"></form>';
+                        echo '<form method="post"><input type="submit" class="agrandir_bouton" value="Quitter ce groupe" name="quitter"></form>';
                     }
                 }
                 elseif ($donnees['statut']=='Public') { // Si l'utilisateur n'est pas membre du groupe, mais il s'agit d'un groupe public
-                    echo '<form method="post" action="groupe.php?id=' . $_GET['id'] . '"><input type="submit" class="agrandir_bouton" value="S\'inscrire à ce groupe" name="inscrire"></form>';
+                    echo '<form method="post"><input type="submit" class="agrandir_bouton" value="S\'inscrire à ce groupe" name="inscrire"></form>';
                 }
             }
         ?>
