@@ -61,12 +61,13 @@
                     ));
                 $donnees2 = $reponse->fetch();
                 if (!empty($donnees2)) { // Si l'utilisateur est membre du groupe
-                    echo '</br><strong>Vous êtes actuellement membre de ce groupe.</strong>';
                     if ($donnees['id_leader']==$_SESSION['id']) { // Si l'utilisateur est leader du groupe
+                        echo '</br><strong>Vous êtes actuellement leader de ce groupe.</strong>';
                         echo '<button type="button" class="agrandir_bouton"><a href="edition_groupe.php?id=' . $_GET['id'] . '">Modifier les informations</a></button>';
                         echo '<form method="post" action="groupe.php?id=' . $_GET['id'] . '"><input type="submit" class="agrandir_bouton" value="Détruire ce groupe" name="detruire"></form>';
                     }
                     else {
+                        echo '</br><strong>Vous êtes actuellement membre de ce groupe.</strong>';
                         echo '<form method="post" action="groupe.php?id=' . $_GET['id'] . '"><input type="submit" class="agrandir_bouton" value="Quitter ce groupe" name="quitter"></form>';
                     }
                 }
