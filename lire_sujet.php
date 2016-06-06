@@ -17,6 +17,7 @@ and open the template in the editor.
     <body>
         <?php
         include('header.php');
+        include('bordures.php');
         echo '<div id="content"></div>';
         if(!isset($_GET['id_topic'])) {
             echo 'Sujet non d�fini.';
