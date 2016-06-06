@@ -15,7 +15,7 @@ and open the template in the editor.
     <body>
         
         <?php 
-                include('header');
+                
                 include ('bdd.php');
                 
                 $req = $bdd->prepare('SELECT * FROM liste_compets WHERE id = :id '); 
@@ -33,14 +33,21 @@ and open the template in the editor.
 		
                     <h2>Informations</h2>
                     <ul>
-                        <li>Date de l'evenement :  <?php echo $donnees['date']; ?></li> </br>
-                        <li>Sport :  <?php echo $donnees['sport']; ?></li> </br>
-                        <li>Departement :  <?php echo $donnees['departement']; ?></li></br>
-                        <li>Lieu de l'evenement :  <?php echo $donnees['lieu']; ?></li> </br>
-                        <li>Groupe organisateur :  <?php echo $donnees['groupe']; ?></li> </br
-                        <li>Nombre de place :  <?php echo $donnees['places_total']; ?></li> </br>
+                        <label>Date de l'evenement : </label> <br/>
+                        <input  name="nom"  class="l300" placeholder= "" value="<?php echo $donnees['date']; ?> "><br/><br/>
+                        <label>Sport : </label> <br/>
+                        <input  name="nom"  class="l300" placeholder= "" value="<?php echo $donnees['sport']; ?>"><br/><br/> 
+                        <label>Departement :</label> <br/>
+                        <input  name="nom"  class="l300" placeholder= "" value=" <?php echo $donnees['departement']; ?>"><br/><br/>
+                        <label>Lieu de l'evenement : </label> <br/>
+                        <textarea name="description" rows="3" maxlength="100" > <?php echo $donnees['lieu']; ?></textarea><br/><br/>
+                        <label>Groupe organisateur : </label> <br/>
+                        <input  name="nom"  class="l300" placeholder= "" value="<?php echo $donnees['groupe']; ?>"><br/><br/>
+                        <label>Nombre de place : </label> <br/>
+                        <input  name="nom"  class="l300" placeholder= "" value="<?php echo $donnees['places_total']; ?>"><br/><br/>
+                        <label>Nombre d'inscrit a l'evenement : </label> <br/>
+                        <input  name="nom"  class="l300" placeholder= "" value="<?php echo $donnees['inscrits']; ?>"><br/><br/>
                         
-                        <li>Nombre d'inscrit a l'evenement :  <?php echo $donnees['inscrits']; ?></li> </br>
                 </div>
             
             
@@ -49,4 +56,5 @@ and open the template in the editor.
             </div>
             </form>
         </body>
+</html>
 
