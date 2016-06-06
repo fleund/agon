@@ -615,11 +615,11 @@ legend
     border-width: 1px;   /* Epaisseur de la bordure  */
     border-color: rgb(51,162,255);   /* Couleur de la bordure  */
     padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
-    width: 90%;   /* Permet d'ajuster la largeur du bouton à 100% */
+    width: 90%;   /* Permet d'ajuster la largeur du bouton Ã  100% */
     box-sizing: border-box;   /* Important */
     font-size: 13px;   /* Taille de la police du texte */
     font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
-    letter-spacing: 2px;   /* Espacement des caractères */
+    letter-spacing: 2px;   /* Espacement des caractÃ¨res */
     margin: 10px 0 0 0;   /* Espace autour du bouton : haut droite bas gauche  */
     text-transform: uppercase;   /* Transforme le texte en majuscules */
     color: rgb(51,162,255);   /* Couleur du texte */
@@ -631,7 +631,7 @@ legend
     color:rgb(241,61,125);
 }
 
-/* CSS Créer un compte */
+/* CSS CrÃ©er un compte */
 
 .champ_inscription #nom, .champ_inscription #prenom, .champ_inscription #date_naissance, .champ_inscription #email, .champ_inscription #mdp, .champ_inscription #confirmation
 {
@@ -657,7 +657,7 @@ legend
 }
 
 
-/* CSS Créer une compétition */
+/* CSS CrÃ©er une compÃ©tition */
 
 .champ_compet
 {
@@ -787,3 +787,44 @@ legend
     float:right;
     clear:none;
 }
+/* index.php */
+ 
+ 
+ .table_index {
+     width:80%;
+     border-width:thick;
+     border-color: black;
+     border-style: double;
+     margin-left:10%;
+     margin-top:10px;
+     border-radius:5%;
+    }
+ 
+     .table_index td {
+         border : 1px solid black;
+        
+     }
+ table_index tr:first-child {
+         background-color:rgb(4,127,173);
+         font-size:24px;
+     }
+    
+ table_index tr td {
+     padding:10px;
+     }
+     
+ .bouton_forum {
+        border:1px solid red;
+        margin:10px;
+        top:10%;
+        padding:10px;
+        background-color:rgb(36,170,233);
+        }
+     
+ .bouton_forum:hover {
+        background-color:rgb(153,204,0);
+        }
+        
+ .message_forum {
+        width:50%;
+ }
