@@ -40,6 +40,7 @@
                 <li>Sexe : <?php echo $donnees['sexe']; ?></li></br>
                 <li>Adresse e-mail : <?php echo $donnees['email']; ?></li></br>    
             </ul>
+            <input type="submit" value="Modifier les informations" class="bouton" name='modif_profil' id='modif_profil' onclick="self.location.href='parametres_view.php'"></code>
         </div>
         <div class="bordure2"> 
             <h2>Groupes</h2>  
@@ -64,5 +65,7 @@
             </ul>
         </div>
         <div class="bordure3"><h2>Derniers messages postés</h2></div>
+
+        	
     </body>
 </html>

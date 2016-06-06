@@ -40,13 +40,6 @@ if (isset($_POST['modif_profil'])) {
 				$i++;
 		}
 
-		$mail_exist = mail_exist($mail);
-		if (!empty($mail_exist)) 
-		{
-				$email_erreur3 = "Votre adresse email est déjà utilisée par un membre";
-				$i++;
-		}
-
 
 		//Vérification du mdp
 		if ($mot_de_passe != $confirm_mot_de_passe || empty($confirm_mot_de_passe) || empty($mot_de_passe))

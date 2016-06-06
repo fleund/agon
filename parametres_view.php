@@ -59,8 +59,8 @@ $inscrit=initProfil($_SESSION['id']);
 					<!-- Séparation -->
 				   <label for="civilite">Civilité :</label><br />
 			       <select name="civilite" id="civilite" value="<?php echo $inscrit['sexe'];?>">
-			            <option value="1" <?php if ($inscrit['sexe'] == 1) echo "selected";?>>Femme</option>
-						<option value="0" <?php if ($inscrit['sexe'] == 0) echo "selected";?>>Homme</option>	
+			            <option value="Femme" <?php if ($inscrit['sexe'] == 1) echo "selected";?>>Femme</option>
+						<option value="Homme" <?php if ($inscrit['sexe'] == 0) echo "selected";?>>Homme</option>	
 			       </select>
 			       </br>
 			       <!-- Séparation -->
@@ -174,7 +174,7 @@ $inscrit=initProfil($_SESSION['id']);
     </div>
     <!-- Bouton envoyé -->
     
-    <input type="submit" value="Enregistrer les modifications" class="bouton" name='modif_profil' id='modif_profil'></code>
+    <input type="submit" value="Enregistrer les modifications" class="bouton" name='modif_profil' id='modif_profil' ></code>
     
     </form>
     <div id="Corps">
