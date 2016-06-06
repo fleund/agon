@@ -12,7 +12,7 @@
 
 #content
 {
-	margin-top : 150px;
+    margin-top : 140px;
 }
 
 table
@@ -22,22 +22,22 @@ table
 
 .liste_compets
 {
-	margin-left : auto;
-	margin-right : auto;
+    margin-left : auto;
+    margin-right : auto;
 }
 
 caption
 {
-	font-size : 2em;
-	font-weight : bold;
-	background-color : rgba(51,162,255,0.4);
-	color : rgba(241,61,125,0.9);
-	
+    font-size : 2em;
+    font-weight : bold;
+    background-color : rgba(51,162,255,0.4);
+    color : rgba(241,61,125,0.9);
+    
 }
 
 th
 {
-	background-color : gray;
+    background-color : gray;
 }
 
 td, th
@@ -98,7 +98,7 @@ body
     position: relative;
     float : right;
     margin-top: -7em;
-	margin-right : 3em;
+    margin-right : 3em;
     padding-top :1.5em;
     display : flex;
     justify-content : space-around;
@@ -142,12 +142,12 @@ body
 
 .bouton_accueil:hover
 {
-	color : rgb(241,61,125);
+    color : rgb(241,61,125);
 }
 
 a:hover
 {
-	color : rgb(51, 162, 255);
+    color : rgb(51, 162, 255);
 }
 
 .element:nth-child(3), .element:nth-child(5)
@@ -162,7 +162,7 @@ a:hover
     color : rgb(241,61,125);
     margin-top: auto;
     margin-bottom: auto;
-	width : 100%;
+    width : 100%;
 }
 
 a
@@ -207,12 +207,12 @@ a
 
 .sports_en_tete
 {
-	justify-content: space-around;
+    justify-content: space-around;
     display: flex;
-	margin-top : 2em;
-	text-transform : uppercase;
-	font-size : 1em;
-	background-color : rgba(0,0,0,0.6);
+    margin-top : 2em;
+    text-transform : uppercase;
+    font-size : 1em;
+    background-color : rgba(0,0,0,0.6);
 }
 
 .erreur {
@@ -225,17 +225,17 @@ a
 
 h1
 {
-	text-align : center;
-	text-transform : uppercase;
-	font-size : 2em;
-	color : rgb(241,61,125);
+    text-align : center;
+    text-transform : uppercase;
+    font-size : 2em;
+    color : rgb(241,61,125);
 }
 
 .tableau_res_recherche
 {
-	margin-left : auto;
-	margin-right : auto;
-	margin-top : 1em;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top : 1em;
 }
 
 #search-btn
@@ -253,96 +253,102 @@ h1
     text-transform: uppercase;
     color: rgb(51,162,255);
     margin-bottom: 2em;
-	margin-left : 5%;
-	margin-right : 5%;
+    margin-left : 5%;
+    margin-right : 5%;
 }
 
 .Rechercher
 {
-	width : 90%;
-	margin-left : auto;
-	margin-right : auto;
-	margin-top : -1em;
+    width : 90%;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top : -1em;
 }
 
 #checkbox div {
-	width:40%;
-	margin-left :32%;
-	text-align : center; 
-	display : flex;
-	margin-top : 1em;
+    width:40%;
+    margin-left :32%;
+    text-align : center; 
+    display : flex;
+    margin-top : 1em;
 }
 
 #checkbox label {
-	padding-bottom : -2em;
-	position : relative;
-	float : left;
-	margin-right : 10%;
+    padding-bottom : -2em;
+    position : relative;
+    float : left;
+    margin-right : 10%;
 }
 
 #search-btn:hover
 {
-	color: rgb(241,61,125);
+    color: rgb(241,61,125);
 }
 
 #activer
 {
-	margin-left : auto;
-	margin-right :auto;
-	text-transform : uppercase;
+    cursor: pointer;
+    margin-left : auto;
+    margin-right :auto;
+    text-transform : uppercase;
+}
+
+#activer:hover
+{
+    text-decoration: underline;
 }
 
 body
 {
-	background-color : rgba(51,162,255,0.4);
-	
+    background-color : rgba(51,162,255,0.4);
+    
 }
 
 #recherche_avancee
 {
-	margin-top : 2em;
-	width : 90%;
-	margin-left : auto;
-	margin-right : auto;
+    margin-top : 2em;
+    width : 90%;
+    margin-left : auto;
+    margin-right : auto;
 }
 
 #fieldset
 {
-	color : rgb(51,162,255);
-	text-transform : uppercase;
-	background-color : rgba(0,0,0,0.4);
+    color : rgb(51,162,255);
+    text-transform : uppercase;
+    background-color : rgba(0,0,0,0.4);
 }
 
 .selection
 {
-	display : flex;
-	width : 90%;
-	margin-left : auto;
-	margin-right : auto;
+    display : flex;
+    width : 90%;
+    margin-left : auto;
+    margin-right : auto;
 }
 
 .selection .champ .critere
 {
-	width : 95%;
-	margin-left : 1%;
-	margin-right:1%;
+    width : 95%;
+    margin-left : 1%;
+    margin-right:1%;
 }
 
 .critere
 {
-	width : 50%;
-	margin-bottom : 2px;
+    width : 50%;
+    margin-bottom : 2px;
 }
 
 /* CSS Groupe */  
 
 .bordure 
 {
-	border : 2px solid #F13D7D;
+    border : 2px solid #F13D7D;
         padding: 12px;
-        margin:	320px 10px 165px 80px;
+        margin: 320px 10px 165px 80px;
         border-radius:10px;
-	width:35%
+    width:35%
 }
         
 .marge
@@ -365,44 +371,44 @@ body
 
 #header
 {
-	position: fixed; 
-	width : 99%;
-	box-shadow:0 0 10px 4px grey;
-	padding-bottom : 0.1em;
-	background-color : white;
-	top: 0;
+    position: fixed; 
+    width : 99%;
+    box-shadow:0 0 10px 4px grey;
+    padding-bottom : 0.1em;
+    background-color : white;
+    top: 0;
     z-index: 10;
-	
+    
 }
 
 .champ_connexion input
 {
-	width : 40%;
-	margin-right : 2px;
-	float : left;
-	margin-bottom : 2px; 
+    width : 40%;
+    margin-right : 2px;
+    float : left;
+    margin-bottom : 2px; 
 }
 
 .champ_connexion .bouton_accueil:hover, #inscription:hover, #creation_groupe:hover, #edition_acceuil:hover, #deconnexion:hover
 {
-	color : rgb(241,61,125);
+    color : rgb(241,61,125);
 }
 
 .pseudo_header
 {
-	text-transform : uppercase;
-	color : rgb(241,61,125);
-	margin-left : -5px;
+    text-transform : uppercase;
+    color : rgb(241,61,125);
+    margin-left : -5px;
 }
 
 .champ_connexion .bouton_accueil
 {
-	width : 41.5%;
+    width : 41.5%;
 }
 
 .champ_connexion .bouton_accueil, #creation_groupe, #edition_acceuil, #deconnexion
 {
-	position : relative;
+    position : relative;
     border-style: solid;
     border-width: 1px;
     border-color: rgb(51,162,255);
@@ -417,22 +423,22 @@ body
 
 #inscription
 {
-	position : relative;
-	float : right;
-	border: 1px solid rgb(51,162,255); 
-	background-color: #CCCCCC; 
-	text-align: center; 
-	text-transform: uppercase; 
-	letter-spacing: 2px; 
-	cursor: text;
-	padding: 3px 5px 3px 5px;
-	font-size: 10px;
+    position : relative;
+    float : right;
+    border: 1px solid rgb(51,162,255); 
+    background-color: #CCCCCC; 
+    text-align: center; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    cursor: text;
+    padding: 3px 5px 3px 5px;
+    font-size: 10px;
     font-weight: normal;
 }
 
 #creation_groupe
 {
-	background-color : rgb(195,215,212);
+    background-color : rgb(195,215,212);
 }
 
 /* CSS  */  
@@ -487,7 +493,7 @@ body
 
 #essai
 {
-	display: flex;
+    display: flex;
         flex-wrap : wrap;
         justify-content : center;
 }
@@ -499,11 +505,11 @@ body
 
 .tb1
 {
-	background-color : white;
-	width : 35%;
-	margin-top : -0.75em;
-	text-align : center;
-	font-size : 1.1em;
+    background-color : white;
+    width : 35%;
+    margin-top : -0.75em;
+    text-align : center;
+    font-size : 1.1em;
         color : rgb(241,61,125);
 }
 
@@ -554,8 +560,8 @@ legend
 
 #content_creation_groupe
 {
-	margin-top : 140px;
-	padding-top : 1em;
+    margin-top : 140px;
+    padding-top : 1em;
 }
 
 #Creer_un_groupe
@@ -566,11 +572,11 @@ legend
 
 #bloc_image, #bloc_champ
 {
-	width : 40%;
-	text-align : left;
-	margin-bottom : auto;
-	margin-top : auto;
-	
+    width : 40%;
+    text-align : left;
+    margin-bottom : auto;
+    margin-top : auto;
+    
 }
 
 
@@ -578,13 +584,13 @@ legend
 {
     border: 1px solid black;
     width : 60%;
-	margin-top : 2em;
+    margin-top : 2em;
 }
 
 .legend_groupe
 {
     margin-top : -1.2em;
-	text-transform : uppercase;
+    text-transform : uppercase;
 }
 
 .champ
@@ -617,32 +623,32 @@ legend
 
 #search-btn_creation_groupe:hover
  {
-	color:rgb(241,61,125);
+    color:rgb(241,61,125);
 }
 
 /* CSS Créer un compte */
 
 .champ_inscription #nom, .champ_inscription #prenom, .champ_inscription #date_naissance, .champ_inscription #email, .champ_inscription #mdp, .champ_inscription #confirmation
 {
-	width : 20%;
+    width : 20%;
 }
 
 .champ_inscription  .champ .critere
 {
-	width : 35%;
+    width : 35%;
 }
 
 .titre_creer_compte
 {
     
-	text-transform : uppercase;
-	margin-bottom : -1.5em;
+    text-transform : uppercase;
+    margin-bottom : -1.5em;
 }
 
 .champ_inscription
 {
-	padding-top : 2em;
-	padding-left : 1em;
+    padding-top : 2em;
+    padding-left : 1em;
 }
 
 
@@ -650,23 +656,23 @@ legend
 
 .champ_compet
 {
-	border : 1px solid black;
-	margin-top : 2em;
-	padding-left : 1em;
-	padding-top : 2em;
-	padding-right : 2em;
-	width : 60%;
+    border : 1px solid black;
+    margin-top : 2em;
+    padding-left : 1em;
+    padding-top : 2em;
+    padding-right : 2em;
+    width : 60%;
 }
 
 .champ_compet input, .champ_compet textarea, .champ_compet .critere
 {
-	width : 40%;
-	bakground-color : blue;
+    width : 40%;
+    bakground-color : blue;
 }
 
 .champ_compet .champ_date
 {
-	width : 12%;
+    width : 12%;
 }
 
 
@@ -675,28 +681,28 @@ legend
 
 .bordure 
 {
-	border : 2px solid #F13D7D;
+    border : 2px solid #F13D7D;
         padding: 12px;
-        margin:	320px 10px 165px 80px;
+        margin: 320px 10px 165px 80px;
         border-radius:10px;
-	width:35%
+    width:35%
 }
 .bordure1 
 {
-	border : 2px solid #33A2FF;
-	padding: 12px;
-        margin:	-850px 800px 10px 600px;
+    border : 2px solid #33A2FF;
+    padding: 12px;
+        margin: -850px 800px 10px 600px;
         border-radius:10px;
         width:40%;
         
 }
 .bordure2 
 {
-	width:40%; 
+    width:40%; 
         height:250px; 
         overflow:auto; 
         padding: 12px;
-        margin:	10px 800px -40px 600px;
+        margin: 10px 800px -40px 600px;
         border-radius:10px;
         border: 2px solid #33A2FF;
         
@@ -705,11 +711,11 @@ legend
 
 .bordure3 
 {
-	border : 2px solid #33A2FF;;
-	width:40%;
+    border : 2px solid #33A2FF;;
+    width:40%;
         height:235px;
         padding: 12px;
-        margin:	80px 800px 50px 600px;
+        margin: 80px 800px 50px 600px;
         overflow: auto;
         border-radius:10px;
         
@@ -734,92 +740,48 @@ legend
 
 #barre_bleue_gauche 
 {
-	width:1%;
-	display:inline-block;
-	background-color:#33A2FF;
-	border-radius:10px;
-	height:50em;
-	float:left;
-	clear:none;
+    width:1%;
+    display:inline-block;
+    background-color:#33A2FF;
+    border-radius:10px;
+    height:50em;
+    float:left;
+    clear:none;
         margin-top:5em;
 }
 
 #barre_bleue_droite {
-	width:1%;
-	display:inline-block;
-	background-color:#33A2FF;
-	border-radius:10px;
-	height:50em;
-	float:right;
-	clear:none;
+    width:1%;
+    display:inline-block;
+    background-color:#33A2FF;
+    border-radius:10px;
+    height:50em;
+    float:right;
+    clear:none;
         margin-top:5em;
 }
 
 #barre_mauve_gauche {
-	width:1%;
-	display:inline-block;
-	background-color:#F13D7D;
-	border-radius:10px;
-	height:48em;
-	margin-top:6em;
-	margin-left:0.25em;
-	float:left;
-	clear:none;
+    width:1%;
+    display:inline-block;
+    background-color:#F13D7D;
+    border-radius:10px;
+    height:48em;
+    margin-top:6em;
+    margin-left:0.25em;
+    float:left;
+    clear:none;
 }
 
 #barre_mauve_droite{
-	width:1%;
-	display:inline-block;
-	background-color:#F13D7D;
-	border-radius:10px;
-	height:48em;
-	top:1em;
-	margin-top:6em;
-	margin-right:0.25em;
-	float:right;
-	clear:none;
+    width:1%;
+    display:inline-block;
+    background-color:#F13D7D;
+    border-radius:10px;
+    height:48em;
+    top:1em;
+    margin-top:6em;
+    margin-right:0.25em;
+    float:right;
+    clear:none;
 }
-
-
-/* index.php */
-
-
-.table_index {
-    width:80%;
-    border-width:thick;
-    border-color: black;
-    border-style: double;
-    margin-left:10%;
-    margin-top:10px;
-    border-radius:5%;
-    }
-
-    .table_index td {
-        border : 1px solid black;
-       
-    }
-table_index tr:first-child {
-        background-color:rgb(4,127,173);
-        font-size:24px;
-    }
-   
-table_index tr td {
-    padding:10px;
-    }
-    
-.bouton_forum {
-       border:1px solid red;
-       margin:10px;
-       top:10%;
-       padding:10px;
-       background-color:rgb(36,170,233);
-       }
-    
-.bouton_forum:hover {
-       background-color:rgb(153,204,0);
-       }
-       
-.message_forum {
-       width:50%;
-       height:200px;
-       }
