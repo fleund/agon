@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php include('bdd.php'); 
-   
+    
     if(isset($_SESSION['id']))
 {
     $req = $bdd->prepare("SELECT * FROM groupe WHERE id=:id");
@@ -11,11 +11,11 @@
     $departement_pre_rempli = $donnees['departement'];
     $membres_maximum= $donnees['membres_max'];
     
-    if(isset($_POST['nom_groupe']) AND ! empty ($_POST['nom_groupe']) AND $_POST['nom_groupe']!= $donnees['nom_groupe'] )
+    if(isset($_POST['nom']) AND ! empty ($_POST['nom']) AND $_POST['nom']!= $donnees['nom'] )
     {
-        $nom_groupe = $_POST['nom_groupe'];
-        $insertnom_g =$bdd->prepare("UPDATE groupe SET nom_groupe=:nom_groupe WHERE id=:id");
-        $insertnom_g->execute(array('nom_groupe'=>$nom_groupe,'id' => $_GET['id']));
+        $nom_groupe = $_POST['nom'];
+        $insertnom_g =$bdd->prepare("UPDATE groupe SET nom=:nom WHERE id=:id");
+        $insertnom_g->execute(array('nom'=>$nom,'id' => $_GET['id']));
         header('Location:groupe.php?id='.$_GET['id']);
     }
     if(isset($_POST['description']) AND ! empty ($_POST['description']) AND $_POST['description']!= $donnees['description'] )
@@ -69,7 +69,7 @@
     </head>
     <?php
     
-    include('header.php');
+    
 	$reponse = $bdd->prepare('SELECT * FROM groupe WHERE id = :id');
     $reponse->execute(array('id' => $_GET['id']));
     $donnees = $reponse->fetch();
@@ -77,23 +77,29 @@
         if ($_SESSION['id']==$donnees['id_leader']) { // On vérifie que l'utilisateur est bien le leader
     ?>
     <body>
+	
         <?php
+		include('header.php');
         $req = $bdd->prepare("SELECT * FROM groupe WHERE id=:id");
         $req->execute(array('id' => $_GET['id']));
         $donnees= $req -> fetch();
         ?>
-        <form method="POST" action="">
-            <label>Nom du groupe:</label>
-            
-            <input  name="nom"  class="l300" placeholder= "" value="<?php echo $donnees['nom_groupe']?>"><br/><br/>
-            <label>Descritif:</label>
-            <textarea name="description" rows="8" maxlength="1000" > <?php echo $donnees['description']; ?></textarea><br/><br/>
+		<div id = "content">
+		<div id="conteneur_groupe">
+		<legend class="legend_groupe">Modifier les informations de votre groupe</legend>
+        <form method="POST">
+		<div id="Creer_un_groupe">
+            <div id="bloc_champ">
+            <label>Nom du groupe:</br></label>
+            <input  name="nom"  class="champ" placeholder= "" value="<?php echo $donnees['nom']?>"><br/><br/>
+            <label>Descriptif:</br></label>
+            <textarea name="description" rows="8" maxlength="1000" class="champ"> <?php echo $donnees['description']; ?></textarea><br/><br/>
             <label>Sport:</label>
             <?php include('liste_sports.php') ?><br/><br/>
             <label>Departement:</label>
             <?php include('liste_departements.php') ?><br/><br/>
-            <label>Statut : </label>
-                <select name='statut'>
+            <label>Statut : </br></label>
+                <select name='statut' class="champ">
                     <option>Public</option>
                     <option
                     <?php if (isset($contenu['statut'])) {
@@ -101,14 +107,20 @@
                     } ?>
                     >Privé</option>
                 </select><br/><br/>
-            <label>Image du groupe : </label>
+				
+			<label>Nombre maximum de membres :</label>
+            <input type="number" min="5" max="200" name="membres_max" maxlength="3" placeholder="" class="champ" value="<?php echo $membres_maximum; ?>"><br/><br/>
+            </div>
+			<div id="bloc_image">
+			<label>Image du groupe : </label>
             <input name="image"<?php if (isset($contenu['image'])) {echo ' value="' . $contenu['image'] . '"';} ?>>
             </br><a href='http://www.hostingpics.net/' target="_blank">Lien vers un uploader de photos</a>
-            <label>Nombre maximum de membres :</label>
-            
-                <input type="number" min="5" max="200" name="membres_max" maxlength="3" placeholder="" value="<?php echo $membres_maximum; ?>"><br/><br/>
             <input id="search-btn" type="submit" value="Valider la modification" name="submit">
+			</div>
+		</div>
         </form>
+		</div>
+		</div>
     </body>
 <?php
         ;}

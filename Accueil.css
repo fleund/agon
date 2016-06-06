@@ -6,6 +6,11 @@ input[type="submit"]
     cursor: pointer;
 }
 
+li
+{
+	color : rgb(51,162,255);
+}
+
 #conteneur
 {
     background-image: url(Jogger3.jpg);
@@ -152,7 +157,7 @@ body
 
 a:hover
 {
-    color : rgb(51, 162, 255);
+    color : rgb(241,61,125);
 }
 
 .element:nth-child(3), .element:nth-child(5)
@@ -174,7 +179,7 @@ a
 {
     text-decoration: none;
     opacity : 0.7;
-    color : rgb(241,61,125);
+    color : rgb(51, 162, 255);
 }
 
 .message_important
@@ -196,6 +201,11 @@ a
     display: flex;
     font-size: 1.5em;
     font-weight: bold;
+}
+
+#onglets_accueil a
+{
+    color : rgb(241,61,125);
 }
 
 .champ_recherche
@@ -563,7 +573,7 @@ legend
 
 /* CSS Creation_groupe */
 
-#content_creation_groupe
+#content_creation_groupe,
 {
     margin-top : 140px;
     padding-top : 1em;
