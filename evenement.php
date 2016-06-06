@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<?php 
-
-if(isset($_SESSION['id'])){
-  header('Location:edition_evenement.php?id='.$_GET['id']);  
-}
-?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <title>Evenement</title>
@@ -20,8 +19,8 @@ if(isset($_SESSION['id'])){
                 include ('bdd.php');
                 
                 $req = $bdd->prepare('SELECT * FROM liste_compets WHERE id = :id '); 
-                $req->execute(array('id' => $_GET['id'] ));
-                $donnees = $req->fetch();
+                    $req->execute(array('id' => $_GET['id'] ));
+                    $donnees = $req->fetch();
                   
             
             ?>
