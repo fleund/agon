@@ -62,10 +62,10 @@
 			<h2>Groupes</h2>  
             <?php
                 $id = $donnees['id'];
-                $requ = $bdd->query('SELECT * FROM appartenance INNER JOIN groupe INNER JOIN inscrit WHERE id_g=groupe.id AND id_i = inscrit.id');
+                $requ = $bdd->query('SELECT inscrit.id,appartenance.id,id_g,id_i,groupe.nom,groupe.sport FROM appartenance INNER JOIN groupe INNER JOIN inscrit WHERE id_g=groupe.id AND id_i = inscrit.id');
                     while ($donnees2 = $requ->fetch()){
                         if ($id == $donnees2['id_i']){
-                            echo $donnees2['nom_groupe'];
+                            echo $donnees2['nom'];
                               
                         }
                     }
