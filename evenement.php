@@ -15,7 +15,7 @@ and open the template in the editor.
     <body>
         
         <?php 
-                session_start();
+                include('header');
                 include ('bdd.php');
                 
                 $req = $bdd->prepare('SELECT * FROM liste_compets WHERE id = :id '); 
