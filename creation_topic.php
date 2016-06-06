@@ -12,6 +12,7 @@
         <?php
             include('header.php');
             include('bdd.php');
+            include('bordures.php');
         ?>
         <div id="content"></div>
         <?php
