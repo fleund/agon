@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php include('bdd.php'); 
-    session_start();
+    
     if(isset($_SESSION['id']))
 {
     $req = $bdd->prepare("SELECT * FROM liste_compets WHERE id=:id");
