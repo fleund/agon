@@ -42,13 +42,13 @@ if ($nb==0)
 else {
     ?>
     <table class="table_index" width="500" border="1"> <tr>
-            <td>
+            <td class="tab_lire_sujet">
                 Auteur
-            </td><td>
+            </td><td class="tab_lire_sujet">
                 Nom du sujet
-            </td><td>
+            </td><td class="tab_lire_sujet">
                 Date du dernier post
-            </td><td>
+            </td><td class="tab_lire_sujet">
                 Description du sujet
             </td></tr>
         <?php

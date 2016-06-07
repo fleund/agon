@@ -16,8 +16,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include('header.php');
-        include('bordures.php');
+        include('header.php');	
         echo '<div id="content"></div>';
         if(!isset($_GET['id_topic'])) {
             echo 'Sujet non d�fini.';
@@ -25,9 +24,10 @@ and open the template in the editor.
         else {
             ?>
                 <table class="table_index" width='500' border='1'><tr>
-                        <td>
+                        <td class="tab_lire_sujet">
                             Auteur
-                        </td><td>
+                        </td>
+						<td class="tab_lire_sujet">
                             Messages
                         </td></tr>
                     <?php
@@ -70,7 +70,6 @@ and open the template in the editor.
         <?php
             }
         ?>
-        <br/><br/>
         <a class="bouton_forum" href="index.php">Retour à l'index du forum </a>
         
         

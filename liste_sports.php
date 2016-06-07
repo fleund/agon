@@ -1,6 +1,6 @@
 <div class="champ">
     <select name="sport" class="critere">
-        <option value="">Choisir un sport</option>
+       <option value=""><?php if (isset($donnees['sport'])){echo $donnees['sport'];}else{echo'Choisir un sport';} ?></option>
         <?php
             $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
             while ($donnees = $reponse->fetch()) {

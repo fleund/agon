@@ -1,6 +1,6 @@
 <div class="champ">
     <select name="departement" class="critere">
-    	<option value="">Choisir un département</option>
+    	<option value=""><?php if (isset($departement_pre_rempli)){echo $departement_pre_rempli;}else{echo'Choisir un departement';} ?></option>
     	<?php
     	    $reponse = $bdd->query('SELECT * FROM departement ORDER BY numero');
     	    while ($donnees = $reponse->fetch()) {

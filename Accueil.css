@@ -573,7 +573,7 @@ legend
 
 /* CSS Creation_groupe */
 
-#content_creation_groupe,
+#content_creation_groupe
 {
     margin-top : 140px;
     padding-top : 1em;
@@ -682,7 +682,6 @@ legend
 .champ_compet input, .champ_compet textarea, .champ_compet .critere
 {
     width : 40%;
-    background-color : blue;
 }
 
 .champ_compet .champ_date
@@ -797,7 +796,9 @@ legend
     float:right;
     clear:none;
 }
-/* index.php */
+
+
+/* CSS FORUM */
  
  
  .table_index {
@@ -808,12 +809,19 @@ legend
      margin-left:10%;
      margin-top:10px;
      border-radius:5%;
+	  
     }
  
-     .table_index td {
-         border : 1px solid black;
-        
-     }
+ .table_index td 
+ {
+    border : 1px solid black;
+ }
+ 
+ .tab_lire_sujet
+ {
+	background-color : gray;
+ }
+ 
  table_index tr:first-child {
          background-color:rgb(4,127,173);
          font-size:24px;
@@ -823,19 +831,36 @@ legend
      padding:10px;
      }
      
- .bouton_forum {
-        border:1px solid red;
-        margin:10px;
-        top:10%;
-        padding:10px;
-        background-color:rgb(36,170,233);
-        }
+ .bouton_forum 
+ {
+    border:1px solid red;
+    margin:10px;
+    padding:10px; 
+	background-color : rgb(241,61,125);
+	position : relative;
+	float : right ;
+}
+
+.bouton_forum2 
+ {
+    border:1px solid red;
+    margin:10px;
+    padding:10px; 
+	background-color : rgb(241,61,125);
+	position : relative;
+	float : left ;
+}
      
- .bouton_forum:hover {
+ .bouton_forum:hover, .bouton_forum2:hover
+ {
         background-color:rgb(153,204,0);
         }
         
  .message_forum {
-        width:50%;
-        height:200px;
+        width:40%;   
+ }
+ 
+ .inut 
+ {
+	 width : 60%;
  }

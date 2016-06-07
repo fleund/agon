@@ -1,5 +1,19 @@
-<?php
-if(isset($_POST['submit'])) {
+<!DOCTYPE html>
+
+<?php include('bdd.php') ?>
+
+<html>
+    <head>
+        <title>Création d'une compétition</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Accueil.css">
+    </head>
+
+    <body>
+    <?php include('header.php') ?>
+    <div id='content'>
+        <?php
+			if(isset($_POST['submit'])) {
                 $champ=array('nom', 'sport', 'lieu', 'departement', 'date', 'places_total', 'description');
                 include('champs_vides.php');
                 $grp=$bdd->prepare('SELECT * FROM groupe WHERE id=:id');
@@ -18,7 +32,7 @@ if(isset($_POST['submit'])) {
                     $req->execute($pre_array);
                     $reponse = $bdd->query('SELECT MAX(id) AS id FROM liste_compets');
                     $donnees = $reponse->fetch();
-                    //header('Location: événement.php?id=' . $donnees['id']);
+                    header('Location: evenement.php?id=' . $donnees['id']);
                 }
                 else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
             }
@@ -41,4 +55,6 @@ if(isset($_POST['submit'])) {
                 </br>&nbsp;&nbsp;&nbsp;<input type="number" name="places_total" maxlength="6" <?php if (isset($contenu['places'])) {echo ' value="' . $contenu['places'] . '" ';} ?>>
             <input class="agrandir_bouton" type="submit" value="Créer la compétition" name="submit"> 
             </form>
-      
+    </div>
+    </body>
+</html>

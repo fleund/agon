@@ -50,9 +50,11 @@ if(isset($_POST['submit'])) {
     <div id='content'></div>
     <?php if(!isset($_POST['submit'])) { ?>
         <form action="repondre.php?id_topic=<?php echo $_GET['id_topic']; ?>" method="post">
-                                <label  for='message' >Message : </label>
-                                <input type='text' class='message_forum' name='message'>
-                                <input class="bouton_forum" type='submit' name='submit' value='Répondre'>
+								<div class="inut">
+                                <label  for='message' >Message : </br></label>
+                                <textarea type='text' class='message_forum' name='message' rows=8></textarea><br>
+                                <input class="bouton_forum2" type='submit' name='submit' value='Répondre'>
+								</div>
                            
             </form>
     <?php 
@@ -62,7 +64,7 @@ if(isset($_POST['submit'])) {
         $retour= $bdd->query('SELECT id_topic, nom_topic FROM topic WHERE id_topic="'.$correspondance_sujet.'"');
         $message=$retour->fetch();
         echo '<a href="lire_sujet.php?id_topic='. $message['id_topic']. '">'.'Retour au message concerné : '. htmlentities(trim($message['nom_topic'])). '</a>';
-        echo '<br/><a href="index.php"> Retour à l\index du forum </a>';
+        echo '<br/><a href="index.php"> Retour à l\'index du forum </a>';
         
     }
     ?>

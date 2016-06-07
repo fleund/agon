@@ -66,12 +66,12 @@
                         echo '</br><strong>Vous êtes actuellement leader de ce groupe.</strong>';
                         echo '<button type="button" class="agrandir_bouton"><a href="edition_groupe.php?id=' . $_GET['id'] . '">Modifier les informations</a></button>';
                         echo '<form method="post" action="Accueil.php"><input type="submit" class="agrandir_bouton" value="Détruire ce groupe" name="detruire"></form>';
-                     include ('creation_compet.php');
+						echo '<button type="button" class="agrandir_bouton"><a href="creation_compet.php?id=' . $_GET['id'] . '">Créer une compétition</a></button>';
+                    
         }
                     else {
                         echo '</br><strong>Vous êtes actuellement membre de ce groupe.</strong>';
                         echo '<form method="post"><input type="submit" class="agrandir_bouton" value="Quitter ce groupe" name="quitter"></form>';
-
                         
                     }
                 }

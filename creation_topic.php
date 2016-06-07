@@ -10,11 +10,10 @@
     
     <body>
         <?php
+			include('bdd.php');
             include('header.php');
-            include('bdd.php');
-            include('bordures.php');
         ?>
-        <div id="content"></div>
+        <div id="content">
         <?php
             if(isset($_POST['submit'])) {
                 $champ=array('nom_topic', 'description_topic', 'sport', 'premier_message');
@@ -43,14 +42,17 @@
                 else {echo '<strong class="erreur">Veuillez renseigner tous les champs indiqués.</strong></br>';}
             }
         ?>
-        <div>
+        <div id="conteneur_groupe">
+		<legend class="legend_groupe">Création topic</legend>
             <form method="post">
-                <label for="nom_topic">Nom</label>
-                <input type="text" name="nom_topic">
-                <br/><label for="description_topic">Description</label>
-                <input type="text" name='description_topic'>
-                <br/><label for='sport'>Sport concerné</label>
-                <select name="sport" class="critere">
+			<div id="Creer_un_groupe">
+				<div id="bloc_champ">
+                <label for="nom_topic">Nom :</br></label>
+                <input type="text" class="champ" name="nom_topic">
+                <br/><label for="description_topic">Description :</br></label>
+                <input type="text" class="champ" name='description_topic'>
+                <br/><label for='sport'>Sport concerné :</br></label>
+                <select name="sport" class="champ">
                     <option value="">Choisir un sport</option>
                     <?php
                         $reponse = $bdd->query('SELECT * FROM liste_sports ORDER BY nom');
@@ -63,10 +65,15 @@
                         }
                     ?>
                 </select>
-                <br/><label for='premier_message'>Message</label>
-                <input type='text' name='premier_message'>
-                <br/><input type="submit" value="Créer le topic" name="submit">
+                <br/><label for='premier_message' >Message :</br></label>
+                <textarea type='text' name='premier_message' class="champ"></textarea></br></br>
+				</div>
+				<div id="bloc_image">
+                <br/><input type="submit" value="Créer le topic" name="submit" id="search-btn">
+				</div>
+			</div>
             </form>
         </div>
+		</div>
     </body>
 </html>

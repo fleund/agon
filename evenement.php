@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <title>Evenement</title>
         
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Accueil.css"/>
     </head>
@@ -17,6 +17,8 @@ and open the template in the editor.
         <?php 
                 
                 include ('bdd.php');
+				include ('header.php');
+				include ('bordures.php');
                 
                 $req = $bdd->prepare('SELECT * FROM liste_compets WHERE id = :id '); 
                     $req->execute(array('id' => $_GET['id'] ));
@@ -52,7 +54,7 @@ and open the template in the editor.
             
             
             <div class="bouton">
-                <input type="submit" value="Modifier les informations" class ="agrandir_bouton">
+                <button type="button" class="agrandir_bouton"><a href="edition_evenement.php?id=<?php echo$_GET['id'];?>">Modifier les informations</a></button>';
             </div>
             </form>
         </body>
