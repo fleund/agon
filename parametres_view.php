@@ -37,7 +37,7 @@ $inscrit=initProfil($_SESSION['id']);
     	if (isset($email_erreur3)) echo $email_erreur3 . '<br />';
     	if (isset($mdp_erreur)) echo $mdp_erreur . '<br />'; ?>
 
-    	<form method="post" action="parametres_view.php">
+    	<form method="post" action="parametres_view.php" >
     	<fieldset>
        		<legend>Profil</legend> <!-- Titre du fieldset --> 			
     		<p class="laisser_champ_vide">Laisser un champ vide pour que l'information <br/>
