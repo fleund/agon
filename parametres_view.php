@@ -23,13 +23,15 @@ $inscrit=initProfil($_SESSION['id']);
 	<div id="page">
     <h1> Paramètres du compte</h1>		<!-- Titre de la page -->
     <div class = "premier_bloc"> 		<!-- Bloc gauche -->
+
+    <!--
     	<p class="photo_de_profil">
     		<img src="image.gif" alt="photoprofil" /> 
     		</p>
     		<div id="file"><input type="file" name="photoprofil" id="photoprofil"/></div>
     		<h2 style="line-height:65px;">Avatar</h2>
     		<p class="cliquer" >Cliquer sur l'image <br/> &nbsp; &nbsp; pour modifier </p>
-    	
+    	-->
 
     	<?php
     	if (isset($email_erreur1)) echo $email_erreur1 . '<br />';
@@ -111,15 +113,8 @@ $inscrit=initProfil($_SESSION['id']);
     <div class = "deuxieme_bloc"> 		<!-- Bloc droit -->
     <fieldset>
        <legend>Informations du compte</legend> <!-- Titre du fieldset --> 
-		<!-- Séparation -->
-		<label for="Pseudo">Pseudo : <br/></label>
-		<input type="text" name="Pseudo" id="Pseudo" placeholder="Ex : Dubois78" size="50" maxlength="20" />
-		<br />
+		
 		<p>Modifier le mot de passe</p>
-		<!-- Séparation -->
-		<label for="Ancien">Ancien mot de passe :</label>
-		<input type="password" name="Ancien" id="Ancien" />
-		<br>
 		<!-- Séparation -->
 		<label for="mot_de_passe">Nouveau mot de passe :</label>
 		<input type="password" name="mot_de_passe" id="mot_de_passe" />
@@ -174,7 +169,7 @@ $inscrit=initProfil($_SESSION['id']);
     </div>
     <!-- Bouton envoyé -->
     
-    <input type="submit" value="Enregistrer les modifications" class="bouton" name='modif_profil' id='modif_profil' ></code>
+    <input type="submit" value="Enregistrer les modifications" class="bouton_enregistrer" name='modif_profil' id='modif_profil' ></code>
     
     </form>
     <div id="Corps">
