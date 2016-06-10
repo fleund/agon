@@ -2,7 +2,7 @@
 
 <?php
   include('bdd.php');
-  if (!empty($_SESSION)) {header('Location: Accueil.php');}
+  if (isset($_SESSION['id'])) {header('Location: Accueil.php');}
 ?>
 
 <html>
@@ -22,27 +22,27 @@
             if (isset($_POST['submit'])) {
               include('champs_vides.php');
               if (!isset($vide)) {
-                if ($contenu['mdp']==$contenu['confirmation']) { // On vérifie que le mdp et sa confirmation sont identiques
-                  $req = $bdd->prepare('INSERT INTO inscrit(nom, prenom, date_naissance, sexe, departement, email, mdp, sport, date_inscription, num_tel) VALUES(:nom, :prenom, :date_naissance, :sexe, :departement, :email, :mdp, :sport, :date_inscription, 0)'); // On inscrit le membre
-                  $req->execute(array(
-                    'nom' => $contenu['nom'],
-                    'prenom' => $contenu['prenom'],
-                    'date_naissance' => '1900-01-01', // Date par défaut
-                    'sexe' => '',
-                    'departement' => '',
-                    'email' => $contenu['email'],
-                    'mdp' => md5($contenu['mdp']),
-                    'sport' => $contenu['sport'],
+                if ($contenu['mdp']==$contenu['confirmation']) {
+                $req = $bdd->prepare('INSERT INTO inscrit(nom, prenom, date_naissance, sexe, departement, email, mdp, sport, date_inscription, num_tel) VALUES(:nom, :prenom, :date_naissance, :sexe, :departement, :email, :mdp, :sport, :date_inscription, 0)'); // On inscrit le membre
+                $req->execute(array(
+                  'nom' => $contenu['nom'],
+                  'prenom' => $contenu['prenom'],
+                  'date_naissance' => '1900-01-01', // Date par défaut
+                  'sexe' => '',
+                  'departement' => '',
+                  'email' => $contenu['email'],
+                  'mdp' => md5($contenu['mdp']),
+                  'sport' => $contenu['sport'],
                   'date_inscription' => date('Y-m-d')
-                  ));
-                  $_SESSION['prenom']=$contenu['prenom'];
-                  $_SESSION['nom']=$contenu['nom'];
-                  $req = $bdd->prepare('UPDATE liste_sports SET nb_membres=nb_membres+1 WHERE nom=:nom'); // On incrémente le nombre de gens qui pratiquent ce sport
-                  $req->execute(array('nom' => $_POST['sport']));
-                  $reponse = $bdd->query('SELECT MAX(id) AS id FROM inscrit');
-                  $donnees = $reponse->fetch();
-                  $_SESSION['id']=$donnees['id'];
-                  header('Location: Profil.php?id=' . $_SESSION['id']);
+                ));
+                $_SESSION['nom']=$contenu['nom'];
+                $_SESSION['prenom']=$contenu['prenom'];
+                $req = $bdd->prepare('UPDATE liste_sports SET nb_membres=nb_membres+1 WHERE nom=:nom'); // On incrémente le nombre de gens qui pratiquent ce sport
+                $req->execute(array('nom' => $_POST['sport']));
+                $reponse = $bdd->query('SELECT MAX(id) AS id FROM inscrit');
+                $donnees = $reponse->fetch();
+                $_SESSION['id']=$donnees['id'];
+                header('Location: Profil.php?id=' . $_SESSION['id']);;
                 }
                 else {echo '<strong class="erreur">Les deux mots de passe doivent être identiques.</strong></br>';}
               }
@@ -50,7 +50,7 @@
             }
             echo '<legend class="titre_creer_compte">Créer un compte</legend>
             <div id="conteneur_groupe">
-            <form method="post" action="formulaire_inscription.php"><div class="champ_inscription">'; // Affichage du formulaire d'inscription
+            <form method="post"><div class="champ_inscription">'; // Affichage du formulaire d'inscription
             for($i=0; $i<=4; $i++) {
               echo '<label for = "' . $champ[$i] . '">' . $label[$i] . ' : </label></br>
               &nbsp;&nbsp;&nbsp;<input type="' . $type[$i] . '" name="' . $champ[$i] . '" id="' . $champ[$i] . '"';
