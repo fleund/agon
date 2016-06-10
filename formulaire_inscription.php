@@ -18,7 +18,7 @@
             include('header.php');
             $champ=array('nom', 'prenom', 'email', 'mdp', 'confirmation', 'sport');
             $label=array('Nom', 'Prénom', 'Adresse e-mail', 'Mot de passe', 'Confirmer le mot de passe');
-            $type=array('text', 'text', 'email', 'password', 'password');
+            $type=array('text', 'text', 'text', 'password', 'password');
             if (isset($_POST['submit'])) {
               include('champs_vides.php');
               if (!isset($vide)) {
