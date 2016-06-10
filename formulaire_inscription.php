@@ -23,7 +23,7 @@
               include('champs_vides.php');
               if (!isset($vide)) {
                 if ($contenu['mdp']==$contenu['confirmation']) {
-                  if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                  if(filter_var($contenu['email'], FILTER_VALIDATE_EMAIL)){
                     $req = $bdd->prepare('INSERT INTO inscrit(nom, prenom, date_naissance, sexe, departement, email, mdp, sport, date_inscription, num_tel) VALUES(:nom, :prenom, :date_naissance, :sexe, :departement, :email, :mdp, :sport, :date_inscription, 0)'); // On inscrit le membre
                     $req->execute(array(
                     'nom' => $contenu['nom'],
